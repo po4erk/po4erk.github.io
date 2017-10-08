@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<title>DamionMax</title>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+			$(document).on("click", function(e) {
+  				if (e.target.id != 'test' && e.target.id != 'about-us-full') {
+    				$("#about-us-full").hide();
+  				} else if (e.target.id != 'about-us-full') {
+    				$("#about-us-full").fadeToggle();
+  				}
+			}); 
+			$(document).on("click", function(e) {
+  				if (e.target.id != 'test1' && e.target.id != 'galery') {
+    				$("#galery").hide();
+  				} else if (e.target.id != 'galery') {
+    				$("#galery").fadeToggle();
+  				}
+			});
+			$(document).on("click", function(e) {
+  				if (e.target.id != 'test2' && e.target.id != 'events') {
+    				$("#events").hide();
+  				} else if (e.target.id != 'events') {
+    				$("#events").fadeToggle();
+  				}
+			});
+			$(document).on("click", function(e) {
+  				if (e.target.id != 'test3' && e.target.id != 'blog') {
+    				$("#blog").hide();
+  				} else if (e.target.id != 'blog') {
+    				$("#blog").fadeToggle();
+  				}
+			});
+			$(document).on("click", function(e) {
+  				if (e.target.id != 'test4' && e.target.id != 'contacts') {
+    				$("#contacts").hide();
+  				} else if (e.target.id != 'contacts') {
+    				$("#contacts").fadeToggle();
+  				}
+			});
+			function openbox(id){
+    			display = document.getElementById(id).style.display;
+				if(display=='block'){
+       			document.getElementById(id).style.display='none';
+    		}else{
+       			document.getElementById(id).style.display='block';
+    			}
+			}
+	
+	</script>
+	<style>
+		*{
+		margin: 0;
+		padding: 0;
+		font-size: 100%;
+							/* Оформление фона страницы */
+		}
+		html{
+		background: black;
+		}
+		body{
+		background: url(img/background-main.png) no-repeat;
+		background-position: top;
+		
+		}
+							/* Оформление блока состовляющих сайта */
+		header{
+		width: 1170px;
+		margin: 0 auto;
+		}
+							/* Оформление логотипа сайта */
+		.logo{
+		margin-top: 80px;
+		}
+		img[src="Img/logo-2.png"]{
+		padding-left: 10px;
+		}
+							/* Оформление эллементов соц-систем */
+		.social{
+		float: right;
+		margin-top: 80px;
+		}
+							/* Оформление хедера- навигации и поисковика */
+		nav{
+		height: 70px;
+		width: 1170px;
+		background: #ea3023;
+		font-size: 0;
+		margin-top: 80px;
+		margin-bottom: 2px;
+		}
+		form{
+		margin-top: 15px;
+		margin-right: 20px;
+		display: inline-block;
+		font-size: 0;
+		float: right;
+		
+		}
+		input[type="text"]{
+		padding-left: 8px;
+		width: 290px;
+		height: 40px;
+		background: black;
+		color: white;
+		border: 0;
+		border-radius: 10px 0 0 10px;
+		font-size: 16px;
+		}
+		input[type="submit"]{
+		width: 32px;
+		height: 40px;
+		background: url(img/search.png) no-repeat black center;
+		border-radius: 0 10px 10px 0;
+		border: 0;
+		font-size: 16px;
+		}
+		input:focus{
+		outline: none;
+		}
+		.navigations{
+		display: inline-block;
+		height: 70px;
+		width: 160px;
+		}
+		.about-us{
+		background: url(img/about-us.png);
+		}
+		.about-us:hover{
+		background: url(img/about-us-focus.png);
+		}
+		.galery{
+		background: url(img/galery.png);
+		}
+		.galery:hover{
+		background: url(img/galery-focus.png);
+		}
+		.events{
+		background: url(img/events.png);
+		}
+		.events:hover{
+		background: url(img/events-focus.png);
+		}
+		.blog{
+		background: url(img/blog.png);
+		}
+		.blog:hover{
+		background: url(img/blog-focus.png);
+		}
+		.contacts{
+		background: url(img/contacts.png);
+		}
+		.contacts:hover{
+		background: url(img/contacts-focus.png);
+		}
+		#about-us-full, #galery, #events, #blog, #contacts{
+		display: none;
+		position: absolute;
+		width: 1150px;
+		min-height: 695px;
+		background: white;
+		z-index: 1;
+		box-shadow: inset 0 0 15px rgba(0,0,0,0.7);
+		font-size: 16px;
+		padding: 10px;
+		}
+							/* Оформление слайдера */
+		#slides{
+		position: relative;
+		width: 1170px;
+		height: 440px;
+		margin: auto;
+		list-style-type: none;
+		}
+		.slide{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		transition: opacity 2s;
+		}
+		.slide{
+		font-size: 3em;
+		padding-top: 350px;
+		padding-left: 40px;
+		box-sizing: border-box;
+		background: #333;
+		color: #fff;
+		font-family: Candara, sans-serif;
+		}
+		.showing{
+		opacity: 1;
+		}
+		.slide:nth-of-type(1) {
+		background: url(img/slide1.png);
+		}
+		.slide:nth-of-type(2) {
+		background: url(img/slide3.png);
+		}
+		.slide:nth-of-type(3) {
+		background: url(img/slide4.png);
+		}
+		.slide{
+		box-shadow: 2px 2px rgba(0,0,0,0.3);
+		}
+							/* Оформление меню проэктов(не закончено) */
+		.project{
+		position: relative;
+		height: 70px;
+		width: 1170px;
+		margin: auto;
+		margin-top: 10px;
+		background: url(img/project-back.png) repeat-x;
+		box-shadow: 2px 2px rgba(0,0,0,0.3);
+
+		}
+		.project-p{
+		font-size: 2em;
+		padding-top: 15px;
+		padding-left: 20px;
+		font-family: Candara, sans-serif;
+		color: #fff;
+		}
+		.project-list{
+		position: relative;
+		height: 192px;
+		margin: auto;
+		width: 1170px;
+		background: #545454;
+
+		box-shadow: 2px 2px rgba(0,0,0,0.3);
+		}
+		div.project-list > img{
+		margin-top: 25px;
+		margin-left: 26px;
+		border: 6px solid #fff;
+		}
+							/* Оформление меню новостей (low-блок) */
+		.news{
+		margin: 20px auto 0;
+		width: 1172px;
+		height: 430px;
+		border: 0;
+		padding: 0;
+		}
+		.first-word-news{
+		color: black;
+		}
+		.column{
+		display: inline-block;
+		width: 270px;
+		height: 430px;
+		background: #fff;
+		border: 0;
+		padding: 0;
+		}
+		.column-margin{
+		margin-left: 26px;
+		}
+		.images{
+		margin-top: 90px;
+		}
+		.images1{
+		right: 946px;
+		}
+		.images2{
+		right: 646px;
+		}
+		.images3{
+		right: 346px;
+		}
+		.images4{
+		right: 46px;
+		}
+		.header-news{
+		position: absolute;
+		font-size: 1.7em;
+		line-height: 0.9;
+		font-family: Candara, sans-serif;
+		margin-top: 25px;
+		padding-left: 30px;
+		color: red;
+		}
+		.all-text{
+		display: inline-block;
+		padding: 30px 20px 0 20px;
+		height: 90px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		}
+		.more{
+		display: block;
+		width: 89px;
+		height: 37px;
+		background: url(img/more.png);
+		margin-top: 10px;
+		}
+		.more:hover{
+		background: url(img/more-focus.png)
+		}
+							/* Оформление меню новостей(full блок) */
+		#box1,#box2,#box3,#box4{
+		background: white;
+		display: none;
+		position: absolute;
+		margin-top: -430px;
+		width: 1170px;
+		height: 430px;
+		z-index: 1;
+		box-shadow: inset 0 0 15px rgba(0,0,0,0.7);
+		}
+		.hide{
+		position: absolute;
+		display: inline-block;
+		width: 89px;
+		height: 37px;
+		background: url(img/hide.png);
+		top: 366px;
+		} 
+		.hide:hover{
+		background: url(img/hide-focus.png);
+		}
+		.header-news-full{
+		font-size: 1.7em;
+		line-height: 0.9;
+		font-family: Candara, sans-serif;
+		margin-top: 25px;
+		padding-left: 30px;
+		color: red;
+		}
+		.first-word-news-full{
+		color: black;
+		}
+		.image-full{
+		display:block;
+		float: left;
+		margin-top: 17px;
+		}
+		.p-full{
+		float: right;
+		}
+		.text-column-full{
+		height: 280px;
+		overflow: auto;
+		padding-left: 10px;
+		}
+							/* Оформление меню главного контента(low блок) */
+							/* Оформление меню главного контента(1-ый блок) */							
+		.main-content-box{
+		margin: 20px auto 0;
+		display: block;
+		height: 530px;
+		width: 1170px;
+		}
+		.main-content-first{
+		float: left;
+		width: 541px;
+		height: 100%;
+		}
+		.main-header-news{
+		margin-bottom: 40px;
+		color: white;
+		font-size: 1.5em;
+		font-family: Candara, sans-serif;
+		}
+		.main-second-word-news{
+		font-size: 2.1em;
+		line-height: 0.9;
+		color: #ffdc62;
+		}
+		.main-images{
+		padding-right: 10px;
+		padding-bottom: 30px;
+		float: left;
+		}
+		.main-text{
+		float: right;
+		color: grey;
+		}
+		.main-header-text{
+		display: block;
+		float: right;
+		width: 255px;
+		margin-bottom: 10px;
+		font-size: 1.5em;
+		font-family: Candara, sans-serif;
+		color: white;
+		}
+		.main-more{
+		display: block;
+		width: 89px;
+		height: 37px;
+		background: url(img/more.png);
+		margin-top: 350px;
+		}
+		.main-more:hover{
+		background: url(img/more-focus.png)
+		}
+							/* Оформление меню главного контента(2-ой блок) */
+		.main-content-second{
+		float: right;
+		width: 570px;
+		height: 100%;
+		margin-left: 20px;
+		}
+		.main-text-container{
+		height: 200px;
+		width: 270px;
+		}
+		.main-text-second-1{
+		float: left;
+		}
+			.main-header-word-1{
+			color: white;
+			font-family: Candara, sans-serif;
+			font-size: 1.5em;
+			}
+			.main-header-word-2{
+			color: #ffdc62;
+			font-weight: 700;
+			padding-bottom: 20px;
+			}
+			.main-text-second-news{
+			color: grey;
+			padding-bottom: 13px;
+			}
+			.main-more-1{
+			display: block;
+			width: 89px;
+			height: 37px;
+			background: url(img/more.png);
+			}
+			.main-more-1:hover{
+			background: url(img/more-focus.png);
+			}
+		.main-text-second-2{
+		float: right;
+		}
+		.main-text-second-3{
+		float: left;
+		margin-top: 60px;
+		}
+		.main-text-second-4{
+		float: right;
+		margin-top: 60px;
+		}
+							/* Оформление меню главного контента(1-4ый блоки(full) */		
+		#main-content,#mc-1,#mc-2,#mc-3,#mc-4{
+		background: white;
+		display: none;
+		position: absolute;
+		width: 1170px;
+		height: 470px;
+		z-index: 1;
+		box-shadow: inset 0 0 15px rgba(0,0,0,0.7);
+		}
+		#mc-1,#mc-2,#mc-3,#mc-4{
+		width: 570px;
+		}
+		.main-content-full{
+		width: 880px;
+		height: 380px;
+		overflow: auto;
+		padding-left: 10px;
+		}
+		.main-content-full-low{
+		width: 550px;
+		height: 280px;
+		overflow: auto;
+		padding-left: 10px;
+		}
+		.main-image-full{
+		display: block;
+		float: right;
+		margin-top: 17px;
+		}
+		.main-p-full{
+		float: left;
+		}
+		.main-title-full{
+		font-size: 2.5em;
+		text-align: center;
+		color: red;
+		margin: 10px;
+		}
+							/* Оформление футера*/			
+		footer{
+		margin: auto;
+		background: linear-gradient(to top, #2c2c2c, #000);
+		height: 200px;
+		}
+		.footer-logo{
+		padding-top: 100px;
+		width: 480px;
+		margin: auto;
+		}
+		.footer-text{
+		margin-right: 50px;
+		float: right;
+		color: white;
+		white-space: nowrap;
+		margin-top: 5px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<img class="logo" src="img/logo.png" alt=""/>
+		<img src="img/logo-2.png" alt=""/>
+			<div class="social">
+			<a href="http://facebook.com" target="_blank"><img src="img/facebook.png" alt=""/></a>
+			<a href="http://twitter.com" target="_blank"><img src="img/twitter.png" alt=""/></a>
+			<a href="http://vk.com" target="_blank"><img src="img/rng.png" alt=""/></a>
+			<a href="http://google.com" target="_blank"><img src="img/google.png" alt=""/></a>
+			</div>
+		<nav>
+		<a href="#" id="test" class="about-us navigations"></a>
+			<div id="about-us-full">
+				<h1>ABOUT US</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+			</div>
+		<a href="#" id="test1" class="galery navigations"></a>
+			<div id="galery">
+				<p>123</p>
+			</div>
+		<a href="#" id="test2" class="events navigations"></a>
+			<div id="events">
+				<p>456</p>
+			</div>
+		<a href="#" id="test3" class="blog navigations"></a>
+			<div id="blog">
+				<p>789</p>
+			</div>
+		<a href="#" id="test4" class="contacts navigations"></a>
+			<div id="contacts">
+				<p>098</p>
+			</div>
+		<img src="img/search-back.png" alt="" />
+		<form action="http://ya.ru/yandsearch">
+			<input type="text" name="text" />
+			<input type="submit" value="&nbsp;" />
+		</form>
+		</nav>
+	</header>
+	<div class="content">
+		<div class="slider">
+			<ul id="slides">
+				<li class="slide showing">INDUSTRIAL SOLUTIONS</li>
+				<li class="slide">PROVIDING INNOVATIVE</li>
+				<li class="slide">FABRICAL DEVELOPMENT</li>
+			</ul>
+			<script type="text/javascript">
+			var slides = document.querySelectorAll('#slides .slide');
+			var currentSlide = 0;
+			var slideInterval = setInterval(nextSlide,6000);
+			function nextSlide() {
+			slides[currentSlide].className = 'slide';
+			currentSlide = (currentSlide+1)%slides.length;
+			slides[currentSlide].className = 'slide showing';
+			}
+			</script>
+		</div>
+	</div>
+		<div class="project">
+			<p class="project-p">FEATURE PROJECTS</p>
+		</div>
+		<div class="project-list">
+			<img src="img/pr1.png" alt=""/>
+			<img src="img/pr2.png" alt=""/>
+			<img src="img/pr3.png" alt=""/>
+			<img src="img/pr4.png" alt=""/>
+			<img src="img/pr5.png" alt=""/>
+		</div>
+		<div class="news">
+			<div class="column">
+				<span class="header-news"><span class="first-word-news">NEW</span><br/>TECHNOLOGIES</span>
+				<img src="img/news1.png" alt="" class="images images1"/>
+				<span class="text1 all-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+				<a href="#" onclick="openbox('box1'); return false" class="more"></a>
+			</div>
+			<div id="box1">
+				<p class="p-full"><div class="header-news-full"><span class="first-word-news-full">NEW</span><br/>TECHNOLOGIES</div>
+				<img src="img/news1.png" alt="" class="image-full"/>
+				<div class="text-column-full">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div></p>
+				<a href="#" onclick="openbox('box1'); return false" class="hide"></a>
+			</div>
+			<div class="column column-margin">
+				<span class="header-news"><span class="first-word-news">OUR</span> <br/> INNOVATIONS</span>
+				<img src="img/news2.png" alt="" class="images images2"/>
+				<span class="text2 all-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+				<a href="#" onclick="openbox('box2'); return false" class="more"></a>
+			</div>
+			<div id="box2">
+				<p class="p-full"><div class="header-news-full"><span class="first-word-news-full">OUR</span><br/>INNOVATIONS</div>
+				<img src="img/news2.png" alt="" class="image-full"/>
+				<div class="text-column-full">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div></p>
+				<a href="#" onclick="openbox('box2'); return false" class="hide"></a>
+			</div>
+			<div class="column column-margin">
+				<span class="header-news"><span class="first-word-news">QUALITY</span> <br/> CONTROL</span>
+				<img src="img/news3.png" alt="" class="images images3"/>
+				<span class="text3 all-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+				<a href="#" onclick="openbox('box3'); return false" class="more"></a>
+			</div>
+			<div id="box3">
+				<p class="p-full"><div class="header-news-full"><span class="first-word-news-full">QUALITY</span><br/>CONTROL</div>
+				<img src="img/news3.png" alt="" class="image-full"/>
+				<div class="text-column-full">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div></p>
+				<a href="#" onclick="openbox('box3'); return false" class="hide"></a>
+			</div>
+			<div class="column column-margin">
+				<span class="header-news"><span class="first-word-news">ENGINEERED</span> <br/> SYSTEMS</span>
+				<img src="img/news4.png" alt="" class="images images4"/>
+				<span class="text4 all-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+				<a href="#" onclick="openbox('box4'); return false" class="more"></a>
+			</div>
+			<div id="box4">
+				<p class="p-full"><div class="header-news-full"><span class="first-word-news-full">ENGINEERED</span><br/>SYSTEMS</div>
+				<img src="img/news4.png" alt="" class="image-full"/>
+				<div class="text-column-full">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div></p>
+				<a href="#" onclick="openbox('box4'); return false" class="hide"></a>
+			</div>
+		</div>
+		<div class="main-content-box">
+					<!-- Блок главного контента 1ый-->
+			<div class="main-content-first">
+				<div class="main-header-news"><span class="main-second-word-news">HELLO THERE!</span><br/>WELCOME TO OUR SITE</div>
+				<p class="main-text"><img src="img/news5.png" alt="" class="main-images"/>
+				<span class="main-header-text">PHASELLUS TURPIS ORG PELLENTE DOLOR AVEL</span>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/><br/>
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<a href="#" onclick="openbox('main-content'); return false" class="main-more"></a>
+			</div>
+				<div id="main-content">
+				<p class="main-title-full">PHASELLUS TURPIS ORG PELLENTE DOLOR AVEL</p>
+				<p class="main-p-full">
+				<img src="img/news5.png" alt="" class="main-image-full"/>
+				<div class="main-content-full">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div></p>
+				<a href="#" onclick="openbox('main-content'); return false" class="hide"></a>
+			</div>
+					<!-- Блок главного контента 2ой-->
+			<div class="main-content-second">
+								<!-- Блок 1ый OUR RESEARCHES-->
+				<div class="main-text-second-1 main-text-container">
+					<div class="main-header-word-1">OUR<div class="main-header-word-2">RESEARCHES</div></div>
+					<p class="main-text-second-news">Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris.</p>
+					<a href="#" onclick="openbox('mc-1'); return false" class="main-more-1"></a>
+				</div>
+					<div id="mc-1">
+						<p class="main-title-full">OUR RESEARCHES</p>
+							<p class="main-p-full">
+							<div class="main-content-full-low">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+						</p>
+						<a href="#" onclick="openbox('mc-1'); return false" class="hide"></a>
+					</div>
+								<!-- Блок 2ой CORPORATE VALUES-->
+				<div class="main-text-second-2 main-text-container">
+					<div class="main-header-word-1">CORPORATE<div class="main-header-word-2">VALUES</div></div>
+					<p class="main-text-second-news">Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris.</p>
+					<a href="#" onclick="openbox('mc-2'); return false" class="main-more-1"></a>
+				</div>
+					<div id="mc-2">
+						<p class="main-title-full">CORPORATE VALUES</p>
+						<p class="main-p-full">
+							<div class="main-content-full-low">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+						</p>
+						<a href="#" onclick="openbox('mc-2'); return false" class="hide"></a>
+					</div>
+								<!-- Блок 3ий CUSTOMER SERVICES-->
+				<div class="main-text-second-3 main-text-container">
+					<div class="main-header-word-1">CUSTOMER<div class="main-header-word-2">SERVICES</div></div>
+					<p class="main-text-second-news">Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris.</p>
+					<a href="#" onclick="openbox('mc-3'); return false" class="main-more-1"></a>
+				</div>
+					<div id="mc-3">
+						<p class="main-title-full">CUSTOMER SERVICES</p>
+						<p class="main-p-full">
+							<div class="main-content-full-low">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+						</p>
+						<a href="#" onclick="openbox('mc-3'); return false" class="hide"></a>
+				</div>
+								<!-- Блок 4ый About Our Team-->
+				<div class="main-text-second-4 main-text-container">
+					<div class="main-header-word-1">ABOUT<div class="main-header-word-2">OUR TEAM</div></div>
+					<p class="main-text-second-news">Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris.</p>
+					<a href="#" onclick="openbox('mc-4'); return false" class="main-more-1"></a>
+				</div>
+					<div id="mc-4">
+						<p class="main-title-full">ABOUT OUR TEAM</p>
+						<p class="main-p-full">
+							<div class="main-content-full-low">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+						</p>
+				<a href="#" onclick="openbox('mc-4'); return false" class="hide"></a>
+					</div>
+			</div>
+		</div>
+	<footer>
+		<div class="footer-logo">
+			<img src="img/logo-21.png" alt=""/>
+			<p class="footer-text">&copy; 2017 | PRIVACY POLICY</p>
+		</div>
+	</footer>
+</body>
+</html>

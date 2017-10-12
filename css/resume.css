@@ -7,8 +7,8 @@
     .li-border{border-right: 1px solid white;}
     .left-column{border-right: 1px solid black;}
     .header-title{margin-top: 12%;}
-    .header-wrapper{height: 35vh;}
-    .body-wrapper{min-height: calc(65vh - 5vh);}
+    .header-wrapper{height: 300px;}
+    .body-wrapper{min-height: calc(70vh - 5vh);}
 }
 @media only screen and (min-width : 350px) and (max-width : 480px) {
     .header-title{margin-top: 10%;}

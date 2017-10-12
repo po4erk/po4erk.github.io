@@ -5,24 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        a{
-            display: block;
-            height: 30px;
-            width: 300px;
-            background-color: yellow;
-            color: black;
-            text-decoration: none;
-            margin: 0 auto;
-            text-align: center;
-            padding-top: 10px;
-            font-weight: bold;
-            margin-bottom: 5px; 
-        }
-    </style>
+    <link rel="stylesheet" href="css/resume.css">
+    <link rel="stylesheet" href="libs/animate/animate.min.css">
+    <link rel="stylesheet" href="libs/bootstrap/bootstrap-grid.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="css/progress.css">
 </head>
 <body>
-    <a href="https://po4erk.github.io/Mountains-travel/">MOUNTAINS TRAVEL</a>
-    <a href="https://po4erk.github.io/DamionMax/">DAMION MAX</a>
+    <header class="header-wrapper">
+        <div class="container">
+        <div class="wow slideInDown col-md-6 col-md-offset-3">
+            <h1 class="col-md-12 header-title text-center font">BOHDANOV DMITRY</h1>
+            <p class="col-md-12 header-paragrpah text-center font">WEB DEVELOPER</p>
+            <addres>
+                <ul class="col-md-12 col-sm-12">
+                    <li class="col-md-4 li-border font">+380980542920</li>
+                    <li class="col-md-4 li-border font">po4erk@mail.ru</li>
+                    <li class="col-md-4 font">Kharkov,Ukraine</li>
+                </ul>
+            </addres>
+        </div>
+        </div>
+    </header>
+    <section class="container body-wrapper">
+        <div class="col-md-4 left-column">
+            <div class="wow slideInLeft col-md-12 about-me" data-wow-duration="1.5s">
+                <p class="about-me-title font">ABOUT ME</p>
+                <div class="col-md-6 col-xs-6 about-me-p__left font">
+                    <p>Name:</p>
+                    <p>Date of Birth:</p>
+                    <p>Relationship:</p><br>
+                    <p>Nationality:</p>
+                </div>
+                <div class="col-md-6 col-xs-6 about-me-p__right font">
+                    <p>Dmitry Bohdanov</p>
+                    <p>05.06.1991</p>
+                    <p>Live with a little cat :)</p>
+                    <p>Ukrainian</p>
+                </div>
+            </div>
+            <div class="wow slideInLeft col-md-12 my-skills" data-wow-duration="1.3s">
+                <p class="my-skills-title font">MY SKILLS</p>
+                <div class="col-md-6 col-xs-6 my-skills-p__left font">
+                    <p>HTML</p>
+                    <p>CSS</p>
+                    <p>JavaScript</p>
+                    <p>JQUERY</p>
+                </div>
+                <div class="col-md-6 col-xs-6 my-skills-p__right font">
+                    <div class="progress-wrap progress" data-progress-percent="80">
+                        <div class="progress-bar progress"></div></div>
+                    
+                  <div class="progress-wrap-1 progress" data-progress-percent="80">
+                        <div class="progress-bar-1 progress"></div></div>
+                   
+                   <div class="progress-wrap-2 progress" data-progress-percent="45">
+                        <div class="progress-bar-2 progress"></div></div>
+                    
+                   <div class="progress-wrap-3 progress" data-progress-percent="30">
+                        <div class="progress-bar-3 progress"></div></div>
+                </div>
+            </div>
+            <div class="wow slideInLeft col-md-12 languages" data-wow-duration="1s">
+                <p class="languages-title font">LANGUAGES</p>
+                <div class="col-md-6 col-xs-6 languages-p__left font">
+                    <p>English:</p>
+                    <p>Ukrainian:</p>
+                    <p>Russian:</p>
+                </div>
+                <div class="col-md-6 col-xs-6 languages-p__right font">
+                    <p>Pre-intermediate</p>
+                    <p>Advanced</p>
+                    <p>Advanced</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="wow slideInRight col-md-12 job" data-wow-duration="1.5s">
+                <p class="job-title font">JOB EXPERIENCES</p>
+                <div class="col-md-12 col-xs-12 job-p font">
+                    <p class="col-md-4 job-elements">SYSTEM ADMINISTRATOR<br>(2011-2014)</p>
+                    <p class="col-md-4 job-elements">ENGINEER OF COMPUTER SYSTEM<br>(2014-2017)</p>
+                    <p class="col-md-4 job-elements">APPRENTICE <br> WEB DEVELOPER<br>(2016 to our time)</p>
+                </div>
+            </div>
+            <div class="wow slideInRight col-md-12 work" data-wow-duration="1s">
+                <p class="work-title font">WORK EXPERIENCES</p>
+                <div class="col-md-12 work-wrapper">
+                <a class="wow slideInRight col-md-4 work-wrapper-img" data-wow-duration="1.5s" href="https://po4erk.github.io/Mountains-travel/"><img src="img/Mountains.png" alt="" style="width: 200px; height: 200px;"></a>
+                <a class="wow slideInRight col-md-4 work-wrapper-img" data-wow-duration="2s" href="https://po4erk.github.io/DamionMax/"><img src="img/DamionMax.png" alt="" style="width: 200px; height: 200px;"></a>
+                <a class="wow slideInRight col-md-4 work-wrapper-img" data-wow-duration="2.5s" href="#"><img src="img/Marvel.png" alt="" style="width: 200px; height: 200px;"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="container-fluid footer">
+        <a class="wow slideInLeft col-md-12 footer-text font" data-wow-duration="4s" href="https://www.behance.net/th_studio"><p >Thanks for idea of design TH-Studio</p></a>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="libs/wow/wow.min.js"></script>
+	<script> new WOW().init(); </script>
+    <script src="libs/animate/animate-css.js"></script>
+    <script src="libs/progress/progress.js"></script>
 </body>
 </html>

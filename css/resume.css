@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+@media only screen and (min-width : 1024px) {
+    .li-border{border-right: 1px solid white;}
+    .left-column{border-right: 1px solid black;}
+    .header-title{margin-top: 8%;}
+    .header-wrapper{height: 25vh;}
+    .body-wrapper{min-height: calc(75vh - 5vh);}
+}
+@media only screen and (min-width : 600px) and (max-width : 1024px){
+    .header-title{margin-top: 10%;}
+    .header-wrapper{height: 35vh;}
+    .footer{display: none;}
+
+}
+@media only screen and (min-width : 350px) and (max-width : 480px) {
+    .header-title{margin-top: 50%;}
+    .header-wrapper{height: 100vh;}
+    .footer{display: none;}
+}
+@media only screen and (max-width : 350px) {
+    .header-title{margin-top: 45%;}
+    .header-wrapper{height: 100vh;}
+    .footer{display: none;}
+}
+
+.font{
+    font-family: Montserrat;
+    color: white;
+}
+
+.header-wrapper{
+    width: 100%;
+    background-color: #353535;
+}
+.header-title{
+    font-size: 25pt;
+    text-align: center;
+    font-weight: lighter;
+    letter-spacing: 2pt;
+    border: 3px solid #c6a653;
+}
+.header-paragrpah{ 
+    margin-top: -15px; 
+    font-size: 12pt;
+    text-align: center;
+    letter-spacing: 5pt;
+}
+li{ 
+    margin-top: 30px; 
+    list-style-type: none;
+    text-align: center;
+}
+.left-column{
+    margin-top: 50px; 
+}
+.about-me-title, .my-skills-title, .languages-title, .job-title, .work-title{
+    color: #c6a653;
+    font-size: 15pt;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #c6a653;
+}
+.about-me-p__left, .my-skills-p__left, .languages-p__left, .job-p{
+    color: black;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.about-me-p__right, .my-skills-p__right, .languages-p__right{
+    margin-top: 15px;
+    color: black;
+}
+.my-skills, .languages{
+    padding-top: 30px;
+}
+ .job{
+    margin-top: 50px;
+ }
+.job-elements{
+    margin-top: 20px;  
+}
+.work{
+    margin-top: 20px;
+}
+.work-wrapper{
+    margin-top: 25px;
+}
+.work-wrapper-img:hover{
+    transition: transform 0.5s ease-in;
+    -webkit-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
+    z-index: 1;
+}
+.footer{
+    height: 5vh;
+    background: #353535;
+}
+.footer-text{
+    color: white;
+    padding-top: 15px;
+    font-size: 7pt;
+}

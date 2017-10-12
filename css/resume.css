@@ -6,24 +6,13 @@
 @media only screen and (min-width : 1024px) {
     .li-border{border-right: 1px solid white;}
     .left-column{border-right: 1px solid black;}
-    .header-title{margin-top: 8%;}
-    .header-wrapper{height: 25vh;}
-    .body-wrapper{min-height: calc(75vh - 5vh);}
-}
-@media only screen and (min-width : 600px) and (max-width : 1024px){
-    .header-title{margin-top: 10%;}
+    .header-title{margin-top: 12%;}
     .header-wrapper{height: 35vh;}
-    .footer{display: none;}
-
+    .body-wrapper{min-height: calc(65vh - 5vh);}
 }
 @media only screen and (min-width : 350px) and (max-width : 480px) {
-    .header-title{margin-top: 50%;}
-    .header-wrapper{height: 100vh;}
-    .footer{display: none;}
-}
-@media only screen and (max-width : 350px) {
-    .header-title{margin-top: 45%;}
-    .header-wrapper{height: 100vh;}
+    .header-title{margin-top: 10%;}
+    .header-wrapper{height: 50vh;}
     .footer{display: none;}
 }
 

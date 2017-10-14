@@ -147,9 +147,9 @@ li{
    }
    .work-wrapper-img:hover{
        transition: transform 1s ease-in;
-		-webkit-transform: scale(2);
-		-ms-transform: scale(2);
-		transform: scale(2);
+	-webkit-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	transform: scale(1.2);
         z-index: 1;
    }
    .container{

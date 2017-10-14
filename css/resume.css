@@ -7,7 +7,52 @@ li{
     list-style-type: none;
 }
 
-@media screen and (min-width: 1000px){
+
+@media screen and (min-width: 768px){
+   .header{
+    height: 308px;
+    }
+   .header-wrapper{
+       margin-top: 6%;
+   }
+   .header-paragraph{
+       margin-bottom: 5%;
+   }
+   .job{
+       margin-top: 60px;
+   }
+   .work{
+       margin-top: 20px;
+   }
+   .left-column{
+       margin-top: 20px; 
+       border-right: 1px solid black;
+   }
+   .work-wrapper{
+       margin-top: 20px;
+   }
+
+}
+@media screen and (max-width: 768px){
+    .header{
+        height: 60%;
+    }
+    .header-wrapper{
+       padding-top: 18%;
+   }
+   .header-paragraph{
+       margin-bottom: 10%;
+   }
+   .job,
+   .work{
+       margin-top: 30px;
+   }
+   .work{
+       border-bottom: 1px solid #c6a653;
+   }
+
+}
+@media screen and (min-width: 970px){
     .header{
         height: 308px;
     }
@@ -38,55 +83,8 @@ li{
        border-right: 1px solid black;
    }
       .work-wrapper{
-       margin-top: 40px;
+       margin-top: 50px;
    }
-}
-@media screen and (min-width: 768px){
-   .header{
-    height: 308px;
-    }
-   .header-wrapper{
-       margin-top: 6%;
-   }
-   .header-paragraph{
-       margin-bottom: 5%;
-   }
-   .job{
-       margin-top: 60px;
-   }
-   .work{
-       margin-top: 20px;
-   }
-   .left-column{
-       margin-top: 20px; 
-       border-right: 1px solid black;
-   }
-   .work-wrapper{
-       margin-top: 20px;
-   }
-   .work-third{
-       margin-left: 10px;
-   }
-
-}
-@media screen and (max-width: 768px){
-    .header{
-        height: 60%;
-    }
-    .header-wrapper{
-       padding-top: 15%;
-   }
-   .header-paragraph{
-       margin-bottom: 10%;
-   }
-   .job,
-   .work{
-       margin-top: 30px;
-   }
-   .work{
-       border-bottom: 1px solid #c6a653;
-   }
-
 }
    .header{
        background: #353535;
@@ -129,7 +127,7 @@ li{
    .languages-title,
    .job-title,
    .work-title{
-       font: 12pt Montserrat light;
+       font: 14pt Montserrat;
        color: #c6a653;
        border-bottom: 1px solid #c6a653;
        padding-bottom: 5px;
@@ -146,6 +144,13 @@ li{
 
    .work-wrapper-img{
        margin-bottom: 20px;
+   }
+   .work-wrapper-img:hover{
+       transition: transform 1s ease-in;
+		-webkit-transform: scale(2);
+		-ms-transform: scale(2);
+		transform: scale(2);
+        z-index: 1;
    }
    .container{
        margin-bottom: 35px;

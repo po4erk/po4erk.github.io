@@ -79,7 +79,7 @@ li{
        margin-top: 60px;
    }
    .left-column{
-       margin-top: 10px; 
+       margin-top: 30px; 
        border-right: 1px solid black;
    }
       .work-wrapper{
@@ -120,7 +120,7 @@ li{
    .about-me,
    .my-skills, 
    .languages{
-       margin-top: 30px;
+       margin-top: 20px;
    }
    .about-me__title, 
    .my-skills__title, 

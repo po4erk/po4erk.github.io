@@ -3,17 +3,19 @@
 .progress {
   width: 100%;
   height: 10px;
+ 
 }
 .progress-wrap, .progress-wrap-1, .progress-wrap-2, .progress-wrap-3{
   background: #c6a653;
   margin: 8px 0;
   overflow: hidden;
   position: relative;
-  border-radius: 20px;
+  
 }
 .progress-bar, .progress-bar-1, .progress-bar-2, .progress-bar-3{
     background: #ddd;
     left: 0;
     position: absolute;
     top: 0;
+    border-radius: 5%;
 }

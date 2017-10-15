@@ -7,7 +7,7 @@
 body{
     background: url(images/background-header.png) no-repeat;
     background-position: top;
-    
+    overflow-x: hidden;
 }
 .container{
     width: 1137px;

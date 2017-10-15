@@ -11,7 +11,7 @@ body{
 }
 .container{
     width: 1137px;
-    margin: auto;
+    margin: 0 auto;
 }
 #menu{
     width: 1133px;
@@ -247,7 +247,6 @@ li{
     height: 651px;
     z-index: -1;
     opacity: 0.3;
-    overflow-x: hidden;
 }
 .goto-form-area{
     margin-top: -405px;

@@ -180,12 +180,29 @@
         </article>
         <article class="regestry-wrapper">
             <a href="" id="contact"></a>
-            <form class="regestry-form-wrapper" action="#">
+            <form class="regestry-form-wrapper" action="#0">
                 <h2>CONTACTS</h2>
                 <span>Sign up for our newsletter to receive updates</span>
-                <input class="regestry-form regestry-form-name" type="text" placeholder="Name">
-                <input class="regestry-form regestry-form-phone" type="text" placeholder="Phone">
-                <input class="regestry-form regestry-form-email" type="text" placeholder="Email">
+                <div class="regestry-form">
+                	<input required id="name" class="regestry-form-name" type="text" placeholder=" " name="name" title="Enter your name">
+                	<label for="name">Name</label>
+                </div>
+                <div class="regestry-form">
+                	<input required id="phone" class="regestry-form-phone" pattern="(\+?\d[- .]*){7,13}" type="tel" placeholder=" " name="phone" title="Enter your phone number in the format +38098....">
+                	<label for="phone">Phone</label>
+                	<div class="requirements">
+                    		<img src="images/close.png" alt="">
+                    		Must be a valid telephone number!
+                	</div>
+                </div>
+                <div class="regestry-form">
+                	<input required id="email" class="regestry-form-email" type="email" placeholder=" " name="email" title="Enter your email adress">
+               		<label for="email">Email</label>
+                	<div class="requirements">
+                    		<img src="images/close.png" alt="">
+                   		 Must be a valid E-mail adress!
+                	</div>
+                </div>
                 <input class="regestry-form-send" type="submit" value="SEND">
             </form>
         </article>

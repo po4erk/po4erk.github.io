@@ -8,7 +8,6 @@ body{
     background: url(images/background-header.png) no-repeat;
     background-position: top;
     overflow-x: hidden;
-    
 }
 #menu{
     width: 1133px;
@@ -795,3 +794,4 @@ footer{
     position: relative;
     top: -105px;    
 }
+

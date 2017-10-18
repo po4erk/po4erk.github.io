@@ -708,7 +708,6 @@ form > div > input[type='text']:invalid:not(:focus):not(:placeholder-shown),
 form > div > input[type='tel']:invalid:not(:focus):not(:placeholder-shown),
 form > div > input[type='email']:invalid:not(:focus):not(:placeholder-shown){
     background-color: pink;
-    height: 60px;
 }
 form > div > input[type='text']:invalid:not(:focus):not(:placeholder-shown) + label,
 form > div > input[type='tel']:invalid:not(:focus):not(:placeholder-shown) + label,

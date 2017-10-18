@@ -110,6 +110,10 @@ li{
        color: white;
        font: 12pt Montserrat light;
    }
+   .header-addres__list > a{
+	color: white;
+	text-decoration: none;
+   }
    .header-addres__list-item{
        margin-bottom: 15px;
    }

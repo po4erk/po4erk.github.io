@@ -654,13 +654,91 @@ li{
     width: 450px;
     margin-bottom: 20px;
     border-radius: 2px;
-    padding-left: 5px;
     font-size: 1.3em;
+}
+form > div{
+    position: relative;
+    background: white;
+    border-bottom: 1px solid #ccc;
+}
+form > div > label{
+    opacity: 0.3;
+    font-weight: bold;
+    position: absolute;
+    top: 18px;
+    left: 20px;
+}
+form > div > input[type='text'],
+form > div > input[type='tel'],
+form > div > input[type='email']{
+    width: 100%;
+    border: 0;
+    padding: 20px 20px 20px 50px;
+    border-radius: 2px;
+}
+.regestry-form-name:focus,
+.regestry-form-phone:focus,
+.regestry-form-email:focus{
+    outline: 0;
+    background-color: lightblue;
+}
+.regestry-form-name:focus + label,
+.regestry-form-phone:focus + label,
+.regestry-form-email:focus + label{
+    opacity: 0;
+}
+.regestry-form-name:valid,
+.regestry-form-phone:valid,
+.regestry-form-email:valid{
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg) no-repeat;
+    background-size: 20px;
+    background-position: 20px 20px;
+}
+.regestry-form-name:invalid,
+.regestry-form-phone:invalid,
+.regestry-form-email:invalid{
+    background: url(images\close.png) no-repeat;
+}
+.regestry-form-name:valid + label,
+.regestry-form-phone:valid + label,
+.regestry-form-email:valid + label{
+    opacity: 0;
+}
+form > div > input[type='text']:invalid:not(:focus):not(:placeholder-shown),
+form > div > input[type='tel']:invalid:not(:focus):not(:placeholder-shown),
+form > div > input[type='email']:invalid:not(:focus):not(:placeholder-shown){
+    background-color: pink;
+    height: 60px;
+}
+form > div > input[type='text']:invalid:not(:focus):not(:placeholder-shown) + label,
+form > div > input[type='tel']:invalid:not(:focus):not(:placeholder-shown) + label,
+form > div > input[type='email']:invalid:not(:focus):not(:placeholder-shown) + label{
+    opacity: 0;
+}
+form > div > input[type='email']:invalid:not(:focus):not(:placeholder-shown) ~ .requirements,
+form > div > input[type='tel']:invalid:not(:focus):not(:placeholder-shown) ~ .requirements{
+    max-height: 200px;
+    padding: 0 30px 20px 50px;
+}
+form > div .requirements{
+    padding: 0 30px 0 50px;
+    color: red;
+    max-height: 0;
+    -webkit-transition: 0,28s;
+    -moz-transition: 0,28s;
+    transition: 0,28s;
+    overflow: hidden; 
+}
+form > div .requirements > img{
+    height: 20px;
+    width: 20px;
+    margin-bottom: 5px;
 }
 .regestry-form-send{
     margin: 0 auto;
+    margin-top: 10px;
     height: 60px;
-    width: 455px;
+    width: 450px;
     border-radius: 2px;
     font-size: 1.3em;
     font-weight: bold;

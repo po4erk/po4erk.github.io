@@ -41,8 +41,7 @@ li{
     padding-bottom: 5px;
     outline: none;
 }
-.menu-list__hover:hover{
-    border-bottom: 3px solid #36aeea; 
+.menu-list__hover:hover{ 
     color: #36aeea;
     outline: none;
 }

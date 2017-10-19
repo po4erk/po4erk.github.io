@@ -46,7 +46,6 @@ li{
     outline: none;
 }
 .menu-list__hover:focus{
-    border: none;
     border-bottom: 3px solid #36aeea; 
     color: #36aeea;
     outline: none;

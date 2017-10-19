@@ -149,13 +149,6 @@ li{
    .work-wrapper-img{
        margin-bottom: 20px;
    }
-   .work-wrapper-img:hover{
-       transition: transform 0.3s ease-in;
-	-webkit-transform: scale(0.5);
-	-ms-transform: scale(0.5);
-	transform: scale(0.5);
-        z-index: 1;
-   }
    .container{
        margin-bottom: 35px;
    }

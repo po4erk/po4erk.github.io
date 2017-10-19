@@ -9,12 +9,13 @@ body{
     background-position: top;
     overflow-x: hidden;
 }
+
 #menu{
     width: 1133px;
     position: fixed;
     top: 0;
     left: 50%;
-    margin-left: -566px;
+    margin-left: -564px;
     height: 88px;
     background: white;
     border-radius: 0 0 5px 5px;
@@ -70,7 +71,6 @@ li{
     padding-top: 12px; 
 }
 .logo-block{
-
     height: 324px;
     background: url(images/frame-header.png) no-repeat;
     margin-top: 230px;
@@ -112,15 +112,12 @@ li{
 .about-us{
     margin-top: 120px; 
     height: 705px;
-    
 }
 .picture1{
     background: url(images/picture1.png);
     width: 806px;
     height: 570px;
     margin-left: 464px;
-   
-    
 }
 .picture2{
     background: url(images/picture2.png);
@@ -169,6 +166,7 @@ li{
     font-weight: bold;
 }
 .our-journal__main{
+    margin-left: -13px;
     display: flex;
     flex-wrap: wrap;
     margin-top: 75px;
@@ -291,7 +289,9 @@ li{
 }
 
 
-
+.how-work{
+    margin-left: -8px;
+}
 .how-work__title{
     margin-top: 350px; 
     text-align: center;
@@ -418,7 +418,7 @@ li{
 
 .travel-with-us{
     margin-top: 220px;
-    
+    margin-left: -18px;
 }
 .travel-with-us__title{
     font-size: 30pt;
@@ -506,6 +506,7 @@ li{
 
 .gallery{
     margin-top: 480px;
+    margin-left: -27px;
 }
 .gallery_title{
     font-size: 30pt;
@@ -555,6 +556,7 @@ li{
 }
 
 .logos{
+    margin-left: -27px;
     margin-top: 60px; 
     display: flex;
     justify-content: space-between;

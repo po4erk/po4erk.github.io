@@ -39,10 +39,18 @@ li{
     color: black;
     text-decoration: none;
     padding-bottom: 5px;
+    outline: none;
 }
 .menu-list__hover:hover{
     border-bottom: 3px solid #36aeea; 
     color: #36aeea;
+    outline: none;
+}
+.menu-list__hover:focus{
+    border: none;
+    border-bottom: 3px solid #36aeea; 
+    color: #36aeea;
+    outline: none;
 }
 
 

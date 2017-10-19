@@ -4,13 +4,17 @@
     padding: 0;
     
 }
+html{
+  min-width: 1137px;  
+}
 body{
-    background: url(images/background-header.png) no-repeat;
-    background-position: top;
-    background-attachment: local;
+    background: url(images/background-header.png) 50% 0 no-repeat;
     overflow-x: hidden;
 }
-
+.container{
+    margin: 0 auto;
+    width: 1137px;
+}
 #menu{
     width: 1133px;
     position: fixed;

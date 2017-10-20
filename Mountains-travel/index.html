@@ -6,8 +6,28 @@
     <link rel="stylesheet" href="Mountains.css">
     <link rel="stylesheet" href="libs/animate/animate.min.css">
     <link rel="stylesheet" href="libs/bootstrap/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="libs/preloader/preloader.css">
 </head>
 <body>
+    <div id="page-preloader">
+        <div class='loader'>
+        <div class='circle'>
+            <div class='inner'></div>
+        </div>
+        <div class='circle'>
+            <div class='inner'></div>
+        </div>
+        <div class='circle'>
+            <div class='inner'></div>
+        </div>
+        <div class='circle'>
+            <div class='inner'></div>
+        </div>
+        <div class='circle'>
+            <div class='inner'></div>
+        </div>
+        </div>
+    </div>
     <header>
       <div id="menu">
           <ol class="menu-list">
@@ -88,10 +108,12 @@
             <div class="wow flip ellipse-2"></div>
             <div class="wow flip ellipse-3"></div>
             <div class="wow flip ellipse-4"></div>
-            <p class="ellipse-1__text col-md-3"><b>Lorem ipsum dolor sit amet,</b> consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-            <p class="ellipse-2__text col-md-3"><b>Lorem ipsum dolor sit amet,</b> consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-            <p class="ellipse-3__text col-md-3"><b>Lorem ipsum dolor sit amet,</b> consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-            <p class="ellipse-4__text col-md-3"><b>Lorem ipsum dolor sit amet,</b> consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+            <div class="ellipse-text">
+            <p class="ellipse-1__text col-sm-3 col-md-3"><b>Lorem ipsum dolor sit amet,</b> consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+            <p class="ellipse-2__text col-sm-3 col-md-3"><b>Lorem ipsum dolor sit amet,</b> consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+            <p class="ellipse-3__text col-sm-3 col-md-3"><b>Lorem ipsum dolor sit amet,</b> consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+            <p class="ellipse-4__text col-sm-3 col-md-3"><b>Lorem ipsum dolor sit amet,</b> consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+            </div>
         </article>
         <a href="" id="journal"></a>
         <article class="travel-with-us">
@@ -207,15 +229,15 @@
                 <input class="regestry-form-send" type="submit" value="SEND">
             </form>
         </article>
-        <footer class="col-md-12">
-            <div><p class="wow fadeInLeft col-md-4 footer-text">All rights reserved 2017</p></div>
-            <div class="col-md-4 icon-wrapper">
+       <footer class="col-md-12 col-xs-12 footer">
+            <div><p class="wow fadeInLeft col-md-4  col-xs-5 footer-text">All rights reserved 2017</p></div>
+            <div class="col-md-4  col-xs-4 icon-wrapper">
                 <a class="icon-twitter" href="http://twitter.com" target="_blank"></a>
                 <a class="icon-facebook" href="http://facebook.com" target="_blank"></a>
                 <a class="icon-vk" href="http://vk.com" target="_blank"></a>
             </div>
-            <div><p class="wow fadeInRight col-md-4 footer-text">1 234 432 234</p></div>
-        </footer>
+            <div><p class="wow fadeInRight col-md-4 col-xs-3 footer-text">1 234 432 234</p></div>
+        </footer> 
     </div>
 
 
@@ -260,6 +282,12 @@
        $(".ellipse-1,.ellipse-2,.ellipse-3,.ellipse-4,.point-1,.point-2,.point-3,.point-4").css('background','');}
         setInterval(ellipseOut,6000);
     
+    $(window).on('load', function () {
+    var $preloader = $('#page-preloader'),
+        $spinner   = $preloader.find('.spinner');
+    $spinner.fadeOut();
+    $preloader.fadeOut('slow');
+    });
     </script>
 </body>
 </html>

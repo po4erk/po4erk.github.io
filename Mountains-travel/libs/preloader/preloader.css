@@ -1,0 +1,107 @@
+#page-preloader{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100500;
+  background: white;
+  box-shadow: inset 0px 0px 90px rgba(0, 0, 0, 0.5);
+  margin: 0px;
+  padding: 0px;
+}
+
+#load-perc{
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 10px);
+  right: 0;
+  bottom: 0;
+}
+
+.loader {
+  width: 100px;
+  height: 115px;
+  border-radius: 100%;
+  position: absolute;
+  top: 45%;
+  left: calc(50% - 50px);
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.circle .inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 5px solid rgba(54, 174, 234, 0.7);
+  border-right: none;
+  border-top: none;
+  background-clip: padding;
+  box-shadow: inset 0px 0px 10px rgba(54, 174, 234, 0.15);
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.circle:nth-of-type(0) {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+.circle:nth-of-type(0) .inner {
+  -webkit-animation: spin 2s infinite linear;
+          animation: spin 2s infinite linear;
+}
+
+.circle:nth-of-type(1) {
+  -webkit-transform: rotate(70deg);
+          transform: rotate(70deg);
+}
+.circle:nth-of-type(1) .inner {
+  -webkit-animation: spin 2s infinite linear;
+          animation: spin 2s infinite linear;
+}
+
+.circle:nth-of-type(2) {
+  -webkit-transform: rotate(140deg);
+          transform: rotate(140deg);
+}
+.circle:nth-of-type(2) .inner {
+  -webkit-animation: spin 2s infinite linear;
+          animation: spin 2s infinite linear;
+}
+
+.circle:nth-of-type(3) {
+  -webkit-transform: rotate(210deg);
+          transform: rotate(210deg);
+}
+.circle:nth-of-type(3) .inner {
+  -webkit-animation: spin 2s infinite linear;
+          animation: spin 2s infinite linear;
+}
+
+.loader {
+  -webkit-animation: spin 5s infinite linear;
+          animation: spin 5s infinite linear;
+}

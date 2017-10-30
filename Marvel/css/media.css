@@ -1,0 +1,171 @@
+@media only screen and (max-width : 768px) {
+	.about_title,.features_title,.portfolio_title,.service_title,.price_title,.expert_title,.contacts_title{
+		font-size: 35pt;
+	}
+	.about_title-after,.features_title-after,.portfolio_title-after,.service_title-after,.price_title-after,.expert_title-after,.contacts_title-after{
+		font-size: 10pt;
+		margin-top: -30px;
+	}
+	.responsive_title{
+		font-size: 35pt;
+	}
+	.responsive{
+		padding-top: 20px;
+		height: 400px;
+	}
+	.responsive_title{
+		font-size: 25pt;
+		margin: 0 auto;
+	}
+	.responsive_wrapper{ 
+		margin-left: -22px;
+		margin-top: -45px;
+		z-index: 1;
+	}
+  .responsive_img{
+		display: none;
+  }
+	.responsive_speed{
+		position: relative;
+		top: -220px;
+		left: 30px;
+		height: 190px;
+		width: 160px;
+		opacity: 0.4;
+	}
+	.responsive_svg{
+		padding-top: 15px;
+	}
+	.portfolio_link{
+		visibility: hidden;
+	}
+	.price_standard, .price_premium, .price_ultimate{
+		width: 300px;
+	}
+	.price_standard-header, .price_premium-header, .price_ultimate-header{
+		margin-bottom: -55px
+	}
+	.price_standard-header h3,
+	.price_premium-header h3,
+	.price_ultimate-header h3{
+		padding-top: 20px
+	}
+	.textarea{
+		width: 80vw;
+	}
+	.fast-name, .last-name, .email, .subject{
+		width: 80vw;
+		margin: auto;
+	}
+	.locate h2{
+		padding-top: 10%;
+	}
+	.footer a{
+		padding-bottom: 5%;
+	}
+	.expert_wrapper-left,
+	.expert_wrapper-right,
+	.expert_wrapper-center{
+		width: 200px;
+		}
+	.expert_wrapper-center{
+		margin-top: -100px;
+		border-top-right-radius: 70px 40px;
+		border-bottom-left-radius: 70px 40px;
+		}
+		.form__error{
+			left: 0%;
+		}
+	.action h2{
+		margin-top: 20%
+		}
+	#about{
+		position: relative;
+		top: -80px;
+		}
+	#responsive{
+		position: relative;
+		top: -80px;
+		}
+	#features{
+		position: relative;
+		top: -80px;
+		}
+	#portfolio{
+		position: relative;
+		top: -80px;
+		}
+	#pricing{
+		position: relative;
+		top: -50px;
+		}
+	#contact{
+		position: relative;
+		top: -40px;
+		}
+}
+
+@media only screen and (min-width : 992px) {
+	.about_title,.features_title,.portfolio_title,.service_title,.price_title,.expert_title,.contacts_title{
+		font-size: 50pt
+	}
+	.about_title-after,.features_title-after,.portfolio_title-after,.service_title-after,.price_title-after,.expert_title-after,.contacts_title-after{
+		font-size: 20pt;
+		margin-top: -45px;
+	}
+	.responsive_title{
+		font-size: 35pt;
+	}
+	.responsive_speed{
+		margin-top: 7%;
+		margin-left: 15%;
+	}
+	.responsive_svg{
+		width: 15px; 
+		height: 120px;
+	}
+	.price_standard, .price_premium, .price_ultimate{
+		width: 361px;
+	}
+	.price_standard-header, .price_premium-header, .price_ultimate-header{
+		margin-bottom: 20px
+	}
+	.expert_wrapper-text{
+			margin-top: -15px
+	}
+	.textarea{
+		width: 600px;
+	}
+	.fast-name, .last-name, .email, .subject{
+		width: 300px;
+	}
+	.locate h2{
+		padding-top: 4%;
+	}
+	.form__error{
+			left: 3%;
+	}
+	.action h2{
+		margin-top: 10%
+	}
+	#about{
+		position: relative;
+		top: -80px;
+	}
+	#responsive{
+		position: relative;
+		top: -80px;
+	}
+	#portfolio{
+		position: relative;
+		top: -200px;
+	}
+	#pricing{
+		position: relative;
+		top: 50px;
+	}
+	#contact{
+		position: relative;
+		top: 40px;
+	}
+}

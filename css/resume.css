@@ -114,6 +114,9 @@ li{
 	color: white;
 	text-decoration: none;
    }
+   .header-addres__list-item > a:hover{
+	text-decoration: none;
+   }
    .header-addres__list-item{
        margin-bottom: 15px;
    }

@@ -6,8 +6,6 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialised; }
 
-.content-wrapper {
-  height: 100%; }
 
 .loader {
   background: none repeat scroll 0 0 white;
@@ -270,7 +268,6 @@ a.contact_us_button {
     display: inline-block;
     padding: 0 0 3em 3em; }
     .about .about_blocks-container .about_blocks {
-      width: 265px;
       height: 300px;
       margin: 3em 3em 0 0; }
     .about .about_blocks-container .about_responsive-design {
@@ -335,7 +332,7 @@ a.contact_us_button {
     height: 247px;
     width: 162px; }
   .responsive .responsive_title {
-    padding-top: 16%;
+    padding-top: 10%;
     font-family: "MontserratBlack", arial;
     font-weight: 800;
     opacity: 0.1; }
@@ -493,7 +490,6 @@ a.contact_us_button {
     position: relative;
     left: -20px; }
   .service .service_title {
-    margin-top: 10%;
     font-family: "MontserratBlack", arial;
     font-weight: 800;
     opacity: 0.1; }
@@ -543,7 +539,7 @@ a.contact_us_button {
   .price .price-wrapper {
     padding-bottom: 10%;
     display: inline-block;
-    margin: auto; }
+     }
     .price .price-wrapper .price_standard, .price .price-wrapper .price_premium, .price .price-wrapper .price_ultimate {
       height: 100%; }
       .price .price-wrapper .price_standard .price_standard-header, .price .price-wrapper .price_premium .price_standard-header, .price .price-wrapper .price_ultimate .price_standard-header {
@@ -673,11 +669,12 @@ a.contact_us_button {
       border-bottom-right-radius: 70px 40px; }
 
 .action {
-  height: 420px;
+  height: 350px;
   text-align: center;
   color: white; }
   .action h2 {
-    font-weight: 800; }
+    font-weight: 800; 
+    margin-top: 10%;}
   .action h4 {
     font-size: 0.9em; }
   .action .action_buttons-container {
@@ -688,7 +685,6 @@ a.contact_us_button {
     margin: 1em 1em 0 0;
     width: 200px;
     height: 50px;
-    margin-top: 45px;
     text-decoration: none;
     padding-top: 15px;
     font-size: 10pt;
@@ -747,6 +743,7 @@ a.contact_us_button {
   text-align: center; }
   .locate h2 {
     font-weight: 800;
+    padding-top: 4%;
     padding-bottom: 4%;
     cursor: pointer; }
 
@@ -769,10 +766,19 @@ footer {
       color: white;
       margin: 0;
       text-decoration: none;
-      padding-top: 1%; }
+      }
     footer .footer p {
       color: white;
       margin: 0;
-      padding-top: 1%; }
-
+      }
+    .tel:hover{
+      color: #ffe400;
+    }
+    .adress:hover{
+      color: #ffe400;
+    }
+    .footer_social:hover{
+      color: #ffe400;
+    }
+    
 /*# sourceMappingURL=main.css.map */

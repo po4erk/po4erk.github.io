@@ -1,10 +1,13 @@
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 750px) {
 	.about_title,.features_title,.portfolio_title,.service_title,.price_title,.expert_title,.contacts_title{
 		font-size: 35pt;
 	}
 	.about_title-after,.features_title-after,.portfolio_title-after,.service_title-after,.price_title-after,.expert_title-after,.contacts_title-after{
 		font-size: 10pt;
 		margin-top: -30px;
+	}
+	.about .about_blocks-container .about_blocks{
+		width: 265px;
 	}
 	.responsive_title{
 		font-size: 35pt;
@@ -39,16 +42,23 @@
 	.portfolio_link{
 		visibility: hidden;
 	}
+	.service .service_title {
+    	margin-top: 5%;
+	}
 	.price_standard, .price_premium, .price_ultimate{
-		width: 300px;
+		max-width: 360px;
+		min-width: 325px;
+		width: auto;
+		margin-bottom: 5%; 
 	}
 	.price_standard-header, .price_premium-header, .price_ultimate-header{
-		margin-bottom: -55px
+		margin-bottom: -70px;
 	}
 	.price_standard-header h3,
 	.price_premium-header h3,
 	.price_ultimate-header h3{
-		padding-top: 20px
+		margin: 0 auto;
+		padding-top: 20px;
 	}
 	.textarea{
 		width: 80vw;
@@ -104,14 +114,39 @@
 		top: -40px;
 		}
 }
-
+@media only screen and (min-width : 751px) and (max-width : 991px) {
+	.about .about_blocks-container .about_blocks{
+		max-width: 235px;
+		min-width: 195px;
+		width:auto;
+	}
+	.service .service_title {
+    	margin-top: 3%;
+	}
+	.price_standard, .price_premium, .price_ultimate{
+		max-width: 330px;
+		min-width: 205px;
+		width: auto;
+	}
+	.price_standard-header, .price_premium-header, .price_ultimate-header{
+		margin-bottom: -55px;
+	}
+	.price_standard-header h3,
+	.price_premium-header h3,
+	.price_ultimate-header h3{
+		padding-top: 20px;
+	}
+}
 @media only screen and (min-width : 992px) {
 	.about_title,.features_title,.portfolio_title,.service_title,.price_title,.expert_title,.contacts_title{
-		font-size: 50pt
+		font-size: 50pt;
 	}
 	.about_title-after,.features_title-after,.portfolio_title-after,.service_title-after,.price_title-after,.expert_title-after,.contacts_title-after{
 		font-size: 20pt;
 		margin-top: -45px;
+	}
+	.about .about_blocks-container .about_blocks{
+		width: 265px;
 	}
 	.responsive_title{
 		font-size: 35pt;
@@ -124,14 +159,17 @@
 		width: 15px; 
 		height: 120px;
 	}
+	.service .service_title {
+    	margin-top: 10%;
+	}
 	.price_standard, .price_premium, .price_ultimate{
-		width: 361px;
+		width: 365px;
 	}
 	.price_standard-header, .price_premium-header, .price_ultimate-header{
-		margin-bottom: 20px
+		margin-bottom: 20px;
 	}
 	.expert_wrapper-text{
-			margin-top: -15px
+		margin-top: -15px;
 	}
 	.textarea{
 		width: 600px;

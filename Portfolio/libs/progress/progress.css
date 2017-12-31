@@ -1,0 +1,26 @@
+
+
+.progress {
+  width: 100%;
+  height: 30px;
+}
+.progress p{
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  padding: 2px 0 2px 5px;
+  color: #202020;
+}
+.progress-wrap, .progress-wrap-1, .progress-wrap-2, .progress-wrap-3{
+  background: #f39c12;
+  margin: 15px 0;
+  overflow: hidden;
+  position: relative;
+  border-radius: 3px 0 0 3px;
+  
+}
+.progress-bar, .progress-bar-1, .progress-bar-2, .progress-bar-3{
+  background-color: #202020;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

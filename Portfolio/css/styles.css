@@ -14,12 +14,18 @@
       display: none;
     }
     .about-wrapper,
-    .project-wrapper,
     .contacts-wrapper{
         margin-left: 0;
     }
     .project-wrapper{
         margin: 0 auto;
+        width: 80%;
+    }
+    .projects{
+        text-align: center;
+    }
+    .projects > h3{
+        padding-left: 130px;
     }
     .elementProject,
     .elementContacts{
@@ -34,6 +40,9 @@
         line-height: 0.9;
         font-size: 2.5rem;
     }
+    .project-wrapper > h2{
+        text-align: center;
+    }
     .about-wrapper > h2,
     .project-wrapper h3,
     .contacts-wrapper h3{
@@ -47,10 +56,6 @@
     .contacts-wrapper{
         width: 95%;
         margin: 0 auto;
-    }
-    .project-wrapper{
-        margin-left: 6%;
-        width: 100vw;
     }
     .about-me > img{
         float: none; 
@@ -182,6 +187,7 @@ body{
 }
 nav{
     margin-top: 45px;
+    margin-bottom: 20px;
 }
 nav ul li a,
 .social-wrapper h2{

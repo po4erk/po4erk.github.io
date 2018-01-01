@@ -303,7 +303,6 @@ a i:hover{
 
 .contacts-wrapper p{
     width: 70%;
-    margin-top: 10px;
 }
 .registration-form-wrapper{
     margin-top: 15px;
@@ -449,6 +448,11 @@ footer{
 .social-wrapper h2{
     font-size: 1.2rem;
     padding-bottom: 10px;
+}
+.contacts-social-wrapper{
+    font-size: 1.7rem;
+    margin-top: 5px;
+    margin-bottom: -20px;
 }
 a i{
     padding-right: 10px;

@@ -27,9 +27,6 @@
     .projects > h3{
         padding-left: 130px;
     }
-    .brief{
-        display: none;
-    }
     .elementProject,
     .elementContacts{
         display: block;
@@ -114,6 +111,10 @@
         float: left;
         padding-right: 20px; 
     }
+    .projects:hover .brief{
+        display: block;
+    }
+    
 
 }
 @media (min-width: 1200px) and (max-width: 4160px){
@@ -166,6 +167,10 @@
         float: left;
         padding-right: 20px; 
     }
+    .projects:hover .brief{
+        display: block;
+    }
+    
 }
 
 body{
@@ -434,9 +439,6 @@ form > div .requirements{
     padding-left: 70px;
     border-radius: 45px 5px 0 5px;
     font-family: 'Oswald', sans-serif;
-}
-.projects:hover .brief{
-    display: block;
 }
 
 

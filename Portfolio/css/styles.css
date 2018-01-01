@@ -19,13 +19,16 @@
     }
     .project-wrapper{
         margin: 0 auto;
-        width: 80%;
+        width: 100%;
     }
     .projects{
         text-align: center;
     }
     .projects > h3{
         padding-left: 130px;
+    }
+    .brief{
+        display: none;
     }
     .elementProject,
     .elementContacts{

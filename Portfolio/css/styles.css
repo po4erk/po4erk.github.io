@@ -7,11 +7,11 @@
     color: white;
     overflow-x: hidden;
 }
-@media (min-width: 0px) and (max-width: 640px) {
+@media (max-width: 640px) {
     header,
     footer,
     .social-wrapper {
-      display: none;
+        display: none;
     }
     .about-wrapper,
     .contacts-wrapper{
@@ -19,20 +19,17 @@
     }
     .project-wrapper{
         margin: 0 auto;
-        width: 100%;
     }
     .projects{
         text-align: center;
     }
-    .projects > h3{
-        padding-left: 130px;
+    .projects h3{
+        text-align: center;
+        padding: 5px;
     }
     .elementProject,
     .elementContacts{
         display: block;
-    }
-    .registration-form-wrapper{
-        width: 100%;
     }
     .about-wrapper h1,
     .project-wrapper > h2,
@@ -41,7 +38,7 @@
         font-size: 2.5rem;
     }
     .project-wrapper > h2{
-        text-align: center;
+        padding-left: 40px;
     }
     .about-wrapper > h2,
     .project-wrapper h3,
@@ -85,7 +82,6 @@
     .elementProject,
     .elementContacts{
         height: 100vh;
-        width: 100%;
     }
     .registration-form-wrapper{
         width: 375px;
@@ -100,6 +96,7 @@
     .project-wrapper h3,
     .contacts-wrapper h3{
         font-size: 2.5rem;
+        text-align: left;
     }
     .contacts-wrapper{
         padding-left: 40px;
@@ -113,11 +110,10 @@
     }
     .projects:hover .brief{
         display: block;
-    }
-    
+    }    
 
 }
-@media (min-width: 1200px) and (max-width: 4160px){
+@media (min-width: 1200px){
     .about-wrapper{
         margin-left: 250px;
         position: absolute;
@@ -141,7 +137,6 @@
     .elementProject,
     .elementContacts{
         height: 100vh;
-        width: 100%;
     }
     .registration-form-wrapper{
         width: 375px;
@@ -155,6 +150,7 @@
     .about-wrapper > h2,
     .project-wrapper h3,
     .contacts-wrapper h3{
+        text-align: left;
         font-size: 2.5rem;
     }
     .contacts-wrapper{
@@ -273,7 +269,6 @@ a i:hover{
     font-family: 'Oswald', sans-serif;
     letter-spacing: 3px;
     font-size: 2rem;
-    text-align: left;
 }
 
 

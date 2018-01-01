@@ -8,7 +8,8 @@
   the grid is built on the Flex which is used by two classes:
   .row (transfer items) and .row-nw(no transferring elements).
    All elements are built with margin 15px. */
-/* * {
+   
+* {
   box-sizing: border-box;
   font-size: 62.5%;
   text-decoration: none;
@@ -16,7 +17,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-} */
+}
 
 .container {
   width: 90%;
@@ -32,6 +33,11 @@
 .row-nw {
   display: flex;
   flex-wrap: nowrap;
+}
+@media (min-width: 320px) {
+  .container {
+    max-width: 280px;
+  }
 }
 @media (min-width: 640px) {
   .container {
@@ -54,6 +60,7 @@
   }
 }
 
+.col-lt-1, .col-lt-2, .col-lt-3, .col-lt-4, .col-lt-5, .col-lt-6, .col-lt-7, .col-lt-8, .col-lt-9, .col-lt-10, .col-lt-11, .col-lt-12,
 .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12,
 .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
 .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12,
@@ -63,6 +70,68 @@
   min-height: 1px;
   margin: 7.5px;
 }
+
+  @media (min-width: 320px) {
+    .col-lt-1 {
+      flex: 0 0 calc(8.3333333333% - 15px);
+      max-width: calc(8.3333333333% - 15px);
+    }
+
+    .col-lt-2 {
+      flex: 0 0 calc(16.6666666667% - 15px);
+      max-width: calc(16.6666666667% - 15px);
+    }
+
+    .col-lt-3 {
+      flex: 0 0 calc(25% - 15px);
+      max-width: calc(25% - 15px);
+    }
+
+    .col-lt-4 {
+      flex: 0 0 calc(33.3333333333% - 15px);
+      max-width: calc(33.3333333333% - 15px);
+    }
+
+    .col-lt-5 {
+      flex: 0 0 calc(41.6666666667% - 15px);
+      max-width: calc(41.6666666667% - 15px);
+    }
+
+    .col-lt-6 {
+      flex: 0 0 calc(50% - 15px);
+      max-width: calc(50% - 15px);
+    }
+
+    .col-lt-7 {
+      flex: 0 0 calc(58.3333333333% - 15px);
+      max-width: calc(58.3333333333% - 15px);
+    }
+
+    .col-lt-8 {
+      flex: 0 0 calc(66.6666666667% - 15px);
+      max-width: calc(66.6666666667% - 15px);
+    }
+
+    .col-lt-9 {
+      flex: 0 0 calc(75% - 15px);
+      max-width: calc(75% - 15px);
+    }
+
+    .col-lt-10 {
+      flex: 0 0 calc(83.3333333333% - 15px);
+      max-width: calc(83.3333333333% - 15px);
+    }
+
+    .col-lt-11 {
+      flex: 0 0 calc(91.6666666667% - 15px);
+      max-width: calc(91.6666666667% - 15px);
+    }
+
+    .col-lt-12 {
+      flex: 0 0 calc(100% - 15px);
+      max-width: calc(100% - 15px);
+    }
+  }
   @media (min-width: 640px) {
     .col-sm-1 {
       flex: 0 0 calc(8.3333333333% - 15px);
@@ -308,7 +377,7 @@
     }
   }
 
-
+  .grid-lt-1, .grid-lt-2, .grid-lt-3, .grid-lt-4, .grid-lt-5, .grid-lt-6, .grid-lt-7, .grid-lt-8, .grid-lt-9, .grid-lt-10,
   .grid-sm-1, .grid-sm-2, .grid-sm-3, .grid-sm-4, .grid-sm-5, .grid-sm-6, .grid-sm-7, .grid-sm-8, .grid-sm-9, .grid-sm-10,
   .grid-md-1, .grid-md-2, .grid-md-3, .grid-md-4, .grid-md-5, .grid-md-6, .grid-md-7, .grid-md-8, .grid-md-9, .grid-md-10,
   .grid-lg-1, .grid-lg-2, .grid-lg-3, .grid-lg-4, .grid-lg-5, .grid-lg-6, .grid-lg-7, .grid-lg-8, .grid-lg-9, .grid-lg-10,
@@ -317,6 +386,57 @@
     width: 100%;
     min-height: 1px;
     margin: 7.5px;
+  }
+  @media (min-width: 320px) {
+    .grid-lt-1 {
+      flex: 0 0 calc(10% - 15px);
+      max-width: calc(10% - 15px);
+    }
+  
+    .grid-lt-2 {
+      flex: 0 0 calc(20% - 15px);
+      max-width: calc(20% - 15px);
+    }
+  
+    .grid-lt-3 {
+      flex: 0 0 calc(30% - 15px);
+      max-width: calc(30% - 15px);
+    }
+  
+    .grid-lt-4 {
+      flex: 0 0 calc(40% - 15px);
+      max-width: calc(40% - 15px);
+    }
+  
+    .grid-lt-5 {
+      flex: 0 0 calc(50% - 15px);
+      max-width: calc(50% - 15px);
+    }
+  
+    .grid-lt-6 {
+      flex: 0 0 calc(60% - 15px);
+      max-width: calc(60% - 15px);
+    }
+  
+    .grid-lt-7 {
+      flex: 0 0 calc(70% - 15px);
+      max-width: calc(70% - 15px);
+    }
+  
+    .grid-lt-8 {
+      flex: 0 0 calc(80% - 15px);
+      max-width: calc(80% - 15px);
+    }
+  
+    .grid-lt-9 {
+      flex: 0 0 calc(90% - 15px);
+      max-width: calc(90% - 15px);
+    }
+  
+    .grid-lt-10 {
+      flex: 0 0 calc(100% - 15px);
+      max-width: calc(100% - 15px);
+    }
   }
   @media (min-width: 640px) {
     .grid-sm-1 {

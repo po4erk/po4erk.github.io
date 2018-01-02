@@ -31,13 +31,10 @@
         display: block;
     }
     .about-wrapper h1,
-    .project-wrapper > h2,
+    .project-wrapper .container > h2,
     .contacts-wrapper > h2{
         line-height: 0.9;
         font-size: 2.5rem;
-    }
-    .project-wrapper > h2{
-        padding-left: 40px;
     }
     .about-wrapper > h2,
     .project-wrapper h3,
@@ -89,7 +86,7 @@
         width: 375px;
     }
     .about-wrapper h1,
-    .project-wrapper > h2,
+    .project-wrapper .container > h2,
     .contacts-wrapper > h2{
         line-height: 0.7;
         font-size: 3rem;
@@ -144,7 +141,7 @@
         width: 375px;
     }
     .about-wrapper h1,
-    .project-wrapper > h2,
+    .project-wrapper .container > h2,
     .contacts-wrapper > h2{
         line-height: 0.7;
         font-size: 3rem;
@@ -254,7 +251,7 @@ a i:hover{
     padding-right: 40px;
 }
 .about-wrapper h1,
-.project-wrapper > h2,
+.project-wrapper .container > h2,
 .contacts-wrapper > h2{
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
@@ -407,7 +404,7 @@ form > div .requirements{
 
 
 
-.project-wrapper h2{
+.project-wrapper .container h2{
     padding-bottom: 20px;
 }
 .projects > a > img{

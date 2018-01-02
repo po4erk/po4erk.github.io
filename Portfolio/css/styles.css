@@ -219,7 +219,8 @@ nav ul li:last-child{
     padding-left: 5px;
 }
 nav ul li a:hover,
-a i:hover{
+a i:hover,
+.btn-slide p:hover{
     color: #f39c12;
 }
 .btn-slide{
@@ -240,10 +241,9 @@ a i:hover{
 .btn-slide p{
     position: relative;
     top: -16px;
+    transition: color 0.5s ease;
 }
-.btn-slide p:hover{
-    color: #f39c12;
-}
+
 
 
 .about-wrapper{

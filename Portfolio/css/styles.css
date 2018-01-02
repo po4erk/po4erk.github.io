@@ -322,8 +322,12 @@ form > div{
 form > div > label{
     opacity: 0.3;
     position: absolute;
-    top: 5px;
+    top: 2px;
     left: 5px;
+}
+label > i{
+    position: relative;
+    padding: 5px;
 }
 form > div > input[type='text'],
 form > div > input[type='tel'],
@@ -351,8 +355,6 @@ form div textarea{
 .registration-form-phone:invalid,
 .registration-form-email:invalid{
     background: no-repeat;
-    background-size: 20px;
-    background-position: 5px 7px;
 }
 .registration-form-name:valid + label,
 .registration-form-phone:valid + label,

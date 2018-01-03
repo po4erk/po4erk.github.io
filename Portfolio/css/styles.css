@@ -50,7 +50,7 @@
     .about-me img{
         display: block;
         margin: 0 auto;
-        width: 196px;
+        width: 100%;
         float: none; 
     }
     .about-me p{
@@ -273,6 +273,11 @@ a i:hover,
 
 .about-me{
     margin-top: 15px;
+}
+.about-me:after{
+    content: '';
+    clear: both;
+    display: table;
 }
 .about-me h2{
     font-family: 'Oswald', sans-serif;

@@ -32,4 +32,9 @@ $(function(){
         $(this).toggleClass("isDown");
         return false;
     });
+    $("img").lazyload({ effect: "fadeIn" });
+            $("a[rel='colorbox']").colorbox({
+                maxWidth: "100%",
+                opacity:"0.9",
+                current: "Site {current} for {total}" });
 });

@@ -172,6 +172,9 @@ body{
     background: url(../images/bg.png);
     overflow-x: hidden;
 }
+a{
+    outline: none;
+}
 
 
 .header-wrapper{

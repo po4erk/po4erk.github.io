@@ -69,7 +69,11 @@
                     <!-- Wrapper with skills in the progress bar and information about yourself in a more detailed view -->
                     <section class="about-me">
                         <h2>About Me</h2>
-                        <img class="main-photo" src="images/photo.jpeg" srcset="images/photo-320.jpeg 1x, 
+                        <!-- The images are adapted for different pixel density:
+                         for 2x, 640px image width is used,
+                          for 3x is 1280px and for 4x is 1920px -->
+                        <img class="main-photo" src="images/photo.jpeg" 
+                                            srcset="images/photo-320.jpeg 1x, 
                                                      images/photo-640.jpeg 2x,
                                                      images/photo-1280.jpeg 3x,
                                                      images/photo-1920.jpeg 4x" alt="MyPhoto">
@@ -143,89 +147,114 @@
                     <div class="container">
                         <h2>My Projects</h2>
                         <div class="row">
+                            <!-- For projected images, the same optimization is used for the pixel density for 2x - 500px width, for 3x - 1000px width, and used lazyload script for display full-screen pictures -->
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
-                                <a rel="colorbox" href="images/sites/1.jpg">
-                                    <img src="images/sites/1.jpg" alt="Site-name">
+                                <a rel="colorbox" href="images/sites/1-1280.jpg">
+                                    <img src="images/sites/min/1min.jpg" srcset="images/sites/min/1min.jpg 1x, 
+                                    images/sites/min/1-500.jpg 2x,
+                                    images/sites/min/1-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>De Cube</h3>
-                                <p class="brief">Brief description...</p>
+                                <p class="brief"><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
-                                <a rel="colorbox" href="images/sites/2.jpg">
-                                    <img src="images/sites/2.jpg" alt="Site-name">
+                                <a rel="colorbox" href="images/sites/2-1280.jpg">
+                                    <img src="images/sites/min/2min.jpg" srcset="images/sites/min/2min.jpg 1x, 
+                                    images/sites/min/2-500.jpg 2x,
+                                    images/sites/min/2-1000.jpg 3x" alt="Site-name">
                                 </a>
-                                <h3>HandyMan</h3>
-                                <p class="brief">Brief description...</p>
+                                <h3>Magelan</h3>
+                                <p class="brief"><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
-                                <a rel="colorbox" href="images/sites/3.jpg">
-                                    <img src="images/sites/3.jpg" alt="Site-name">
-                                </a>
-                                <h3>Portfolio</h3>
-                                <p class="brief">Brief description...</p>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-lt-12 projects">
-                                <a rel="colorbox" href="images/sites/4.jpg">
-                                    <img src="images/sites/4.jpg" alt="Site-name">
-                                </a>
-                                <h3>De Cube</h3>
-                                <p class="brief">Brief description...</p>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-lt-12 projects">
-                                <a rel="colorbox" href="images/sites/5.jpg">
-                                    <img src="images/sites/5.jpg" alt="Site-name">
-                                </a>
-                                <h3>HandyMan</h3>
-                                <p class="brief">Brief description...</p>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-lt-12 projects">
-                                <a rel="colorbox" href="images/sites/6.jpg">
-                                    <img src="images/sites/6.jpg" alt="Site-name">
+                                <a rel="colorbox" href="images/sites/3-1280.jpg">
+                                    <img src="images/sites/min/3min.jpg" srcset="images/sites/min/3min.jpg 1x, 
+                                    images/sites/min/3-500.jpg 2x,
+                                    images/sites/min/3-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>Portfolio</h3>
-                                <p class="brief">Brief description...</p>
+                                <p class="brief"><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
-                                <a rel="colorbox" href="images/sites/7.jpg">
-                                    <img src="images/sites/7.jpg" alt="Site-name">
+                                <a rel="colorbox" href="images/sites/4-1280.jpg">
+                                    <img src="images/sites/min/4min.jpg" srcset="images/sites/min/4min.jpg 1x, 
+                                    images/sites/min/4-500.jpg 2x,
+                                    images/sites/min/4-1000.jpg 3x" alt="Site-name">
                                 </a>
-                                <h3>Portfolio</h3>
-                                <p class="brief">Brief description...</p>
+                                <h3>Decor</h3>
+                                <p class="brief"><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
-                                <a rel="colorbox" href="images/sites/8.jpg">
-                                    <img src="images/sites/8.jpg" alt="Site-name">
+                                <a rel="colorbox" href="images/sites/5-1280.jpg">
+                                    <img src="images/sites/min/5min.jpg" srcset="images/sites/min/5min.jpg 1x, 
+                                    images/sites/min/5-500.jpg 2x,
+                                    images/sites/min/5-1000.jpg 3x" alt="Site-name">
                                 </a>
-                                <h3>De Cube</h3>
-                                <p class="brief">Brief description...</p>
+                                <h3>Wballs</h3>
+                                <p class="brief"><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
-                                <a rel="colorbox" href="images/sites/9.jpg">
-                                    <img src="images/sites/9.jpg" alt="Site-name">
+                                <a rel="colorbox" href="images/sites/6-1280.jpg">
+                                    <img src="images/sites/min/6min.jpg" srcset="images/sites/min/6min.jpg 1x, 
+                                    images/sites/min/6-500.jpg 2x,
+                                    images/sites/min/6-1000.jpg 3x" alt="Site-name">
                                 </a>
-                                <h3>HandyMan</h3>
-                                <p class="brief">Brief description...</p>
+                                <h3>Ounic</h3>
+                                <p class="brief"><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
-                                <a rel="colorbox" href="images/sites/10.jpg">
-                                    <img src="images/sites/10.jpg" alt="Site-name">
+                                <a rel="colorbox" href="images/sites/7-1280.jpg">
+                                    <img src="images/sites/min/7min.jpg" srcset="images/sites/min/7min.jpg 1x, 
+                                    images/sites/min/7-500.jpg 2x,
+                                    images/sites/min/7-1000.jpg 3x" alt="Site-name">
                                 </a>
-                                <h3>Portfolio</h3>
-                                <p class="brief">Brief description...</p>
+                                <h3>Solana</h3>
+                                <p class="brief"><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
-                                <a rel="colorbox" href="images/sites/11.jpg">
-                                    <img src="images/sites/11.jpg" alt="Site-name">
+                                <a rel="colorbox" href="images/sites/8-1280.jpg">
+                                    <img src="images/sites/min/8min.jpg" srcset="images/sites/min/8min.jpg 1x, 
+                                    images/sites/min/8-500.jpg 2x,
+                                    images/sites/min/8-1000.jpg 3x" alt="Site-name">
                                 </a>
-                                <h3>De Cube</h3>
-                                <p class="brief">Brief description...</p>
+                                <h3>Estetico</h3>
+                                <p class="brief"><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
-                                <a rel="colorbox" href="images/sites/12.jpg">
-                                    <img src="images/sites/12.jpg" alt="Site-name">
+                                <a rel="colorbox" href="images/sites/9-1280.jpg">
+                                    <img src="images/sites/min/9min.jpg" srcset="images/sites/min/9min.jpg 1x, 
+                                    images/sites/min/9-500.jpg 2x,
+                                    images/sites/min/9-1000.jpg 3x" alt="Site-name">
                                 </a>
-                                <h3>HandyMan</h3>
-                                <p class="brief">Brief description...</p>
+                                <h3>Arona</h3>
+                                <p class="brief"><a href="#"> Brief description...</a></p>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-lt-12 projects">
+                                <a rel="colorbox" href="images/sites/10-1280.jpg">
+                                    <img src="images/sites/min/10min.jpg" srcset="images/sites/min/10min.jpg 1x, 
+                                    images/sites/min/10-500.jpg 2x,
+                                    images/sites/min/10-1000.jpg 3x" alt="Site-name">
+                                </a>
+                                <h3>Lacco</h3>
+                                <p class="brief"><a href="#"> Brief description...</a></p>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-lt-12 projects">
+                                <a rel="colorbox" href="images/sites/11-1280.jpg">
+                                    <img src="images/sites/min/11min.jpg" srcset="images/sites/min/11min.jpg 1x, 
+                                    images/sites/min/11-500.jpg 2x,
+                                    images/sites/min/11-1000.jpg 3x" alt="Site-name">
+                                </a>
+                                <h3>Interior Design</h3>
+                                <p class="brief"><a href="#"> Brief description...</a></p>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-lt-12 projects">
+                                <a rel="colorbox" href="images/sites/12-1280.jpg">
+                                    <img src="images/sites/min/12min.jpg" srcset="images/sites/min/12min.jpg 1x, 
+                                    images/sites/min/12-500.jpg 2x,
+                                    images/sites/min/12-1000.jpg 3x" alt="Site-name">
+                                </a>
+                                <h3>Joannah Cruz</h3>
+                                <p class="brief"><a href="#"> Brief description...</a></p>
                             </div>
                         </div>
                     </div>
@@ -327,8 +356,7 @@
         $(document).ready(function () {
             $("img").lazyload({ effect: "fadeIn" });
             $("a[rel='colorbox']").colorbox({
-                maxWidth:"100%",
-                maxHeight:"100%",
+                maxWidth: "100%",
                 opacity:"0.9",
                 current: "Сайт {current} из {total}" });
         });

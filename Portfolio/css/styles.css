@@ -207,6 +207,9 @@ nav ul li a,
     font-size: 1.1rem;
     transition: color 0.5s ease;
 }
+nav ul li a:focus{
+    color: #f39c12;
+}
 nav ul li:last-child{
     padding-top: 20px;
     padding-bottom: 20px;
@@ -494,6 +497,10 @@ a i{
     margin-left: 30px; 
     top: -48px;
     position: relative;
+    transition: color 0.5s ease;
+  }
+  .text:hover{
+      color:#fff;
   }
   .svg-wrapper:hover .shape {
     stroke-width: 3px;
@@ -534,9 +541,11 @@ a i{
     margin-top: -100px;
     margin-left: -150px;
     text-align: center;
-    animation: trans 1.85s ease-in 1.8s;
+    animation: trans 1.75s linear 1.9s;
  }
  @keyframes trans{
-    70%{transform: translate(0,0) scale(1);}
-    100%{transform: translate(-187%,-134%) scale(0.6);}
+    50%{transform: translate(0,0) scale(2);}
+    90%{opacity: 1;}
+    100%{transform: translate(-207%,-154%) scale(0.6);
+    opacity: 0;}
 }

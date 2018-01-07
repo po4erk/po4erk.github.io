@@ -31,12 +31,8 @@
                 <div class="logo-wrapper">
                     <svg width="180" viewbox="0 0 75 20">
                         <defs>
-                          <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
-                            <stop offset="5%" stop-color="#f39c12"/>
-                            <stop offset="95%" stop-color="#f39c12"/>
-                          </linearGradient>
-                          <pattern id="wave" x="0" y="2.5" width="130" height="25" patternUnits="userSpaceOnUse">
-                            <path id="wavePath" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" mask="url(#mask)" fill="url(#gradient)"> 
+                          <pattern id="wave" x="0" y="2" width="130" height="35" patternUnits="userSpaceOnUse">
+                            <path id="wavePath" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" mask="url(#mask)" fill="#f39c12"> 
                               <animateTransform
                                   attributeName="transform"
                                   begin="0s"
@@ -48,8 +44,8 @@
                             </path>
                           </pattern>
                         </defs>
-                        <text font-family="Yellowtail" text-anchor="middle" x="35" y="15" font-size="17.138" fill="url(#wave)"  fill-opacity="1">John Smith</text>
-                        <text font-family="Yellowtail" text-anchor="middle" x="35" y="15" font-size="17.138" fill="url(#gradient)" fill-opacity="0.4">John Smith</text>
+                        <text font-family="Yellowtail" text-anchor="middle" x="35" y="15" font-size="17.138" fill="#fff"  fill-opacity="1">John Smith</text>
+                        <text font-family="Yellowtail" text-anchor="middle" x="35" y="15" font-size="17.138" fill="url(#wave)" fill-opacity="1">John Smith</text>
                       </svg>
                     <p class="logo-subscription">A brilliant web-developer portfolio</p>
                 </div>
@@ -163,7 +159,12 @@
             <div class="elementProject">
                 <section class="project-wrapper">
                     <div class="container">
-                        <h2>My Projects</h2>
+                        <div class="svg-wrapper">
+                            <svg height="60" width="260" xmlns="http://www.w3.org/2000/svg">
+                              <rect class="shape" height="60" width="260" />
+                              <h2 class="text">MY PROJECTS</h2>
+                            </svg>
+                          </div>
                         <div class="row">
                             <!-- For projected images, the same optimization is used for the pixel density for 2x - 500px width, for 3x - 1000px width, and used lazyload script for display full-screen pictures -->
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
@@ -173,7 +174,7 @@
                                     images/sites/min/1-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>De Cube</h3>
-                                <p class="brief"><a href="#"> Brief description...</a></p>
+                                <p class="brief"><i class="fa fa-search" aria-hidden="true"></i><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/2.jpg">
@@ -182,7 +183,7 @@
                                     images/sites/min/2-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>Magelan</h3>
-                                <p class="brief"><a href="#"> Brief description...</a></p>
+                                <p class="brief"><i class="fa fa-search" aria-hidden="true"></i><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/3.jpg">
@@ -191,7 +192,7 @@
                                     images/sites/min/3-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>Portfolio</h3>
-                                <p class="brief"><a href="#"> Brief description...</a></p>
+                                <p class="brief"><i class="fa fa-search" aria-hidden="true"></i><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/4.jpg">
@@ -200,7 +201,7 @@
                                     images/sites/min/4-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>Decor</h3>
-                                <p class="brief"><a href="#"> Brief description...</a></p>
+                                <p class="brief"><i class="fa fa-search" aria-hidden="true"></i><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/5.jpg">
@@ -209,7 +210,7 @@
                                     images/sites/min/5-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>Wballs</h3>
-                                <p class="brief"><a href="#"> Brief description...</a></p>
+                                <p class="brief"><i class="fa fa-search" aria-hidden="true"></i><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/6.jpg">
@@ -218,7 +219,7 @@
                                     images/sites/min/6-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>Ounic</h3>
-                                <p class="brief"><a href="#"> Brief description...</a></p>
+                                <p class="brief"><i class="fa fa-search" aria-hidden="true"></i><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/7.jpg">
@@ -227,7 +228,7 @@
                                     images/sites/min/7-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>Solana</h3>
-                                <p class="brief"><a href="#"> Brief description...</a></p>
+                                <p class="brief"><i class="fa fa-search" aria-hidden="true"></i><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/8.jpg">
@@ -236,7 +237,7 @@
                                     images/sites/min/8-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>Estetico</h3>
-                                <p class="brief"><a href="#"> Brief description...</a></p>
+                                <p class="brief"><i class="fa fa-search" aria-hidden="true"></i><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/9.jpg">
@@ -245,7 +246,7 @@
                                     images/sites/min/9-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>Arona</h3>
-                                <p class="brief"><a href="#"> Brief description...</a></p>
+                                <p class="brief"><i class="fa fa-search" aria-hidden="true"></i><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/10.jpg">
@@ -254,7 +255,7 @@
                                     images/sites/min/10-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>Lacco</h3>
-                                <p class="brief"><a href="#"> Brief description...</a></p>
+                                <p class="brief"><i class="fa fa-search" aria-hidden="true"></i><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/11.jpg">
@@ -263,7 +264,7 @@
                                     images/sites/min/11-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>Interior Design</h3>
-                                <p class="brief"><a href="#"> Brief description...</a></p>
+                                <p class="brief"><i class="fa fa-search" aria-hidden="true"></i><a href="#"> Brief description...</a></p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/12.jpg">
@@ -272,7 +273,7 @@
                                     images/sites/min/12-1000.jpg 3x" alt="Site-name">
                                 </a>
                                 <h3>Joannah Cruz</h3>
-                                <p class="brief"><a href="#"> Brief description...</a></p>
+                                <p class="brief"><i class="fa fa-search" aria-hidden="true"></i><a href="#"> Brief description...</a></p>
                             </div>
                         </div>
                     </div>

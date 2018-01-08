@@ -191,6 +191,11 @@ a {
     outline: none;
 }
 
+
+
+
+
+
 .header-wrapper {
     position: fixed;
     height: 100%;
@@ -271,6 +276,11 @@ nav ul li a:hover, a i:hover, .btn-slide p:hover {
     transition: color 0.5s ease;
 }
 
+
+
+
+
+
 .about-wrapper {
     padding-left: 40px;
     padding-right: 40px;
@@ -325,6 +335,10 @@ nav ul li a:hover, a i:hover, .btn-slide p:hover {
 .contacts-wrapper p {
     width: 70%;
 }
+
+
+
+
 
 .registration-form-wrapper {
     margin-top: 15px;
@@ -425,6 +439,10 @@ form>div .requirements {
 .registration-form-send:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 1);
 }
+
+
+
+
 
 .projects {
     animation: bouncing 2s ease-in-out infinite alternate both;
@@ -571,6 +589,10 @@ form>div .requirements {
     margin-top: -10px;
     color: #f39c12;
 }
+
+
+
+
 
 footer {
     position: fixed;

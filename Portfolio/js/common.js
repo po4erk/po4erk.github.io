@@ -39,6 +39,6 @@ $(function () {
         current: "Site {current} for {total}"
     });
     $(window).load(function () {
-        $(".loader").delay(2000).fadeOut("slow");
+        $(".loader").delay(2000).fadeOut(1200);
     });
 });

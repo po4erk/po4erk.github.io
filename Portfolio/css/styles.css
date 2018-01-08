@@ -1,187 +1,197 @@
-*{
+* {
     margin: 0;
     padding: 0;
     border: none;
     text-decoration: none;
     list-style-type: none;
     color: white;
-   
 }
+
+.loader {
+    background: none repeat scroll 0 0 #202020;
+    bottom: 0;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100vw;
+    z-index: 9999;
+}
+
+.loader_wrapper {
+    height: 100%;
+    width: 100%;
+    margin-top: 0px;
+    margin-left: 0px;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
+.loader svg {
+    height: 200px;
+    width: 300px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    margin-top: -100px;
+    margin-left: -150px;
+    text-align: center;
+}
+
 @media (max-width: 640px) {
-    header,
-    footer,
-    .social-wrapper {
+    header, footer, .social-wrapper {
         display: none;
     }
-    .about-wrapper,
-    .contacts-wrapper{
+    .about-wrapper, .contacts-wrapper {
         margin-left: 0;
     }
-    .project-wrapper{
+    .project-wrapper {
         margin: 0 auto;
     }
-    .projects{
+    .projects {
         text-align: center;
     }
-    .projects h3{
+    .projects h3 {
         padding: 5px;
     }
-    .elementProject,
-    .elementContacts{
+    .elementProject, .elementContacts {
         display: block;
     }
-    .about-wrapper h1,
-    .text,
-    .contacts-wrapper > h2{
+    .about-wrapper h1, .text, .contacts-wrapper>h2 {
         line-height: 0.9;
         font-size: 2.5rem;
     }
-    .about-wrapper > h2,
-    .project-wrapper h3,
-    .contacts-wrapper h3{
+    .about-wrapper>h2, .project-wrapper h3, .contacts-wrapper h3 {
         font-size: 2rem;
         line-height: 0.95;
-        
     }
-    .contacts-wrapper{
+    .contacts-wrapper {
         width: 95%;
         margin: 0 auto;
     }
-    .about-me img{
+    .about-me img {
         display: block;
         margin: 0 auto;
         width: 100%;
-        float: none; 
+        float: none;
     }
-    .about-me p{
+    .about-me p {
         padding-top: 5%;
     }
 }
+
 @media (min-width: 641px) and (max-width: 1199px) {
-    .about-wrapper{
+    .about-wrapper {
         margin-left: 235px;
         position: absolute;
         height: 100vh;
     }
-    .project-wrapper{
+    .project-wrapper {
         margin-left: 270px;
         position: absolute;
         height: 100vh;
     }
-    .contacts-wrapper{
+    .contacts-wrapper {
         margin-left: 300px;
         position: absolute;
         height: 100vh;
     }
-    .elementProject,
-    .elementContacts{
+    .elementProject, .elementContacts {
         display: none;
     }
-    .elementAbout,
-    .elementProject,
-    .elementContacts{
+    .elementAbout, .elementProject, .elementContacts {
         height: 100vh;
     }
-    .registration-form-wrapper{
+    .registration-form-wrapper {
         width: 375px;
     }
-    .about-wrapper h1,
-    .text,
-    .contacts-wrapper > h2{
+    .about-wrapper h1, .text, .contacts-wrapper>h2 {
         line-height: 0.7;
         font-size: 2.5rem;
     }
-    .about-wrapper > h2,
-    .project-wrapper h3,
-    .contacts-wrapper h3{
+    .about-wrapper>h2, .project-wrapper h3, .contacts-wrapper h3 {
         font-size: 2.5rem;
         text-align: left;
     }
-    .contacts-wrapper{
+    .contacts-wrapper {
         padding-left: 40px;
     }
-    .project-wrapper{
+    .project-wrapper {
         width: 75%;
     }
-    .about-me > img{
+    .about-me>img {
         float: left;
-        padding-right: 20px; 
+        padding-right: 20px;
     }
-    .projects:hover .brief{
+    .projects:hover .brief {
         opacity: 0.85;
         width: 240px;
         font-size: 1.2rem;
-    }   
-
+    }
 }
-@media (min-width: 1200px){
-    .about-wrapper{
+
+@media (min-width: 1200px) {
+    .about-wrapper {
         margin-left: 250px;
         position: absolute;
         height: 100vh;
     }
-    .project-wrapper{
+    .project-wrapper {
         margin-left: 300px;
         position: absolute;
         height: 100vh;
     }
-    .contacts-wrapper{
+    .contacts-wrapper {
         margin-left: 300px;
         position: absolute;
         height: 100vh;
     }
-    .elementProject,
-    .elementContacts{
+    .elementProject, .elementContacts {
         display: none;
     }
-    .elementAbout,
-    .elementProject,
-    .elementContacts{
+    .elementAbout, .elementProject, .elementContacts {
         height: 100vh;
     }
-    .registration-form-wrapper{
+    .registration-form-wrapper {
         width: 375px;
     }
-    .about-wrapper h1,
-    .text,
-    .contacts-wrapper > h2{
+    .about-wrapper h1, .text, .contacts-wrapper>h2 {
         line-height: 0.7;
         font-size: 2.5rem;
     }
-    .about-wrapper > h2,
-    .project-wrapper h3,
-    .contacts-wrapper h3{
+    .about-wrapper>h2, .project-wrapper h3, .contacts-wrapper h3 {
         text-align: left;
         font-size: 2.5rem;
     }
-    .contacts-wrapper{
+    .contacts-wrapper {
         padding-left: 40px;
     }
-    .project-wrapper{
+    .project-wrapper {
         width: 75%;
     }
-    .about-me > img{
+    .about-me>img {
         float: left;
-        padding-right: 20px; 
+        padding-right: 20px;
     }
-    .projects:hover .brief{
+    .projects:hover .brief {
         opacity: 0.85;
         width: 240px;
         font-size: 1.2rem;
     }
-    
 }
 
-body{
+body {
     background: url(../images/bg.png);
     overflow-x: hidden;
 }
-a{
+
+a {
     outline: none;
 }
 
-
-.header-wrapper{
+.header-wrapper {
     position: fixed;
     height: 100%;
     max-width: 200px;
@@ -192,29 +202,34 @@ a{
     padding-left: 30px;
     padding-right: 30px;
 }
-.logo-subscription{
+
+.logo-subscription {
     font-family: 'Open Sans', sans-serif;
     font-size: 0.65rem;
 }
-nav{
+
+nav {
     margin-top: 45px;
     margin-bottom: 20px;
 }
-nav ul li a,
-.social-wrapper h2{
+
+nav ul li a, .social-wrapper h2 {
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
     font-size: 1.1rem;
     transition: color 0.5s ease;
 }
-nav ul li a:focus{
+
+nav ul li a:focus {
     color: #f39c12;
 }
-nav ul li:last-child{
+
+nav ul li:last-child {
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.arrow{
+
+.arrow {
     transform: rotate(-90deg);
     width: 30px;
     height: 30px;
@@ -222,19 +237,20 @@ nav ul li:last-child{
     top: 35px;
     left: -90px;
 }
-.developing{
+
+.developing {
     position: relative;
     left: 30px;
     color: rgb(150, 0, 0);
     text-shadow: 0px 0px 5px rgb(0, 0, 0);
     padding-left: 5px;
 }
-nav ul li a:hover,
-a i:hover,
-.btn-slide p:hover{
+
+nav ul li a:hover, a i:hover, .btn-slide p:hover {
     color: #f39c12;
 }
-.btn-slide{
+
+.btn-slide {
     position: fixed;
     top: 50%;
     margin-left: 220px;
@@ -248,21 +264,19 @@ a i:hover,
     font-size: 2rem;
     text-align: center;
 }
-.btn-slide p{
+
+.btn-slide p {
     position: relative;
     top: -16px;
     transition: color 0.5s ease;
 }
 
-
-
-.about-wrapper{
+.about-wrapper {
     padding-left: 40px;
     padding-right: 40px;
 }
-.about-wrapper h1,
-.project-wrapper .container > h2,
-.contacts-wrapper > h2{
+
+.about-wrapper h1, .project-wrapper .container>h2, .contacts-wrapper>h2 {
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
     letter-spacing: 3px;
@@ -270,123 +284,120 @@ a i:hover,
     padding-top: 40px;
     color: #f39c12;
 }
-.about-wrapper > h2,
-.project-wrapper h3,
-.contacts-wrapper h3{
+
+.about-wrapper>h2, .project-wrapper h3, .contacts-wrapper h3 {
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
     letter-spacing: 3px;
     font-size: 2rem;
 }
 
-
-
-.about-me{
+.about-me {
     margin-top: 15px;
 }
-.about-me:after{
+
+.about-me:after {
     content: '';
     clear: both;
     display: table;
 }
-.about-me h2{
+
+.about-me h2 {
     font-family: 'Oswald', sans-serif;
     letter-spacing: 2px;
     padding-left: 10px;
     padding-bottom: 20px;
 }
-.about-me p{
+
+.about-me p {
     margin-right: 10px;
 }
 
-
-
-.skills{
+.skills {
     margin-top: 5%;
 }
-.skills h2{
+
+.skills h2 {
     font-family: 'Oswald', sans-serif;
     letter-spacing: 2px;
 }
 
-
-
-
-.contacts-wrapper p{
+.contacts-wrapper p {
     width: 70%;
 }
-.registration-form-wrapper{
+
+.registration-form-wrapper {
     margin-top: 15px;
 }
-.registration-form{
+
+.registration-form {
     height: 35px;
     margin-bottom: 15px;
     font-size: 1.3em;
 }
-textarea{
+
+textarea {
     background: #202020;
     resize: none;
 }
-form > div{
+
+form>div {
     position: relative;
 }
-input{
+
+input {
     background: #202020;
 }
-form > div > label{
+
+form>div>label {
     opacity: 0.3;
     position: absolute;
     top: 2px;
     left: 5px;
 }
-label > i{
+
+label>i {
     position: relative;
     padding: 5px;
 }
-form > div > input[type='text'],
-form > div > input[type='tel'],
-form > div > input[type='email'],
-form div textarea{
+
+form>div>input[type='text'], form>div>input[type='tel'], form>div>input[type='email'], form div textarea {
     width: 100%;
     border: 0;
     padding: 10px 10px 10px 30px;
     box-sizing: border-box;
     outline: 0;
 }
-.registration-form-name:focus + label,
-.registration-form-phone:focus + label,
-.registration-form-email:focus + label{
+
+.registration-form-name:focus+label, .registration-form-phone:focus+label, .registration-form-email:focus+label {
     opacity: 0;
 }
-.registration-form-name:valid,
-.registration-form-phone:valid,
-.registration-form-email:valid{
+
+.registration-form-name:valid, .registration-form-phone:valid, .registration-form-email:valid {
     background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg) no-repeat;
     background-size: 20px;
     background-position: 5px 7px;
 }
-.registration-form-name:valid + label,
-.registration-form-phone:valid + label,
-.registration-form-email:valid + label{
+
+.registration-form-name:valid+label, .registration-form-phone:valid+label, .registration-form-email:valid+label {
     opacity: 0;
 }
-form > div > input[type='text']:invalid:not(:focus):not(:placeholder-shown),
-form > div > input[type='tel']:invalid:not(:focus):not(:placeholder-shown),
-form > div > input[type='email']:invalid:not(:focus):not(:placeholder-shown){
+
+form>div>input[type='text']:invalid:not(:focus):not(:placeholder-shown), form>div>input[type='tel']:invalid:not(:focus):not(:placeholder-shown), form>div>input[type='email']:invalid:not(:focus):not(:placeholder-shown) {
     background-color: #f39c12;
     height: 35px;
 }
-form > div > input[type='text']:invalid:not(:focus):not(:placeholder-shown) + label,
-form > div > input[type='tel']:invalid:not(:focus):not(:placeholder-shown) + label,
-form > div > input[type='email']:invalid:not(:focus):not(:placeholder-shown) + label{
+
+form>div>input[type='text']:invalid:not(:focus):not(:placeholder-shown)+label, form>div>input[type='tel']:invalid:not(:focus):not(:placeholder-shown)+label, form>div>input[type='email']:invalid:not(:focus):not(:placeholder-shown)+label {
     opacity: 0;
 }
-form > div > input[type='email']:invalid:not(:focus):not(:placeholder-shown) ~ .requirements,
-form > div > input[type='tel']:invalid:not(:focus):not(:placeholder-shown) ~ .requirements{
+
+form>div>input[type='email']:invalid:not(:focus):not(:placeholder-shown)~.requirements, form>div>input[type='tel']:invalid:not(:focus):not(:placeholder-shown)~.requirements {
     max-height: 200px;
     padding: 0 30px 0px 50px;
 }
-form > div .requirements{
+
+form>div .requirements {
     position: relative;
     z-index: 1;
     color: red;
@@ -395,9 +406,10 @@ form > div .requirements{
     -webkit-transition: 0.28s;
     -moz-transition: 0.28s;
     transition: 0.28s;
-    overflow: hidden; 
+    overflow: hidden;
 }
-.registration-form-send{
+
+.registration-form-send {
     margin-top: 160px;
     margin-bottom: 20px;
     height: 45px;
@@ -409,68 +421,137 @@ form > div .requirements{
     font-size: 1.2rem;
     cursor: pointer;
 }
-.registration-form-send:hover{
-    box-shadow: 0 0 15px rgba(0,0,0,1);
+
+.registration-form-send:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 1);
 }
 
-
-
-
-
-.projects{
+.projects {
     animation: bouncing 2s ease-in-out infinite alternate both;
 }
-.projects:nth-child(2){
+
+.projects:nth-child(2) {
     animation-delay: .4s;
 }
-.projects:nth-child(3){
+
+.projects:nth-child(3) {
     animation-delay: .3s;
 }
-.projects:nth-child(4){
+
+.projects:nth-child(4) {
     animation-delay: .6s;
 }
-.projects:nth-child(5){
+
+.projects:nth-child(5) {
     animation-delay: .2s;
 }
-.projects:nth-child(6){
+
+.projects:nth-child(6) {
     animation-delay: .7s;
 }
-.projects:nth-child(7){
+
+.projects:nth-child(7) {
     animation-delay: .3s;
 }
-.projects:nth-child(8){
+
+.projects:nth-child(8) {
     animation-delay: .5s;
 }
-.projects:nth-child(9){
+
+.projects:nth-child(9) {
     animation-delay: .6s;
 }
-.projects:nth-child(10){
+
+.projects:nth-child(10) {
     animation-delay: .4s;
 }
-.projects:nth-child(11){
+
+.projects:nth-child(11) {
     animation-delay: .3s;
 }
-.projects:nth-child(12){
+
+.projects:nth-child(12) {
     animation-delay: .1s;
 }
+
 @keyframes bouncing {
-    0% { transform: translateY(-5px); }
- 100% { transform: translateY(5px); }
-   }
-.projects > a > .projects-svg-wrapper > img{
+    0% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+.projects>a>.projects-svg-wrapper>img {
     position: relative;
     width: 250px;
     height: 300px;
-    box-shadow: 4px 6px 16px 2px rgba(0,0,0,0.75);
+    box-shadow: 4px 6px 16px 2px rgba(0, 0, 0, 0.75);
     transition: all 0.5s;
     border: #000 solid 1px;
 }
-.projects h3{
+
+.projects-svg-wrapper svg {
+    margin-left: -3px;
+    margin-top: -2px;
+    position: absolute;
+    z-index: -1;
+}
+
+.projects-shape {
+    stroke-dasharray: 140 640;
+    stroke-dashoffset: -354;
+    stroke-width: 9px;
+    fill: transparent;
+    stroke: #f39c12;
+    stroke-linecap: round;
+    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+
+.projects-svg-wrapper:hover .projects-shape {
+    stroke-width: 5px;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 1160;
+}
+
+.projects h3 {
     font-family: 'Oswald', sans-serif;
     color: #f39c12;
     font-size: 1.1rem;
 }
-.brief{
+
+.shape {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -354;
+    stroke-width: 9px;
+    fill: transparent;
+    stroke: #f39c12;
+    stroke-linecap: round;
+    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+
+.text {
+    font-family: 'Oswald', sans-serif;
+    color: #f39c12;
+    margin-left: 30px;
+    top: -48px;
+    position: relative;
+    transition: color 0.5s ease;
+}
+
+.text:hover {
+    color: #fff;
+}
+
+.svg-wrapper:hover .shape {
+    stroke-width: 3px;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 760;
+    stroke-linecap: round;
+}
+
+.brief {
     position: absolute;
     transition: all .5s;
     background: #000;
@@ -485,117 +566,38 @@ form > div .requirements{
     border-radius: 5px 45px 5px 0px;
     font-family: 'Oswald', sans-serif;
 }
-.brief i{
-    margin-top: -10px; 
+
+.brief i {
+    margin-top: -10px;
     color: #f39c12;
 }
 
-
-footer{
+footer {
     position: fixed;
     bottom: 15px;
     padding-left: 30px;
     z-index: 1;
 }
-.social-wrapper h2{
+
+.social-wrapper h2 {
     font-size: 1.2rem;
     padding-bottom: 10px;
 }
-.contacts-social-wrapper{
+
+.contacts-social-wrapper {
     font-size: 1.7rem;
     margin-top: 5px;
     margin-bottom: -20px;
 }
-a i{
+
+a i {
     padding-right: 10px;
     padding-bottom: 20px;
     transition: color 0.5s ease;
 }
 
-
 .svg-wrapper {
     position: relative;
     top: 20px;
-    width: 260px;  
-  }
-  .shape {
-    stroke-dasharray: 140 540;
-    stroke-dashoffset: -354;
-    stroke-width: 9px;
-    fill: transparent;
-    stroke: #f39c12;
-    stroke-linecap: round;
-    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
-  }
-  .text {
-    font-family: 'Oswald', sans-serif;
-    color: #f39c12;
-    margin-left: 30px; 
-    top: -48px;
-    position: relative;
-    transition: color 0.5s ease;
-  }
-  .text:hover{
-      color:#fff;
-  }
-  .svg-wrapper:hover .shape {
-    stroke-width: 3px;
-    stroke-dashoffset: 0;
-    stroke-dasharray: 760;
-    stroke-linecap: round;
-  }
-
-  .projects-svg-wrapper svg{
-      margin-left: -3px;
-      margin-top: -2px;
-      position: absolute;
-      z-index: -1;
-  }
-  .projects-shape {
-    stroke-dasharray: 140 640;
-    stroke-dashoffset: -354;
-    stroke-width: 9px;
-    fill: transparent;
-    stroke: #f39c12;
-    stroke-linecap: round;
-    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
-  }
-  .projects-svg-wrapper:hover .projects-shape {
-    stroke-width: 5px;
-    stroke-dashoffset: 0;
-    stroke-dasharray: 1160;
-  }
-
-  .loader {
-    background: none repeat scroll 0 0 #202020;
-    bottom: 0;
-    height: 100vh;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 100vw;
-    z-index: 9999;
- }
-  
-  .loader_wrapper {
-    height: 100%;
-    width: 100%;
-    margin-top: 0px;
-    margin-left: 0px;
-    left: 0;
-    top: 0;
-    position: absolute;
- }
-
-
- .loader svg{
-    height: 200px;
-    width: 300px;
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    margin-top: -100px;
-    margin-left: -150px;
-    text-align: center;
- }
+    width: 260px;
+}

@@ -25,11 +25,19 @@
 <body>
     <div class="loader">
         <div class="loader_wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="178px" height="44px">
-                <text font-family="Yellowtail" fill="rgb(243, 156, 18)" transform="matrix( 2.81974391123126, 0, 0, 2.81974391123126,0.3712192541345, 31.4066656878675)"
-                    font-size="15.138px">John&#32;Smith</text>
+            <svg width="180" viewbox="0 0 75 20">
+                <defs>
+                    <pattern id="wave" x="0" y="2" width="130" height="35" patternUnits="userSpaceOnUse">
+                        <path id="wavePath" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" mask="url(#mask)" fill="#f39c12">
+                            <animateTransform attributeName="transform" begin="0s" dur="1.5s" type="translate" from="0,0" to="40,0" repeatCount="indefinite"
+                            />
+                        </path>
+                    </pattern>
+                </defs>
+                <text font-family="Yellowtail" text-anchor="middle" x="35" y="15" font-size="17.138" fill="#fff" fill-opacity="1">John Smith</text>
+                <text font-family="Yellowtail" text-anchor="middle" x="35" y="15" font-size="17.138" fill="url(#wave)" fill-opacity="1">John Smith</text>
             </svg>
-    </div>
+        </div>
         <div class="loader_inner"></div>
     </div>
     <!-- Create a wrapper for possible further alignment of the website -->
@@ -38,18 +46,10 @@
         <header>
             <div class="header-wrapper slide">
                 <div class="logo-wrapper">
-                        <svg width="180" viewbox="0 0 75 20">
-                                <defs>
-                                    <pattern id="wave" x="0" y="2" width="130" height="35" patternUnits="userSpaceOnUse">
-                                        <path id="wavePath" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" mask="url(#mask)" fill="#f39c12">
-                                            <animateTransform attributeName="transform" begin="0s" dur="1.5s" type="translate" from="0,0" to="40,0" repeatCount="indefinite"
-                                            />
-                                        </path>
-                                    </pattern>
-                                </defs>
-                                <text font-family="Yellowtail" text-anchor="middle" x="35" y="15" font-size="17.138" fill="#fff" fill-opacity="1">John Smith</text>
-                                <text font-family="Yellowtail" text-anchor="middle" x="35" y="15" font-size="17.138" fill="url(#wave)" fill-opacity="1">John Smith</text>
-                            </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="178px" height="44px">
+                        <text font-family="Yellowtail" fill="rgb(243, 156, 18)" transform="matrix( 2.81974391123126, 0, 0, 2.81974391123126,0.3712192541345, 31.4066656878675)"
+                            font-size="15.138px">John&#32;Smith</text>
+                    </svg>
                     <p class="logo-subscription">A brilliant web-developer portfolio</p>
                 </div>
                 <nav>
@@ -171,146 +171,206 @@
                             <!-- For projected images, the same optimization is used for the pixel density for 2x - 500px width, for 3x - 1000px width, and used lazyload script for display full-screen pictures -->
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/1.jpg">
-                                    <img src="images/sites/min/1min.jpg" srcset="images/sites/min/1min.jpg 1x, 
+                                    <div class="projects-svg-wrapper">
+                                        <svg height="307" width="259" xmlns="http://www.w3.org/2000/svg">
+                                            <rect class="projects-shape" height="307" width="259" />
+                                            <img class="img" src="images/sites/min/1min.jpg" srcset="images/sites/min/1min.jpg 1x, 
                                     images/sites/min/1-500.jpg 2x,
                                     images/sites/min/1-1000.jpg 3x" alt="Site-name">
+                                        </svg>
+                                    </div>
                                 </a>
                                 <h3>De Cube</h3>
                                 <p class="brief">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <a href="#"> Brief description...</a>
+                                    <i class="fa fa-share" aria-hidden="true"></i>
+                                    <a href="#"> Visit to site...</a>
                                 </p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/2.jpg">
+                                    <div class="projects-svg-wrapper">
+                                            <svg height="307" width="259" xmlns="http://www.w3.org/2000/svg">
+                                                <rect class="projects-shape" height="307" width="259" />
                                     <img src="images/sites/min/2min.jpg" srcset="images/sites/min/2min.jpg 1x, 
                                     images/sites/min/2-500.jpg 2x,
                                     images/sites/min/2-1000.jpg 3x" alt="Site-name">
+                                </svg>
+                            </div>
                                 </a>
                                 <h3>Magelan</h3>
                                 <p class="brief">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <a href="#"> Brief description...</a>
+                                    <i class="fa fa-share" aria-hidden="true"></i>
+                                    <a href="#"> Visit to site...</a>
                                 </p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/3.jpg">
+                                    <div class="projects-svg-wrapper">
+                                            <svg height="307" width="259" xmlns="http://www.w3.org/2000/svg">
+                                                <rect class="projects-shape" height="307" width="259" />
                                     <img src="images/sites/min/3min.jpg" srcset="images/sites/min/3min.jpg 1x, 
                                     images/sites/min/3-500.jpg 2x,
                                     images/sites/min/3-1000.jpg 3x" alt="Site-name">
+                                </svg>
+                            </div>
                                 </a>
                                 <h3>Portfolio</h3>
                                 <p class="brief">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <a href="#"> Brief description...</a>
+                                    <i class="fa fa-share" aria-hidden="true"></i>
+                                    <a href="#"> Visit to site...</a>
                                 </p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/4.jpg">
+                                    <div class="projects-svg-wrapper">
+                                            <svg height="307" width="259" xmlns="http://www.w3.org/2000/svg">
+                                                <rect class="projects-shape" height="307" width="259" />
                                     <img src="images/sites/min/4min.jpg" srcset="images/sites/min/4min.jpg 1x, 
                                     images/sites/min/4-500.jpg 2x,
                                     images/sites/min/4-1000.jpg 3x" alt="Site-name">
+                                </svg>
+                            </div>
                                 </a>
                                 <h3>Decor</h3>
                                 <p class="brief">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <a href="#"> Brief description...</a>
+                                    <i class="fa fa-share" aria-hidden="true"></i>
+                                    <a href="#"> Visit to site...</a>
                                 </p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/5.jpg">
+                                    <div class="projects-svg-wrapper">
+                                            <svg height="307" width="259" xmlns="http://www.w3.org/2000/svg">
+                                                <rect class="projects-shape" height="307" width="259" />
                                     <img src="images/sites/min/5min.jpg" srcset="images/sites/min/5min.jpg 1x, 
                                     images/sites/min/5-500.jpg 2x,
                                     images/sites/min/5-1000.jpg 3x" alt="Site-name">
+                                </svg>
+                            </div>
                                 </a>
                                 <h3>Wballs</h3>
                                 <p class="brief">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <a href="#"> Brief description...</a>
+                                    <i class="fa fa-share" aria-hidden="true"></i>
+                                    <a href="#"> Visit to site...</a>
                                 </p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/6.jpg">
+                                    <div class="projects-svg-wrapper">
+                                            <svg height="307" width="259" xmlns="http://www.w3.org/2000/svg">
+                                                <rect class="projects-shape" height="307" width="259" />
                                     <img src="images/sites/min/6min.jpg" srcset="images/sites/min/6min.jpg 1x, 
                                     images/sites/min/6-500.jpg 2x,
                                     images/sites/min/6-1000.jpg 3x" alt="Site-name">
+                                </svg>
+                            </div>
                                 </a>
                                 <h3>Ounic</h3>
                                 <p class="brief">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <a href="#"> Brief description...</a>
+                                    <i class="fa fa-share" aria-hidden="true"></i>
+                                    <a href="#"> Visit to site...</a>
                                 </p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/7.jpg">
+                                    <div class="projects-svg-wrapper">
+                                            <svg height="307" width="259" xmlns="http://www.w3.org/2000/svg">
+                                                <rect class="projects-shape" height="307" width="259" />
                                     <img src="images/sites/min/7min.jpg" srcset="images/sites/min/7min.jpg 1x, 
                                     images/sites/min/7-500.jpg 2x,
                                     images/sites/min/7-1000.jpg 3x" alt="Site-name">
+                                </svg>
+                            </div>
                                 </a>
                                 <h3>Solana</h3>
                                 <p class="brief">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <a href="#"> Brief description...</a>
+                                    <i class="fa fa-share" aria-hidden="true"></i>
+                                    <a href="#"> Visit to site...</a>
                                 </p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/8.jpg">
+                                    <div class="projects-svg-wrapper">
+                                            <svg height="307" width="259" xmlns="http://www.w3.org/2000/svg">
+                                                <rect class="projects-shape" height="307" width="259" />
                                     <img src="images/sites/min/8min.jpg" srcset="images/sites/min/8min.jpg 1x, 
                                     images/sites/min/8-500.jpg 2x,
                                     images/sites/min/8-1000.jpg 3x" alt="Site-name">
+                                </svg>
+                            </div>
                                 </a>
                                 <h3>Estetico</h3>
                                 <p class="brief">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <a href="#"> Brief description...</a>
+                                    <i class="fa fa-share" aria-hidden="true"></i>
+                                    <a href="#"> Visit to site...</a>
                                 </p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/9.jpg">
+                                    <div class="projects-svg-wrapper">
+                                            <svg height="307" width="259" xmlns="http://www.w3.org/2000/svg">
+                                                <rect class="projects-shape" height="307" width="259" />
                                     <img src="images/sites/min/9min.jpg" srcset="images/sites/min/9min.jpg 1x, 
                                     images/sites/min/9-500.jpg 2x,
                                     images/sites/min/9-1000.jpg 3x" alt="Site-name">
+                                </svg>
+                            </div>
                                 </a>
                                 <h3>Arona</h3>
                                 <p class="brief">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <a href="#"> Brief description...</a>
+                                    <i class="fa fa-share" aria-hidden="true"></i>
+                                    <a href="#"> Visit to site...</a>
                                 </p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/10.jpg">
+                                    <div class="projects-svg-wrapper">
+                                            <svg height="307" width="259" xmlns="http://www.w3.org/2000/svg">
+                                                <rect class="projects-shape" height="307" width="259" />
                                     <img src="images/sites/min/10min.jpg" srcset="images/sites/min/10min.jpg 1x, 
                                     images/sites/min/10-500.jpg 2x,
                                     images/sites/min/10-1000.jpg 3x" alt="Site-name">
+                                </svg>
+                            </div>
                                 </a>
                                 <h3>Lacco</h3>
                                 <p class="brief">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <a href="#"> Brief description...</a>
+                                    <i class="fa fa-share" aria-hidden="true"></i>
+                                    <a href="#"> Visit to site...</a>
                                 </p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/11.jpg">
+                                    <div class="projects-svg-wrapper">
+                                            <svg height="307" width="259" xmlns="http://www.w3.org/2000/svg">
+                                                <rect class="projects-shape" height="307" width="259" />
                                     <img src="images/sites/min/11min.jpg" srcset="images/sites/min/11min.jpg 1x, 
                                     images/sites/min/11-500.jpg 2x,
                                     images/sites/min/11-1000.jpg 3x" alt="Site-name">
+                                </svg>
+                            </div>
                                 </a>
                                 <h3>Interior Design</h3>
                                 <p class="brief">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <a href="#"> Brief description...</a>
+                                    <i class="fa fa-share" aria-hidden="true"></i>
+                                    <a href="#"> Visit to site...</a>
                                 </p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-lt-12 projects">
                                 <a rel="colorbox" href="images/sites/12.jpg">
+                                    <div class="projects-svg-wrapper">
+                                            <svg height="307" width="259" xmlns="http://www.w3.org/2000/svg">
+                                                <rect class="projects-shape" height="307" width="259" />
                                     <img src="images/sites/min/12min.jpg" srcset="images/sites/min/12min.jpg 1x, 
                                     images/sites/min/12-500.jpg 2x,
                                     images/sites/min/12-1000.jpg 3x" alt="Site-name">
+                                </svg>
+                            </div>
                                 </a>
                                 <h3>Joannah Cruz</h3>
                                 <p class="brief">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <a href="#"> Brief description...</a>
+                                    <i class="fa fa-share" aria-hidden="true"></i>
+                                    <a href="#"> Visit to site...</a>
                                 </p>
                             </div>
                         </div>
@@ -407,11 +467,6 @@
     <link rel="stylesheet" href="libs/colorbox/colorbox.css">
     <script src="libs/lazyload/jquery.lazyload.mini.js"></script>
     <script src="libs/colorbox/jquery.colorbox-min.js"></script>
-  <script>
-        $(window).load(function () {
-            $(".loader").delay(3000).fadeOut("slow"); 
-        });
-    </script>
 </body>
 
 </html>

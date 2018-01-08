@@ -416,19 +416,54 @@ form > div .requirements{
 
 
 
-.project-wrapper .container{
-    perspective: 1800px;
-}
 
-.projects > a > img{
+.projects{
+    animation: bouncing 2s ease-in-out infinite alternate both;
+}
+.projects:nth-child(2){
+    animation-delay: .4s;
+}
+.projects:nth-child(3){
+    animation-delay: .3s;
+}
+.projects:nth-child(4){
+    animation-delay: .6s;
+}
+.projects:nth-child(5){
+    animation-delay: .2s;
+}
+.projects:nth-child(6){
+    animation-delay: .7s;
+}
+.projects:nth-child(7){
+    animation-delay: .3s;
+}
+.projects:nth-child(8){
+    animation-delay: .5s;
+}
+.projects:nth-child(9){
+    animation-delay: .6s;
+}
+.projects:nth-child(10){
+    animation-delay: .4s;
+}
+.projects:nth-child(11){
+    animation-delay: .3s;
+}
+.projects:nth-child(12){
+    animation-delay: .1s;
+}
+@keyframes bouncing {
+    0% { transform: translateY(-5px); }
+ 100% { transform: translateY(5px); }
+   }
+.projects > a > .projects-svg-wrapper > img{
     position: relative;
     width: 250px;
     height: 300px;
-    transition: all 0.5s;
-}
-.projects > a > img:hover{
-    transform: scale(1.05);
     box-shadow: 4px 6px 16px 2px rgba(0,0,0,0.75);
+    transition: all 0.5s;
+    border: #000 solid 1px;
 }
 .projects h3{
     font-family: 'Oswald', sans-serif;
@@ -489,6 +524,7 @@ a i{
     stroke-width: 9px;
     fill: transparent;
     stroke: #f39c12;
+    stroke-linecap: round;
     transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
   }
   .text {
@@ -506,8 +542,29 @@ a i{
     stroke-width: 3px;
     stroke-dashoffset: 0;
     stroke-dasharray: 760;
+    stroke-linecap: round;
   }
 
+  .projects-svg-wrapper svg{
+      margin-left: -3px;
+      margin-top: -2px;
+      position: absolute;
+      z-index: -1;
+  }
+  .projects-shape {
+    stroke-dasharray: 140 640;
+    stroke-dashoffset: -354;
+    stroke-width: 9px;
+    fill: transparent;
+    stroke: #f39c12;
+    stroke-linecap: round;
+    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+  }
+  .projects-svg-wrapper:hover .projects-shape {
+    stroke-width: 5px;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 1160;
+  }
 
   .loader {
     background: none repeat scroll 0 0 #202020;

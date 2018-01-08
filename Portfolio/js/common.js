@@ -37,4 +37,7 @@ $(function(){
                 maxWidth: "100%",
                 opacity:"0.9",
                 current: "Site {current} for {total}" });
+    $(window).load(function () {
+            $(".loader").delay(2000).fadeOut("slow");
+        });
 });

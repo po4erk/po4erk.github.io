@@ -546,7 +546,7 @@ form>div .requirements {
     fill: transparent;
     stroke: #f39c12;
     stroke-linecap: round;
-    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+    transition: stroke-width 1.25s, stroke-dashoffset 1.25s, stroke-dasharray 1.25s;
 }
 
 .text {
@@ -569,7 +569,7 @@ form>div .requirements {
 }
 .svg-wrapper:hover .shape {
     stroke-width: 3px;
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 75;
     stroke-dasharray: 760;
     stroke-linecap: round;
 }

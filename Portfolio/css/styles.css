@@ -541,11 +541,4 @@ a i{
     margin-top: -100px;
     margin-left: -150px;
     text-align: center;
-    animation: trans 1.75s linear 1.9s;
  }
- @keyframes trans{
-    50%{transform: translate(0,0) scale(2);}
-    90%{opacity: 1;}
-    100%{transform: translate(-207%,-154%) scale(0.6);
-    opacity: 0;}
-}

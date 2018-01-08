@@ -14,7 +14,7 @@ window.onload = function(){
         var getPercent = ($(x).data(y) / 100);
         var getProgressWrapWidth = $(x).width();
         var progressTotal = getPercent * getProgressWrapWidth;
-        var animationLength = 2500;
+        var animationLength = 3500;
 
         $(z).stop().animate({
             left: progressTotal

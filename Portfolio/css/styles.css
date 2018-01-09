@@ -551,20 +551,20 @@ form>div .requirements {
 
 .text {
     font-family: 'Oswald', sans-serif;
-    color: #f39c12;
     margin-left: 30px;
     top: -48px;
     position: relative;
-    transition: color 0.5s ease;
+    transition: fill 0.5s ease;
 }
 
 .text:hover {
-    color: #fff;
+    fill: #fff;
 }
 
 .svg-wrapper {
     position: relative;
     top: 20px;
+    margin-bottom: 25px;
     width: 260px;
 }
 .svg-wrapper:hover .shape {

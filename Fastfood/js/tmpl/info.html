@@ -1,0 +1,30 @@
+  <!--Places Container-->
+  <div class="PlacesInfo hide">
+    <div class="places-wrapper">
+      <div class="container">
+
+          <div id="result"></div>
+
+          <template id="template">
+            <h1 class="title">{{title}}</h1>
+            <p class="address">{{address}}</p>
+            <div class="rating">
+              <select name="rating" id="ratingSel" class="custom-select">
+                <option selected>Rating:</option>
+                <option value="Any">Any</option>
+                <option value="Good">Good</option>
+                <option value="Bad">Bad</option>
+                <option value="Perfect">Perfect</option>
+              </select>
+            </div>
+            <img class="image" src="{{img}}" alt="Food">
+            <p class="info">
+              <span>Few words about this place:</span><br>
+              {{info}}</p>
+            <div class="clearfix"></div>
+          </template>
+
+          <button id="Close" class='btn btn-info'>Close</button>
+      </div>
+    </div>
+  </div>

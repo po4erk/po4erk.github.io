@@ -29,6 +29,8 @@ $(document).ready(function() {
     const authorization = new Authentifications();
     const app = new App();
 
+
+
     function Authentifications(){
 
         this.logInGoogle = function(){
@@ -83,20 +85,19 @@ $(document).ready(function() {
                     console.log("Access Token: "+ accessToken);
                   });
                   alert('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
-                $('#myForm').addClass('hide');
-                $("#myAdminPanel").removeClass('hide');
-                $("#addData").removeClass('hide');
                 app.loadTable();
             }else{
-                $("#addData").addClass('hide');
-                $('#myForm').removeClass('hide');
-                $("#myAdminPanel").addClass('hide');
                 console.log('You are not logged in...');
+                
             }
         });
     }
-
+    app.Loading();
     function App(){
+        
+        this.Loading = function(){
+            $('#content').load("tmpl/login.html");
+        }
         // Draw firebase table
         this.loadTable = function(){
             base.on('child_added',function(snapshot) {

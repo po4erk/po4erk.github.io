@@ -16,26 +16,31 @@
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="css/template.min.css" rel="stylesheet">
   <style>
-    .hide{
+    .hide {
       display: none;
     }
-    #myForm{
+
+    #myForm {
       height: 100vh;
     }
-    .myForm{
+
+    .myForm {
       padding-top: 30px;
       border: 1px solid #343a40;
     }
-    button{
+
+    button {
       cursor: pointer;
     }
-    #addData{
+
+    #addData {
       float: right;
       margin-right: 35px;
     }
-    .PlacesInfo{
+
+    .PlacesInfo {
       height: 100vh;
       width: 100vw;
       background-color: rgba(0, 0, 0, 0.8);
@@ -44,7 +49,8 @@
       left: 0;
       z-index: 9998;
     }
-    .places-wrapper{
+
+    .places-wrapper {
       background: #f7f7f7;
       margin: 0 auto;
       width: 600px;
@@ -56,18 +62,21 @@
       border: 1px solid #dee2e6;
       z-index: 9999;
     }
-    .rating{
+
+    .rating {
       float: right;
       margin-top: -70px;
       margin-right: 30px;
       cursor: pointer;
     }
-    .image{
+
+    .image {
       width: 300px;
       height: 300px;
       float: left;
     }
-    .info{
+
+    .info {
       width: 268px;
       height: 300px;
       float: right;
@@ -75,209 +84,55 @@
       padding: 10px;
       cursor: pointer;
     }
-    .title{
+
+    .title {
       cursor: pointer;
     }
-    .address{
+
+    .address {
       cursor: pointer;
     }
-    .info span{
+
+    .info span {
       display: inline-block;
       font-size: 20px;
       font-weight: bold;
     }
+
     .clearfix {
       content: "";
       display: table;
       clear: both;
     }
-    #Close{
+
+    #Close {
       margin-top: 35px;
     }
-    select{
+
+    select {
       cursor: pointer;
     }
   </style>
 </head>
 
 <body>
-  <!-- Login Form-->
-  <div id="myForm" class="bg-dark">
-    <div class="container myForm">
-      <div class="card card-login mx-auto mt-5">
-        <div class="card-header">Login/SignUp</div>
-        <div class="card-body">
-          <form>
-            <div class="form-group">
-              <label for="txtEmail">Email address</label>
-              <input class="form-control" id="txtEmail" type="email" autocomplete="on" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="txtPassword">Password</label>
-              <input class="form-control" id="txtPassword" type="password" autocomplete="on" placeholder="Password">
-            </div>
-            <a class="btn btn-primary btn-block" id="btnLogIn">Login</a>
-            <br>
-            <a class="btn btn-warning btn-block" id="btnLogInAnon">Anonymously</a>
-            <a class="btn btn-secondary btn-block" id="btnLogInGoogle">Google</a>
-          </form>
-          <div class="text-center"><br>
-            <a class="btn btn-info btn-block" id="btnSignUp">Sign Up</a>
-            <!-- <a class="d-block small" href="forgot-password.html">Forgot Password?</a> -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Data Container-->
-  <div id="myAdminPanel" class="fixed-nav sticky-footer bg-dark hide">
-    <div id="page-top">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-        <a class="navbar-brand" href="#">Fastfoods</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-              <a class="nav-link" href="#">
-                <i class="fa fa-fw fa-dashboard"></i>
-                <span class="nav-link-text">Dashboard</span>
-              </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                <i class="fa fa-fw fa-wrench"></i>
-                <span class="nav-link-text">Components</span>
-              </a>
-              <ul class="sidenav-second-level collapse" id="collapseComponents">
-                <li>
-                  <a href="#">Change Password</a>
-                </li>
-                <li>
-                  <a href="#">Change Email</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="navbar-nav sidenav-toggler">
-            <li class="nav-item">
-              <a class="nav-link text-center" id="sidenavToggler">
-                <i class="fa fa-fw fa-angle-left"></i>
-              </a>
-            </li>
-          </ul>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" id="btnLogOut">
-                <i class="fa fa-fw fa-sign-out"></i>Logout</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div class="content-wrapper">
-        <div class="container-fluid">
-          <br><br>
-          <!-- Breadcrumbs-->
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-              <a href="#">Dashboard</a>
-            </li>
-            <li class="breadcrumb-item active">My Fastfoods Places</li>
-          </ol>
-          <!--DataTables Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-table"></i> Fastfood Places
-              <button id="addData" class="btn btn-success">Add New</button>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Address</th>
-                      <th>Rating</th>
-                      <th>Delete</th>
-                      <th>Edit</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Name</th>
-                      <th>Address</th>
-                      <th>Rating</th>
-                      <th>Delete</th>
-                      <th>Edit</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-          </div>
-        </div>
-        <!-- /.container-fluid-->
-        <!-- /.content-wrapper-->
-        <footer class="sticky-footer">
-          <div class="container">
-            <div class="text-center">
-              <small>Copyright © Your Website 2018</small>
-            </div>
-          </div>
-        </footer>
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-          <i class="fa fa-angle-up"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-  <!--Places Container-->
-  <div class="PlacesInfo hide">
-    <div class="places-wrapper">
-      <div class="container">
 
-          <div id="result"></div>
 
-          <template id="template">
-            <h1 class="title">{{title}}</h1>
-            <p class="address">{{address}}</p>
-            <div class="rating">
-              <select name="rating" id="ratingSel" class="custom-select">
-                <option selected>Rating:</option>
-                <option value="Any">Any</option>
-                <option value="Good">Good</option>
-                <option value="Bad">Bad</option>
-                <option value="Perfect">Perfect</option>
-              </select>
-            </div>
-            <img class="image" src="{{img}}" alt="Food">
-            <p class="info">
-              <span>Few words about this place:</span><br>
-              {{info}}</p>
-            <div class="clearfix"></div>
-          </template>
+  <div id="content"></div>
 
-          <button id="Close" class='btn btn-info'>Close</button>
-      </div>
-    </div>
-  </div>
-  
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js"></script>
-    <!-- Custom scripts for this page-->
-    <script src="js/dataTables.editor.min.js"></script>
-    <script src="js/app.js"></script>
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+  <!-- Custom scripts for this page-->
+  <script src="js/dataTables.editor.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
 
 </html>

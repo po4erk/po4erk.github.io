@@ -82,6 +82,7 @@ $(document).ready(function() {
                   firebaseUser.getIdToken().then(function(accessToken) {
                     console.log(accessToken);
                   });
+                  alert('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
                 $('#myForm').addClass('hide');
                 $("#myAdminPanel").removeClass('hide');
                 $("#addData").removeClass('hide');

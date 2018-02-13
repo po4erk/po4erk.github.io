@@ -86,7 +86,7 @@ $(document).ready(function() {
                   });
                   alert('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
                 app.loadTable();
-                $('#content').load("js/tmpl/index.html", function() {
+                $('#content').load("js/tmpl/app.html", function() {
                     console.log( "Load was performed." );
                 });
             }else{

@@ -28,6 +28,7 @@ $(document).ready(function() {
 
     const authorization = new Authentifications();
     const app = new App();
+    app.loadTable();
 
 
 
@@ -90,7 +91,7 @@ $(document).ready(function() {
                   alert('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
                 
                 $('#content').load("js/tmpl/app.html",'', function() {
-                    app.loadTable();
+                    
                 });
             }else{
                 console.log('You are not logged in...');

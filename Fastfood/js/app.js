@@ -34,7 +34,7 @@ $(document).ready(function() {
         this.logInGoogle = function(){
             const auth = firebase.auth();
             let provider = new firebase.auth.GoogleAuthProvider();
-            auth.signInWithRedirect(provider).then(function(result) {
+            auth.signInWithPopup(provider).then(function(result) {
                 var token = result.credential.accessToken;
                 var user = result.user;
                 console.log(token);

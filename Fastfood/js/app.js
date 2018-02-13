@@ -28,7 +28,6 @@ $(document).ready(function() {
 
     const authorization = new Authentifications();
     const app = new App();
-    app.loadTable();
 
 
 
@@ -92,6 +91,7 @@ $(document).ready(function() {
                 
                 $('#content').load("js/tmpl/app.html",'', function() {
                     console.log( "Load with login." );
+                    app.loadTable();
                 });
             }else{
                 console.log('You are not logged in...');
@@ -105,6 +105,7 @@ $(document).ready(function() {
     function App(){
         // Draw firebase table
         this.loadTable = function(){
+            alert('Loaded!');
             base.on('child_added',function(snapshot) {
                 let key = snapshot.key;
                 let getData = [snapshot.child("name").val(), snapshot.child("address").val(), snapshot.child("rating").val()];

@@ -26,8 +26,7 @@ $(document).ready(function() {
         }],
     });
 
-    const authorization = new Authentifications();
-    const app = new App();
+
 
 
 
@@ -229,6 +228,9 @@ $(document).ready(function() {
         });
 
     }
+
+    const authorization = new Authentifications();
+    const app = new App();
 
     //Add a new fastfood object
     $('#addData').on('click', function(){

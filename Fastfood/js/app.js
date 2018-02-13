@@ -97,6 +97,7 @@ $(document).ready(function() {
         
         this.Loading = function(){
             $('#content').load("tmpl/login.html");
+            console.log('Loaded!');
         }
         // Draw firebase table
         this.loadTable = function(){

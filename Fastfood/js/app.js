@@ -60,7 +60,7 @@ $(document).ready(function() {
         //Realisation button "Logout"
         this.logOut = function (){
             firebase.auth().signOut();
-            $('#content').load("tmpl/login.html", function() {
+            $('#content').load("tmpl/login.html",'', function() {
                 console.log( "Load was performed." );
                 return false;
             });
@@ -89,13 +89,13 @@ $(document).ready(function() {
                   });
                   alert('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
                 
-                $('#content').load("js/tmpl/app.html", function() {
+                $('#content').load("js/tmpl/app.html",'', function() {
                     console.log( "Load was performed." );
                     app.loadTable();
                 });
             }else{
                 console.log('You are not logged in...');
-                $('#content').load("tmpl/login.html", function() {
+                $('#content').load("tmpl/login.html",'', function() {
                     console.log( "Load was performed." );
                 });
             }

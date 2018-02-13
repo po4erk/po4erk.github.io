@@ -86,19 +86,19 @@ $(document).ready(function() {
                   });
                   alert('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
                 app.loadTable();
+                $('#content').load("tmpl/login.html", function() {
+                    alert( "Load was performed." )
+                });
             }else{
                 console.log('You are not logged in...');
-                
+                $('#content').load("tmpl/login.html", function() {
+                    alert( "Load was performed." )
+                });
             }
         });
     }
-    app.Loading();
+
     function App(){
-        
-        this.Loading = function(){
-            $('#content').load("tmpl/login.html", function() {
-                alert( "Load was performed." )
-        });
         // Draw firebase table
         this.loadTable = function(){
             base.on('child_added',function(snapshot) {

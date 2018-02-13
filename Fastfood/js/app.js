@@ -1,4 +1,4 @@
-$(document).ready(function() {
+(function($) {
     const config = {
       apiKey: "AIzaSyCTSrtpza1D_7tv0w82CV6cd6bqMabvGb8",
       authDomain: "test-po4erk.firebaseapp.com",
@@ -279,4 +279,4 @@ $(document).ready(function() {
         authorization.signUp(email, pass);
     });
 
-});
+})(jQuery); // End of use strict

@@ -34,17 +34,7 @@ $(document).ready(function() {
         this.logInGoogle = function(){
             const auth = firebase.auth();
             let provider = new firebase.auth.GoogleAuthProvider();
-            auth.signInWithPopup(provider).then(function(result) {
-                var token = result.credential.accessToken;
-                var user = result.user;
-                alert(token);
-              }).catch(function(error) {
-                var errorCode = error.code;
-                console.log(errorCode);
-                var errorMessage = error.message;
-                var email = error.email;
-                var credential = error.credential;
-              });;
+            auth.signInWithPopup(provider);
         }
         
         this.logInAnon = function (){
@@ -76,9 +66,6 @@ $(document).ready(function() {
             this.email = email;
             this.pass = pass;
             const auth = firebase.auth();
-            firebase.auth().signInWithCustomToken(token).then(function(){
-                console.log(token);
-            });
             auth.createUserWithEmailAndPassword(email,pass).then(function(){
                 alert('Thank you for registrations!');
             });
@@ -92,7 +79,7 @@ $(document).ready(function() {
                     console.log("Provider-specific UID: " + profile.uid);
                     console.log("Email: " + profile.email);
                   });
-                  firebaseUser.getToken().then(function(accessToken) {
+                  firebaseUser.getIdToken().then(function(accessToken) {
                     console.log(accessToken);
                   });
                 $('#myForm').addClass('hide');

@@ -85,9 +85,10 @@ $(document).ready(function() {
                     console.log("Access Token: "+ accessToken);
                   });
                   alert('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
-                app.loadTable();
+                
                 $('#content').load("js/tmpl/app.html", function() {
                     console.log( "Load was performed." );
+                    app.loadTable();
                 });
             }else{
                 console.log('You are not logged in...');

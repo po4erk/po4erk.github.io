@@ -86,6 +86,7 @@ $(document).ready(function() {
                 
                 $('#content').load("js/tmpl/app.html",'', function() {
                     console.log( "Load with login." );
+                    const app = new App();
                     app.loadTable();
                 });
             }else{
@@ -230,7 +231,7 @@ $(document).ready(function() {
     }
 
     const authorization = new Authentifications();
-    const app = new App();
+    
 
     //Add a new fastfood object
     $('#addData').on('click', function(){

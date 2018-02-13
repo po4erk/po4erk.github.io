@@ -60,7 +60,9 @@ $(document).ready(function() {
         //Realisation button "Logout"
         this.logOut = function (){
             firebase.auth().signOut();
-            window.location.reload();
+            $('#content').load("tmpl/login.html", function() {
+                console.log( "Load was performed." );
+            });
         }
 
         //Realisation button "Sign Up"

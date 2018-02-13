@@ -96,9 +96,9 @@ $(document).ready(function() {
     function App(){
         
         this.Loading = function(){
-            $('#content').load("tmpl/login.html");
-            console.log('Loaded!');
-        }
+            $('#content').load("tmpl/login.html", function() {
+                alert( "Load was performed." )
+        });
         // Draw firebase table
         this.loadTable = function(){
             base.on('child_added',function(snapshot) {

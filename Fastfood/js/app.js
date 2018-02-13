@@ -86,13 +86,13 @@ $(document).ready(function() {
                   });
                   alert('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
                 app.loadTable();
-                $('#content').load("js/tmpl/login.html", function() {
-                    alert( "Load was performed." )
+                $('#content').load("js/tmpl/index.html", function() {
+                    console.log( "Load was performed." );
                 });
             }else{
                 console.log('You are not logged in...');
                 $('#content').load("tmpl/login.html", function() {
-                    alert( "Load was performed." )
+                    console.log( "Load was performed." );
                 });
             }
         });

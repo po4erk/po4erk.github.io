@@ -62,6 +62,7 @@ $(document).ready(function() {
             firebase.auth().signOut();
             $('#content').load("tmpl/login.html", function() {
                 console.log( "Load was performed." );
+                return false;
             });
         }
 

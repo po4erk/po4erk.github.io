@@ -85,6 +85,7 @@ $(document).ready(function() {
                 $('#myForm').addClass('hide');
                 $("#myAdminPanel").removeClass('hide');
                 $("#addData").removeClass('hide');
+                app.loadTable();
             }else{
                 $("#addData").addClass('hide');
                 $('#myForm').removeClass('hide');
@@ -96,12 +97,14 @@ $(document).ready(function() {
 
     function App(){
         // Draw firebase table
-        base.on('child_added',function(snapshot) {
-            let key = snapshot.key;
-            let getData = [snapshot.child("name").val(), snapshot.child("address").val(), snapshot.child("rating").val()];
-            let trBuild = table.rows.add([getData]).draw().nodes();
-            $(trBuild).attr('data-key',key);
-        });
+        this.loadTable = function(){
+            base.on('child_added',function(snapshot) {
+                let key = snapshot.key;
+                let getData = [snapshot.child("name").val(), snapshot.child("address").val(), snapshot.child("rating").val()];
+                let trBuild = table.rows.add([getData]).draw().nodes();
+                $(trBuild).attr('data-key',key);
+            });
+        }
         
         // Realisation button "Delete"
         $('#dataTable tbody').on( 'click', 'button', function () {

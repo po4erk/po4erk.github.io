@@ -105,13 +105,6 @@ $(document).ready(function() {
                 $(trBuild).attr('data-key',key);
             });
         }
-        
-        // Realisation button "Delete"
-        $('#dataTable tbody').on( 'click', 'button', function () {
-            let data = $( this ).parent().parent().attr('data-key');
-            base.child(data).remove();
-            table.rows($(this).parents('tr')).remove().draw();
-        });
 
         // Realisation button "Add New"
         this.addNew = function(name,address){
@@ -124,6 +117,13 @@ $(document).ready(function() {
                 info: 'Any info'
             });
         }
+
+        // Realisation button "Delete"
+        $('#dataTable tbody').on( 'click', 'button', function () {
+            let data = $( this ).parent().parent().attr('data-key');
+            base.child(data).remove();
+            table.rows($(this).parents('tr')).remove().draw();
+        });
 
         // Realisation button "Show more"
         $('#dataTable tbody').on( 'click', 'a', function (e) {
@@ -250,10 +250,12 @@ $(document).ready(function() {
         authorization.logIn(email, pass);
     });
 
+    //Button LogInAnon
     $('#btnLogInAnon').on('click', e => {
         authorization.logInAnon();
     });
 
+    //Button LogInGoogle
     $('#btnLogInGoogle').on('click', e => {
         authorization.logInGoogle();
     });

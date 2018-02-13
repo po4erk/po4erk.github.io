@@ -37,7 +37,7 @@ $(document).ready(function() {
             auth.signInWithPopup(provider).then(function(result) {
                 var token = result.credential.accessToken;
                 var user = result.user;
-                console.log(token);
+                alert(token);
               }).catch(function(error) {
                 var errorCode = error.code;
                 console.log(errorCode);
@@ -87,11 +87,13 @@ $(document).ready(function() {
         //Authentification status tracking
         firebase.auth().onAuthStateChanged(firebaseUser => {
             if(firebaseUser){
-                console.log(firebaseUser);
                 firebaseUser.providerData.forEach(function (profile) {
                     console.log("Sign-in provider: " + profile.providerId);
                     console.log("Provider-specific UID: " + profile.uid);
                     console.log("Email: " + profile.email);
+                  });
+                  firebaseUser.getToken().then(function(accessToken) {
+                    console.log(accessToken);
                   });
                 $('#myForm').addClass('hide');
                 $("#myAdminPanel").removeClass('hide');

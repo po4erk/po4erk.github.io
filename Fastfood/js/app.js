@@ -169,7 +169,7 @@
 
     //Button LogOut
     $('#btnLogOut').on('click','a', function(e) {
-        authorization.logOut();
+        firebase.auth().signOut();
         $('#content').load("js/tmpl/login.html", '', function () {
             console.log("Load was performed.");
         });

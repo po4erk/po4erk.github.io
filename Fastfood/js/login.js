@@ -37,11 +37,6 @@
             });
         }
 
-        //Realisation button "Logout"
-        this.logOut = function () {
-            firebase.auth().signOut();
-        }
-
         //Realisation button "Sign Up"
         this.signUp = function (email, pass) {
             this.email = email;

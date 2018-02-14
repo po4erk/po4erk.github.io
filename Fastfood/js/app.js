@@ -188,7 +188,7 @@
                 }
               }
             });
-
+            console.log(newName);
         let newAddress = dialog.prompt({
             title: "New address:",
             message: "Enter the new address:",
@@ -204,6 +204,7 @@
               }
             }
           });
+          console.log(newAddress);
         if((newName !== undefined)||(newName !== null)||(newAddress !== undefined)||(newAddress !== null)){
             app.addNew(newName,newAddress);
         }

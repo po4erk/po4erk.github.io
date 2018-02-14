@@ -27,6 +27,7 @@
             }],
     });
     const app = new App();
+    app.loadTable();
 
     function App(){
         // Draw firebase table

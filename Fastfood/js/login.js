@@ -67,7 +67,6 @@
 
                 $('#content').load("js/tmpl/app.html", '', function () {
                     console.log("Load with login.");
-                    app.loadTable();
                 });
                 
             } else {

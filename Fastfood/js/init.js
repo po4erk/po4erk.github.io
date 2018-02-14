@@ -14,7 +14,6 @@
             console.log('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
 
             $('#content').load("js/tmpl/app.html", '', function () {
-                $('#myAdminPanel').removeClass('.hide');
                 console.log("Load with login.");
             });
             

@@ -34,12 +34,14 @@
         this.addNew = function(name,address){
             this.name = name;
             this.address = address;
-            firebase.database().ref().child('Fastfoods').push({
-                name: name,
-                address: address,
-                rating: "Any rating",
-                info: 'Any info'
-            });
+            if((name !== undefined)||(name !== null)||(address !== undefined)||(address !== null)){
+                firebase.database().ref().child('Fastfoods').push({
+                    name: name,
+                    address: address,
+                    rating: "Any rating",
+                    info: 'Any info'
+                });
+            }
         }
 
         // Realisation button "Delete"

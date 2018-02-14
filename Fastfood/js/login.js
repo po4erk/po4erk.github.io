@@ -1,5 +1,5 @@
-
-    Authentifications();
+(function ($) {
+    const authorization = new Authentifications();
 
     function Authentifications() {
 
@@ -62,3 +62,5 @@
         const pass = $("#txtPassword").val();
         authorization.signUp(email, pass);
     });
+
+})(jQuery); // End of use strict

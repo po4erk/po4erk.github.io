@@ -169,8 +169,6 @@
 
     //Add a new fastfood object
     $('#addData').on('click', function () {
-        let newName;
-        let newAddress;
         $.when(
             dialog.prompt({
                 title: "Prompt Name",
@@ -184,7 +182,7 @@
                     if ($.trim(value) === "") {
                         return false;
                     } else {
-                        newName = value;
+                        let newName = value;
                     }
                 }
             }), dialog.prompt({
@@ -199,7 +197,7 @@
                     if ($.trim(value) === "") {
                         return false;
                     } else {
-                        newAddress = value;
+                       let newAddress = value;
                     }
                 }
             })

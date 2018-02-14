@@ -134,12 +134,12 @@
                 });
                 $('#fileButton').on('change', function(e){
                     let file = e.target.files[0];
-                    let storageRef = storage.ref(data + file.name);
+                    let storageRef = storage.ref(data+'/'+ file.name);
                     let task = storageRef.put(file);
                     task.on('state_changed',
                     function progress(snapshot){
                         let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                        $('#uploader').value(percentage);
+                        $('#uploader').value = percentage;
                     },
                     function error(err){
                         console.log(err);

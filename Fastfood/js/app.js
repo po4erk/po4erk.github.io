@@ -236,7 +236,7 @@
     
 
     //Add a new fastfood object
-    $('#addData').on('click', function(){
+    $('#addData').on('click','button', function(){
         let newName = prompt('Enter the new name: ');
         let newAddress = prompt('Enter the new address: ');
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){

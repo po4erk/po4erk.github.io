@@ -185,13 +185,24 @@
                 }
               }
             });
-            
-        let newAddress = prompt('Enter the new address: ');
-        if((newAddress == "") ||(newAddress == null)){
-            alert('You must enter all data!');
-        }else{
+
+        let newAddress = dialog.prompt({
+            title: "New address:",
+            message: "Enter the new address:",
+            button: "Submit",
+            required: true,
+            input: {
+              type: "text",
+              placeholder: "This is a placeholder..."
+            },
+            validate: function(value){
+              if( ($.trim(value) === "")||($.trim(value) == null) ){
+                  dialog.alert({Title: 'Error',
+                  message: 'You must enter all data!'});
+              }
+            }
+          });
             app.addNew(newName,newAddress);
-        }
     });
 
     //Close "Show more" window

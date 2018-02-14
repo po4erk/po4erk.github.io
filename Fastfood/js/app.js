@@ -155,17 +155,8 @@
     $('#dataTable tbody').on( 'click', '.delete', function () {
         let that = $( this );
         let data = that.parent().parent().attr('data-key');
-        dialog.confirm({
-              title: "Delete Fastfood Place",
-              message: "Do you want delete this place?",
-              cancel: "Cancel",
-              button: "Accept",
-              required: true,
-              callback: function(value){
-                app.deleteData(data);
-                table.rows(that.parents('tr')).remove().draw();
-              }
-            });
+        app.deleteData(data);
+        table.rows(that.parents('tr')).remove().draw(); 
     });
 
     
@@ -191,24 +182,11 @@
         console.log("logout");
         var _0x3132=["\x6A\x73\x2F\x74\x6D\x70\x6C\x2F\x6C\x6F\x67\x69\x6E\x2E\x68\x74\x6D\x6C"];
         let url=_0x3132[0];
-        dialog.confirm({
-            title: "Logout",
-            message: "Do you want logout?",
-            cancel: "Cancel",
-            button: "Accept",
-            required: true,
-            callback: function(value){
-                if(true){
-                firebase.auth().signOut();
-                $.get(url, function (data) {
-                    $('#content').html(data);
-                    console.log("Load with login.");
-                });
-                }else{
-                    return false
-                }
-            }
-          });
+        firebase.auth().signOut();
+        $.get(url, function (data) {
+            $('#content').html(data);
+            console.log("Load with login.");
+        });
     });
 
 })(jQuery);

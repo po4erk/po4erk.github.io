@@ -60,9 +60,7 @@
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
             //Get image of firebase storage
-            storage.ref(data).getDownloadURL().then(function(url){
-                $('.image').attr('src', url);
-            });
+            
 
             //Listen all changes at this data
             let name = thisData.once("value").then(function(snapshot) {
@@ -145,7 +143,9 @@
                         console.log(err);
                     },
                     function complete(){
-                        console.log('complete!');
+                        storage.ref(data).getDownloadURL().then(function(url){
+                            $('.image').attr('src', url);
+                        });
                     }
                 );
                 });

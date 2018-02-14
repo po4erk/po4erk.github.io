@@ -210,7 +210,7 @@
                 newAddress = value;
             }
           });
-            app.addNew(newName,newAddress);
+            console.log(newName,newAddress);
     });
 
     //Close "Show more" window

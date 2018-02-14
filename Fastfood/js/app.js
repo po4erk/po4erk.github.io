@@ -168,7 +168,7 @@
     });
 
     //Button LogOut
-    $('#btnLogOut').on('click','a', e => {
+    $('#btnLogOut').on('click','a', function(e) {
         authorization.logOut();
         $('#content').load("js/tmpl/login.html", '', function () {
             console.log("Load was performed.");

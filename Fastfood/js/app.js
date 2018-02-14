@@ -60,7 +60,7 @@
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
             //Get image of firebase storage
-            storage.ref(data+'/').getDownloadURL().then(function(url){
+            storage.ref(data).getDownloadURL().then(function(url){
                 $('.image').attr('src', url);
             });
 
@@ -134,7 +134,7 @@
                 });
                 $('#fileButton').on('change', function(e){
                     let file = e.target.files[0];
-                    let storageRef = storage.ref(data+'/'+ file.name);
+                    let storageRef = storage.ref(data);
                     let task = storageRef.put(file);
                     task.on('state_changed',
                     function progress(snapshot){

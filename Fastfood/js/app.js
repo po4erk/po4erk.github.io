@@ -148,10 +148,22 @@
         });
 
     }
+
+    //Delete fastfood object
     $('#dataTable tbody').on( 'click', '.delete', function () {
-        let data = $( this ).parent().parent().attr('data-key');
-        app.deleteData(data);
-        table.rows($(this).parents('tr')).remove().draw();
+        let that = $( this );
+        let data = that.parent().parent().attr('data-key');
+        dialog.confirm({
+              title: "Delete Fastfood Place",
+              message: "Do you want delete this place?",
+              cancel: "Cancel",
+              button: "Accept",
+              required: true,
+              callback: function(value){
+                app.deleteData(data);
+                table.rows(that.parents('tr')).remove().draw();
+              }
+            });
     });
 
     

@@ -13,9 +13,12 @@
         if (firebaseUser) {
             console.log('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
 
-            $('#content').get("js/tmpl/app.html", '', function () {
-                console.log("Load with login.");
+            $('#content').each(function () {
+                $(this).get("js/tmpl/app.html", '', function () {
+                    console.log("Load with login.");
+                });
             });
+            
             
         } else {
             console.log('You are not logged in...');

@@ -174,7 +174,7 @@
         var _0x3132=["\x6A\x73\x2F\x74\x6D\x70\x6C\x2F\x6C\x6F\x67\x69\x6E\x2E\x68\x74\x6D\x6C"];
         let url=_0x3132[0];
             $.get(url, function (data) {
-                $('#content').html(data);
+                $('#content').html(data).fadeIn("slow");
                 console.log("Load with login.");
             });
     });

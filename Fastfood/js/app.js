@@ -82,6 +82,10 @@
                 });
                 $('#result').html(result);
 
+                storage.ref(data).getDownloadURL().then(function(url){
+                    $('.image').attr('src', url);
+                });
+
                 //Changes for title and address
                 $('.title').on('click', function(e){
                     let newTitle = prompt('Enter a new title: ');
@@ -143,9 +147,7 @@
                         console.log(err);
                     },
                     function complete(){
-                        storage.ref(data).getDownloadURL().then(function(url){
-                            $('.image').attr('src', url);
-                        });
+                        
                     }
                 );
                 });

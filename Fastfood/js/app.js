@@ -140,7 +140,14 @@
                     function progress(snapshot){
                         let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                         $('#uploader').value(percentage);
-                    })
+                    },
+                    function error(err){
+                        console.log(err);
+                    },
+                    function complete(){
+                        console.log('complete!');
+                    }
+                );
                 });
             });
             

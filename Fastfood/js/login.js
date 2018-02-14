@@ -71,7 +71,7 @@
                 
             } else {
                 console.log('You are not logged in...');
-                $('#content').load("tmpl/login.html", '', function () {
+                $('#content').load("js/tmpl/login.html", '', function () {
                     console.log("Load was performed.");
                 });
             }

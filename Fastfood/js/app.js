@@ -170,6 +170,9 @@
     //Button LogOut
     $('#btnLogOut').on('click','a', e => {
         authorization.logOut();
+        $('#content').load("js/tmpl/login.html", '', function () {
+            console.log("Load was performed.");
+        });
     });
 
 })(jQuery); // End of use strict

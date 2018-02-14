@@ -9,11 +9,6 @@
     };
     firebase.initializeApp(config);
     
-    
-
-
-
-
 
     function Authentifications(){
 
@@ -237,7 +232,7 @@
             if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
                 alert('You must enter all data!');
             }else{
-                app.addNew(newName,newAddress);
+                this.addNew(newName,newAddress);
             }
         });
 

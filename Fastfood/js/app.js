@@ -62,7 +62,7 @@
                   firebaseUser.getIdToken().then(function(accessToken) {
                     console.log("Access Token: "+ accessToken);
                   });
-                  alert('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
+                  console.log('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
                 
                 $('#content').load("js/tmpl/app.html",'', function() {
                     console.log( "Load with login." );
@@ -232,7 +232,7 @@
             if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
                 alert('You must enter all data!');
             }else{
-                this.addNew(newName,newAddress);
+                addNew(newName,newAddress);
             }
         });
 

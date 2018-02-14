@@ -24,9 +24,15 @@
                 console.log("You are logged in.");
             }).catch(function (error) {
                 if((email == null)||(pass==null)){
-                    alert('Enter any login data!');
+                    dialog.alert({
+                        title: "Registration",
+                        message: "Enter any login data!"
+                    });
                 }else{
-                    console.log('Sign Up please!');
+                    dialog.alert({
+                        title: "Registration",
+                        message: "Sign Up please!"
+                    });
                 }
             });
         }
@@ -37,7 +43,10 @@
             this.pass = pass;
             const auth = firebase.auth();
             auth.createUserWithEmailAndPassword(email, pass).then(function () {
-                alert('Thank you for registrations!');
+                dialog.alert({
+                    title: "Registration",
+                    message: "Thank you for registration!"
+                });
             });
         }
 

@@ -182,8 +182,8 @@
                         return false;
                     }
                 },
-                callback: function(value){
-                    console.log(value);
+                callback: function(value1){
+                    return value1;
                 }
             });
           let newAddress = dialog.prompt({
@@ -199,15 +199,11 @@
                         return false;
                     }
                 },
-                callback: function(value){
-                    console.log(value);
+                callback: function(value2){
+                    return value2;
                 }
             });
-            function load(newName,newAddress){
-                this.newName = newName;
-                this.newAddress = newAddress;
-                console.log(newName, newAddress);
-            }
+            console.log(value1,value2);
             //app.addNew(newName, newAddress)
     });
 

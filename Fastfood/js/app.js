@@ -152,7 +152,6 @@
                     function complete(){
                         console.log('Complite!')
                         $('.image').attr('src', '');
-                        $('#uploader').attr('value', '0');
                         downloadImage();
                     }
                 );
@@ -190,6 +189,7 @@
         e.stopPropagation();
         $(".PlacesInfo").addClass('hide');
         $('#fileButton').val('');
+        $('#uploader').attr('value', '0');
     });
 
     //Button LogOut

@@ -179,6 +179,10 @@
                 type: "text",
                 placeholder: "This is a placeholder..."
             },
+            input: {
+                type: "text",
+                placeholder: "This is a placeholder..."
+            },
             validate: function(value){
                 if( ($.trim(value) === "")||($.trim(value) == null) ){
                     dialog.alert({Title: 'Error',

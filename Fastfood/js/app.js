@@ -60,6 +60,7 @@
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
             //Get image of firebase storage
+            
 
             //Listen all changes at this data
             let name = thisData.once("value").then(function(snapshot) {
@@ -141,6 +142,10 @@
                     let storageRef = storage.ref(data);
                     let task = storageRef.put(file);
                     task.on('state_changed',
+                    function progress(snapshot){
+                        let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        $('#uploader').val(percentage);
+                    },
                     function error(err){
                         console.log(err);
                     },

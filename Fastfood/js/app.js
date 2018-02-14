@@ -198,6 +198,8 @@
                 }
             });
             function load(newName,newAddress){
+                this.newName = newName;
+                this.newAddress = newAddress;
                 console.log(newName, newAddress);
             }
             //app.addNew(newName, newAddress)

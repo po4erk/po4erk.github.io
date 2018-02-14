@@ -40,7 +40,7 @@
     }
 
     //Button LogIn with email and pass
-    $('#btnLogIn').on('click','a', function(e) {
+    $(document).on('click','#btnLogIn', function(e) {
         const email = $("#txtEmail").val();
         const pass = $("#txtPassword").val();
         authorization.logIn(email, pass);
@@ -53,12 +53,12 @@
     });
 
     //Button LogInGoogle
-    $('#btnLogInGoogle').on('click','a', function(e) {
+    $(document).on('click','#btnLogInGoogle', function(e) {
         authorization.logInGoogle();
     });
 
     //Button SignIn with email and pass
-    $('#btnSignUp').on('click','a', function(e) {
+    $(document).on('click','#btnSignUp', function(e) {
         const email = $("#txtEmail").val();
         const pass = $("#txtPassword").val();
         authorization.signUp(email, pass);

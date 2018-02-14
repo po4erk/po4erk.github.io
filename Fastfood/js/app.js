@@ -152,6 +152,7 @@
                     function complete(){
                         console.log('Complite!')
                         $('.image').attr('src', '');
+                        $('#uploader').attr('value', '0');
                         downloadImage();
                     }
                 );

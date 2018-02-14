@@ -139,7 +139,7 @@
                     task.on('state_changed',
                     function progress(snapshot){
                         let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                        $('#uploader').value = percentage;
+                        $('#uploader').val(percentage);
                     },
                     function error(err){
                         console.log(err);

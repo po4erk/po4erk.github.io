@@ -74,24 +74,24 @@
     }
 
     //Button LogIn with email and pass
-    $('#btnLogIn').on('click', e => {
+    $('#btnLogIn').on('click','a', e => {
         const email = $("#txtEmail").val();
         const pass = $("#txtPassword").val();
         authorization.logIn(email, pass);
     });
 
     //Button LogInAnon
-    $('#btnLogInAnon').on('click', e => {
+    $('#btnLogInAnon').on('click','a', e => {
         authorization.logInAnon();
     });
 
     //Button LogInGoogle
-    $('#btnLogInGoogle').on('click', e => {
+    $('#btnLogInGoogle').on('click','a', e => {
         authorization.logInGoogle();
     });
 
     //Button SignIn with email and pass
-    $('#btnSignUp').on('click', e => {
+    $('#btnSignUp').on('click','a', e => {
         const email = $("#txtEmail").val();
         const pass = $("#txtPassword").val();
         authorization.signUp(email, pass);

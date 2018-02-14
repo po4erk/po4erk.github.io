@@ -157,7 +157,7 @@
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
             alert('You must enter all data!');
         }else{
-            this.addNew(newName,newAddress);
+            app.addNew(newName,newAddress);
         }
     });
 

@@ -98,7 +98,6 @@
         });
         // Draw firebase table
         this.loadTable = function(){
-            alert('Loaded!');
             base.on('child_added',function(snapshot) {
                 let key = snapshot.key;
                 let getData = [snapshot.child("name").val(), snapshot.child("address").val(), snapshot.child("rating").val()];

@@ -60,7 +60,6 @@
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
             //Get image of firebase storage
-            $('.image').attr('src', '');
 
             //Listen all changes at this data
             let name = thisData.once("value").then(function(snapshot) {

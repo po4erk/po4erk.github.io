@@ -150,6 +150,8 @@
                         console.log(err);
                     },
                     function complete(){
+                        console.log('Complite!')
+                        $('.image').attr('src', '');
                         downloadImage();
                     }
                 );

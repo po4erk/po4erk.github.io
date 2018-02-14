@@ -43,11 +43,10 @@
         }
 
         // Realisation button "Delete"
-        $('#dataTable tbody').on( 'click', '.delete', function () {
-            let data = $( this ).parent().parent().attr('data-key');
+        this.deleteData = function(data) {
+            this.data = data;
             base.child(data).remove();
-            table.rows($(this).parents('tr')).remove().draw();
-        });
+        };
 
         // Realisation button "Show more"
         $('#dataTable tbody').on( 'click', '.edit', function (e) {
@@ -149,6 +148,12 @@
         });
 
     }
+    $('#dataTable tbody').on( 'click', '.delete', function () {
+        let data = $( this ).parent().parent().attr('data-key');
+        app.deleteData(data);
+        table.rows($(this).parents('tr')).remove().draw();
+    });
+
     
     //Add a new fastfood object
     $('#addData').on('click', function(){
@@ -174,7 +179,7 @@
         var _0x3132=["\x6A\x73\x2F\x74\x6D\x70\x6C\x2F\x6C\x6F\x67\x69\x6E\x2E\x68\x74\x6D\x6C"];
         let url=_0x3132[0];
         $.get(url, function (data) {
-            $('#content').html(data).fadeIn("slow");
+            $('#content').html(data);
             console.log("Load with login.");
         });
     });

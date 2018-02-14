@@ -66,7 +66,6 @@
                 
                 $('#content').load("js/tmpl/app.html",'', function() {
                     console.log( "Load with login." );
-                    const app = new App();
                     app.loadTable();
                 });
             }else{
@@ -227,6 +226,7 @@
     }
 
     const authorization = new Authentifications();
+    const app = new App();
     
 
  //Add a new fastfood object
@@ -236,7 +236,7 @@
     if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
         alert('You must enter all data!');
     }else{
-        this.addNew(newName,newAddress);
+        app.addNew(newName,newAddress);
     }
 });
     

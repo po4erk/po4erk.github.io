@@ -12,14 +12,14 @@
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             console.log('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
-            $.post("js/tmpl/app.html", function (data) {
+            $.get("js/tmpl/app.html", function (data) {
                 $('#content').html(data);
                 console.log("Load with login.");
             });
             
         } else {
             console.log('You are not logged in...');
-            $.post("js/tmpl/login.html", function (data) {
+            $.get("js/tmpl/login.html", function (data) {
                 $('#content').html(data);
                 console.log("Load with login.");
             });

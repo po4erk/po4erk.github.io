@@ -149,6 +149,8 @@
 
     }
 
+
+
     //Delete fastfood object
     $('#dataTable tbody').on( 'click', '.delete', function () {
         let that = $( this );
@@ -196,11 +198,15 @@
             button: "Accept",
             required: true,
             callback: function(value){
+                if(button){
                 firebase.auth().signOut();
                 $.get(url, function (data) {
                     $('#content').html(data);
                     console.log("Load with login.");
                 });
+                }else{
+                    return false
+                }
             }
           });
     });

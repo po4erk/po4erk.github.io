@@ -169,24 +169,29 @@
     
     //Add a new fastfood object
     $('#addData').on('click', function(){
-         let newName = dialog.prompt({
-              title: "New name:",
-              message: "Enter the new name:",
-              button: "Submit",
-              required: true,
-              input: {
+         let newName;
+            dialog.prompt({
+            title: "New name:",
+            message: "Enter the new name:",
+            button: "Submit",
+            required: true,
+            input: {
                 type: "text",
                 placeholder: "This is a placeholder..."
-              },
-              validate: function(value){
+            },
+            validate: function(value){
                 if( ($.trim(value) === "")||($.trim(value) == null) ){
                     dialog.alert({Title: 'Error',
                     message: 'You must enter all data!'});
                 }
+              },
+            callback: function(value){
+                newName = value;
               }
             });
 
-        let newAddress = dialog.prompt({
+        let newAddress;
+            dialog.prompt({
             title: "New address:",
             message: "Enter the new address:",
             button: "Submit",
@@ -200,6 +205,9 @@
                   dialog.alert({Title: 'Error',
                   message: 'You must enter all data!'});
               }
+            },
+            callback: function(value){
+                newAddress = value;
             }
           });
             app.addNew(newName,newAddress);

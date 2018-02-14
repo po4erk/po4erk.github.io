@@ -34,14 +34,12 @@
         this.addNew = function(name,address){
             this.name = name;
             this.address = address;
-            if((name !== undefined)||(name !== null)||(address !== undefined)||(address !== null)){
-                firebase.database().ref().child('Fastfoods').push({
-                    name: name,
-                    address: address,
-                    rating: "Any rating",
-                    info: 'Any info'
-                });
-            }
+            firebase.database().ref().child('Fastfoods').push({
+                name: name,
+                address: address,
+                rating: "Any rating",
+                info: 'Any info'
+            });
         }
 
         // Realisation button "Delete"
@@ -171,43 +169,11 @@
     
     //Add a new fastfood object
     $('#addData').on('click', function(){
-        let newName = dialog.prompt({
-            title: "New name:",
-            message: "Enter the new name:",
-            button: "Submit",
-            required: true,
-            input: {
-                type: "text",
-                placeholder: "This is a placeholder..."
-            },
-            input: {
-                type: "text",
-                placeholder: "This is a placeholder..."
-            },
-            validate: function(value){
-                if( ($.trim(value) === "")||($.trim(value) == null) ){
-                    return false;
-                }
-              }
-            });
-            console.log(newName);
-        let newAddress = dialog.prompt({
-            title: "New address:",
-            message: "Enter the new address:",
-            button: "Submit",
-            required: true,
-            input: {
-              type: "text",
-              placeholder: "This is a placeholder..."
-            },
-            validate: function(value){
-              if( ($.trim(value) === "")||($.trim(value) == null) ){
-                  return false;
-              }
-            }
-          });
-          console.log(newAddress);
-        if((newName !== undefined)||(newName !== null)||(newAddress !== undefined)||(newAddress !== null)){
+        let newName = prompt('Enter the new name: ');
+        let newAddress = prompt('Enter the new address: ');
+        if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
+            alert('You must enter all data!');
+        }else{
             app.addNew(newName,newAddress);
         }
     });

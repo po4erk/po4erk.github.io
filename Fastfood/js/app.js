@@ -82,9 +82,12 @@
                 });
                 $('#result').html(result);
 
-                storage.ref(data).getDownloadURL().then(function(url){
-                    $('.image').attr('src', url);
-                });
+                function downloadImage(){
+                    storage.ref(data).getDownloadURL().then(function(url){
+                        $('.image').attr('src', url);
+                    });
+                }
+                downloadImage();
 
                 //Changes for title and address
                 $('.title').on('click', function(e){
@@ -147,7 +150,7 @@
                         console.log(err);
                     },
                     function complete(){
-                        
+                        downloadImage();
                     }
                 );
                 });

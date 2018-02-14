@@ -48,6 +48,7 @@
 
     //Button LogInAnon
     $('#btnLogInAnon').on('click','a', function(e) {
+        console.log('anon');
         authorization.logInAnon();
     });
 

@@ -170,13 +170,12 @@
     //Add a new fastfood object
     $('#addData').on('click', function(){
          let newName = dialog.prompt({
-              title: "Prompt Title",
-              message: "Prompt Message",
+              title: "New name:",
+              message: "Enter the new name:",
               button: "Submit",
               required: true,
               input: {
                 type: "text",
-                type: "password",
                 placeholder: "This is a placeholder..."
               },
               validate: function(value){

@@ -10,21 +10,7 @@
     firebase.initializeApp(config);
     const base = firebase.database().ref('Fastfoods');
     const storage = firebase.storage();
-    const table = $('#dataTable').DataTable({
-        "autoWidth": false,
-        "destroy": true,
-        "columnDefs": [{
-          "width": '3%',
-          "targets": 3,
-          "data": null,
-          "defaultContent": "<button type='button' class='btn btn-danger delete'>Delete</button>"
-        },{
-          "width": '3%',
-          "targets": 4,
-          "data": null,
-          "defaultContent": "<a href='#' class='btn btn-info edit'>See More</a>"
-        }],
-    });
+    
 
 
 
@@ -99,6 +85,21 @@
     }
 
     function App(){
+        const table = $('#dataTable').DataTable({
+            "autoWidth": false,
+            "destroy": true,
+            "columnDefs": [{
+              "width": '3%',
+              "targets": 3,
+              "data": null,
+              "defaultContent": "<button type='button' class='btn btn-danger delete'>Delete</button>"
+            },{
+              "width": '3%',
+              "targets": 4,
+              "data": null,
+              "defaultContent": "<a href='#' class='btn btn-info edit'>See More</a>"
+            }],
+        });
         // Draw firebase table
         this.loadTable = function(){
             alert('Loaded!');

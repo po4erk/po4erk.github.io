@@ -230,21 +230,24 @@
             
         });
 
+        //Add a new fastfood object
+        $('#addData').on('click', function(){
+            let newName = prompt('Enter the new name: ');
+            let newAddress = prompt('Enter the new address: ');
+            if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
+                alert('You must enter all data!');
+            }else{
+                app.addNew(newName,newAddress);
+            }
+        });
+
     }
 
     const authorization = new Authentifications();
     
 
-    //Add a new fastfood object
-    $(document).on('click','#addData', function(){
-        let newName = prompt('Enter the new name: ');
-        let newAddress = prompt('Enter the new address: ');
-        if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
-            alert('You must enter all data!');
-        }else{
-            app.addNew(newName,newAddress);
-        }
-    });
+
+    
 
     //Close "Show more" window
     $('#Close').on( 'click', e => {

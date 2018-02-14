@@ -66,9 +66,10 @@
                 
                 $('#content').load("js/tmpl/app.html",'', function() {
                     console.log( "Load with login." );
-                    const app = new App();
-                    app.loadTable();
+                    
+                    
                 });
+                app.loadTable();
             }else{
                 console.log('You are not logged in...');
                 $('#content').load("tmpl/login.html",'', function() {
@@ -239,7 +240,7 @@
 
     const authorization = new Authentifications();
     
-
+    const app = new App();
 
     
 

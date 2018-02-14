@@ -12,15 +12,16 @@
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             console.log('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
-
-            $('#content').get({url: "js/tmpl/app.html", dataType: 'html'}, function () {
+            $.post("js/tmpl/app.html", function (data) {
+                $('#content').html(data);
                 console.log("Load with login.");
             });
             
         } else {
             console.log('You are not logged in...');
-            $('#content').get({url: "js/tmpl/login.html", dataType: 'html'}, '', function () {
-                console.log("Load without login.");
+            $.post("js/tmpl/login.html", function (data) {
+                $('#content').html(data);
+                console.log("Load with login.");
             });
         }
     });

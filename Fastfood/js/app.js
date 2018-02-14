@@ -108,7 +108,7 @@
         }
 
         // Realisation button "Add New"
-        this.addNew = function(name,address){
+        let addNew = function(name,address){
             this.name = name;
             this.address = address;
             firebase.database().ref().child('Fastfoods').push({
@@ -232,7 +232,7 @@
             if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
                 alert('You must enter all data!');
             }else{
-                addNew(newName,newAddress);
+                this.addNew(newName,newAddress);
             }
         });
 

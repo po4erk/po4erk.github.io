@@ -191,6 +191,7 @@
               },
             callback: function(value){
                 newName = value;
+                console.log(newName);
               }
             });
 
@@ -212,9 +213,10 @@
             },
             callback: function(value){
                 newAddress = value;
+                console.log(newAddress);
             }
           });
-            console.log(newName,newAddress);
+            
     });
 
     //Close "Show more" window

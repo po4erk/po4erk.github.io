@@ -169,9 +169,26 @@
     
     //Add a new fastfood object
     $('#addData').on('click', function(){
-        let newName = prompt('Enter the new name: ');
+         let newName = dialog.prompt({
+              title: "Prompt Title",
+              message: "Prompt Message",
+              button: "Submit",
+              required: true,
+              input: {
+                type: "text",
+                type: "password",
+                placeholder: "This is a placeholder..."
+              },
+              validate: function(value){
+                if( ($.trim(value) === "")||($.trim(value) == null) ){
+                    dialog.alert({Title: 'Error',
+                    message: 'You must enter all data!'});
+                }
+              }
+            });
+            
         let newAddress = prompt('Enter the new address: ');
-        if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
+        if((newAddress == "") ||(newAddress == null)){
             alert('You must enter all data!');
         }else{
             app.addNew(newName,newAddress);

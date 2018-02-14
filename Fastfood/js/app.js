@@ -60,7 +60,7 @@
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
             //Get image of firebase storage
-            storage.ref('burger.jpg').getDownloadURL().then(function(url){
+            storage.ref(data).getDownloadURL().then(function(url){
                 $('.image').attr('src', url);
             });
 

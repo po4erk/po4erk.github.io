@@ -199,7 +199,9 @@
                 }
             })
         ).then(
-            console.log(newName, newAddress)
+            function load(newName,newAddress){
+                console.log(newName, newAddress);
+            }
             //app.addNew(newName, newAddress)
             );
     });

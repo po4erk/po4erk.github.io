@@ -171,7 +171,7 @@
     $('#btnLogOut').on('click', function(e) {
         console.log("logout");
         firebase.auth().signOut();
-        $('#content').load("js/tmpl/login.html", '', function () {
+        $('#content').get("js/tmpl/login.html", '', function () {
             console.log("Load was performed.");
         });
     });

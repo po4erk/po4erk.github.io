@@ -1,5 +1,5 @@
 (function ($) {
-    const authorization = new Authentifications();
+    Authentifications();
 
     function Authentifications() {
 

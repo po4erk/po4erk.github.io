@@ -108,7 +108,7 @@
         }
 
         // Realisation button "Add New"
-        let addNew = function(name,address){
+        this.addNew = function(name,address){
             this.name = name;
             this.address = address;
             firebase.database().ref().child('Fastfoods').push({
@@ -224,24 +224,21 @@
             });
             
         });
-
-        //Add a new fastfood object
-        $('#addData').on('click', function(){
-            let newName = prompt('Enter the new name: ');
-            let newAddress = prompt('Enter the new address: ');
-            if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
-                alert('You must enter all data!');
-            }else{
-                this.addNew(newName,newAddress);
-            }
-        });
-
     }
 
     const authorization = new Authentifications();
     
 
-
+ //Add a new fastfood object
+ $('#addData').on('click', function(){
+    let newName = prompt('Enter the new name: ');
+    let newAddress = prompt('Enter the new address: ');
+    if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
+        alert('You must enter all data!');
+    }else{
+        this.addNew(newName,newAddress);
+    }
+});
     
 
     //Close "Show more" window

@@ -181,6 +181,9 @@
                     if ($.trim(value) === "") {
                         return false;
                     }
+                },
+                callback: function(value){
+                    console.log(value);
                 }
             });
           let newAddress = dialog.prompt({
@@ -195,6 +198,9 @@
                     if ($.trim(value) === "") {
                         return false;
                     }
+                },
+                callback: function(value){
+                    console.log(value);
                 }
             });
             function load(newName,newAddress){

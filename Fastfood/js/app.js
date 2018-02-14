@@ -132,16 +132,15 @@
                         $('.info').html(newInfo);
                     }
                 });
-                $('.image').on('click', function(e){
-                    let newImage = prompt('Enter a new src for you image: ');
-                    if((newImage == '')||(newImage == null)){
-                        alert('You must enter any data!');
-                    }else{
-                        thisData.update({
-                            image: newImage,
-                        }); 
-                        $('.image').html(newImage);
-                    }
+                $('#fileButton').on('change', function(e){
+                    let file = e.targets.files[0];
+                    let storageRef = storage.ref(data+'/'+ file.name);
+                    let task = storageRef.put(file);
+                    task.on('state_changed',
+                    function progress(snapshot){
+                        let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        $('#uploader').value(percentage);
+                    })
                 });
             });
             

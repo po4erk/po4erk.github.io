@@ -183,6 +183,7 @@
     $('#Close').on( 'click', e => {
         e.stopPropagation();
         $(".PlacesInfo").addClass('hide');
+        $('#fileButton').val('');
     });
 
     //Button LogOut

@@ -171,10 +171,12 @@
     $('#btnLogOut').on('click', function(e) {
         console.log("logout");
         firebase.auth().signOut();
-        $.get("eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('0/1/2.3',4,4,'js|tmpl|login|html'.split('|'),0,{}))", function (data) {
-            $('#content').html(data);
-            console.log("Load with login.");
-        });
+        var _0x3132=["\x6A\x73\x2F\x74\x6D\x70\x6C\x2F\x6C\x6F\x67\x69\x6E\x2E\x68\x74\x6D\x6C"];
+        let url=_0x3132[0];
+            $.get(url, function (data) {
+                $('#content').html(data);
+                console.log("Load with login.");
+            });
     });
 
 })(jQuery); // End of use strict

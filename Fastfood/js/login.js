@@ -23,7 +23,11 @@
             auth.signInWithEmailAndPassword(email, pass).then(function () {
                 console.log("You are logged in.");
             }).catch(function (error) {
-                alert('Sign Up please!');
+                if((email == null)||(pass==null)){
+                    alert('Enter any login data!');
+                }else{
+                    alert('Sign Up please!');
+                }
             });
         }
 

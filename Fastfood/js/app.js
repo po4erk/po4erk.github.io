@@ -8,8 +8,7 @@
       messagingSenderId: "950069581603"
     };
     firebase.initializeApp(config);
-    const base = firebase.database().ref('Fastfoods');
-    const storage = firebase.storage();
+    
     
 
 
@@ -85,6 +84,8 @@
     }
 
     function App(){
+        const base = firebase.database().ref('Fastfoods');
+        const storage = firebase.storage();
         const table = $('#dataTable').DataTable({
             "autoWidth": false,
             "destroy": true,
@@ -269,7 +270,7 @@
     });
 
     //Button LogOut
-    $('#btnLogOut').on('click', e => {
+    $('#btnLogOut').on('click','a', e => {
         authorization.logOut();
     });
 

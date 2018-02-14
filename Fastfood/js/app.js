@@ -169,8 +169,7 @@
     
     //Add a new fastfood object
     $('#addData').on('click', function(){
-        let newName;
-            dialog.prompt({
+        let newName = dialog.prompt({
             title: "New name:",
             message: "Enter the new name:",
             button: "Submit",
@@ -187,15 +186,10 @@
                 if( ($.trim(value) === "")||($.trim(value) == null) ){
                     return false;
                 }
-              },
-            callback: function(value){
-                newName = value;
-                console.log(newName);
               }
             });
 
-        let newAddress;
-            dialog.prompt({
+        let newAddress = dialog.prompt({
             title: "New address:",
             message: "Enter the new address:",
             button: "Submit",
@@ -208,10 +202,6 @@
               if( ($.trim(value) === "")||($.trim(value) == null) ){
                   return false;
               }
-            },
-            callback: function(value){
-                newAddress = value;
-                console.log(newAddress);
             }
           });
         if((newName !== undefined)||(newName !== null)||(newAddress !== undefined)||(newAddress !== null)){

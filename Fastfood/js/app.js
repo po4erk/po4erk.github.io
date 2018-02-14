@@ -169,8 +169,7 @@
 
     //Add a new fastfood object
     $('#addData').on('click', function () {
-        $.when(
-            newName = dialog.prompt({
+          let newName = dialog.prompt({
                 title: "Prompt Name",
                 message: "Prompt Message",
                 button: "Submit",
@@ -183,8 +182,8 @@
                         return false;
                     }
                 }
-            }),
-            newAddress = dialog.prompt({
+            });
+          let newAddress = dialog.prompt({
                 title: "Prompt Address",
                 message: "Prompt Message",
                 button: "Submit",
@@ -197,13 +196,11 @@
                         return false;
                     }
                 }
-            })
-        ).then(
+            });
             function load(newName,newAddress){
                 console.log(newName, newAddress);
             }
             //app.addNew(newName, newAddress)
-            );
     });
 
     //Close "Show more" window

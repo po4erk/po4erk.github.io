@@ -60,9 +60,7 @@
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
             //Get image of firebase storage
-            storage.ref('fastfood.jpg').getDownloadURL().then(function(url){
-                $('.image').attr('src', url);
-            });
+            $('.image').attr('src', '');
 
             //Listen all changes at this data
             let name = thisData.once("value").then(function(snapshot) {
@@ -89,6 +87,7 @@
                         $('.image').attr('src', url);
                     });
                 }
+                downloadImage();
 
                 //Changes for title and address
                 $('.title').on('click', function(e){

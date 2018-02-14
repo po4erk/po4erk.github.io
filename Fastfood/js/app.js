@@ -8,81 +8,10 @@
       messagingSenderId: "950069581603"
     };
     firebase.initializeApp(config);
-    
 
-    function Authentifications(){
-
-        this.logInGoogle = function(){
-            const auth = firebase.auth();
-            let provider = new firebase.auth.GoogleAuthProvider();
-            auth.signInWithPopup(provider);
-        }
-        
-        this.logInAnon = function (){
-            const auth = firebase.auth();
-            auth.signInAnonymously().then(function(){
-                console.log("You are logged in anonymously.");
-              });
-        }
-        //Realisation button "Login"
-        this.logIn = function (email, pass){
-            this.email = email;
-            this.pass = pass;
-            const auth = firebase.auth();
-            auth.signInWithEmailAndPassword(email,pass).then(function(){
-                console.log("You are logged in.");
-              }).catch(function(error) {
-                alert('Sign Up please!');
-              });
-        }
-
-        //Realisation button "Logout"
-        this.logOut = function (){
-            firebase.auth().signOut();
-        }
-
-        //Realisation button "Sign Up"
-        this.signUp = function (email, pass){
-            this.email = email;
-            this.pass = pass;
-            const auth = firebase.auth();
-            auth.createUserWithEmailAndPassword(email,pass).then(function(){
-                alert('Thank you for registrations!');
-            });
-        }
-
-        //Authentification status tracking
-        firebase.auth().onAuthStateChanged(firebaseUser => {
-            if(firebaseUser){
-                firebaseUser.providerData.forEach(function (profile) {
-                    console.log("Sign-in provider: " + profile.providerId);
-                    console.log("Provider-specific UID: " + profile.uid);
-                    console.log("Email: " + profile.email);
-                  });
-                  firebaseUser.getIdToken().then(function(accessToken) {
-                    console.log("Access Token: "+ accessToken);
-                  });
-                  console.log('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
-                
-                $('#content').load("js/tmpl/app.html",'', function() {
-                    console.log( "Load with login." );
-                    
-                    
-                });
-                app.loadTable();
-            }else{
-                console.log('You are not logged in...');
-                $('#content').load("tmpl/login.html",'', function() {
-                    console.log( "Load was performed." );
-                });
-            }
-        });
-    }
-
-    function App(){
-        const base = firebase.database().ref('Fastfoods');
-        const storage = firebase.storage();
-        const table = $('#dataTable').DataTable({
+    const base = firebase.database().ref('Fastfoods');
+    const storage = firebase.storage();
+    const table = $('#dataTable').DataTable({
             "autoWidth": false,
             "destroy": true,
             "columnDefs": [{
@@ -96,7 +25,10 @@
               "data": null,
               "defaultContent": "<a href='#' class='btn btn-info edit'>See More</a>"
             }],
-        });
+    });
+    const app = new App();
+
+    function App(){
         // Draw firebase table
         this.loadTable = function(){
             base.on('child_added',function(snapshot) {
@@ -225,24 +157,18 @@
             
         });
 
-        //Add a new fastfood object
-        $('#addData').on('click', function(){
-            let newName = prompt('Enter the new name: ');
-            let newAddress = prompt('Enter the new address: ');
-            if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
-                alert('You must enter all data!');
-            }else{
-                this.addNew(newName,newAddress);
-            }
-        });
-
     }
-
-    const authorization = new Authentifications();
     
-    const app = new App();
-
-    
+    //Add a new fastfood object
+    $('#addData').on('click', function(){
+        let newName = prompt('Enter the new name: ');
+        let newAddress = prompt('Enter the new address: ');
+        if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
+            alert('You must enter all data!');
+        }else{
+            this.addNew(newName,newAddress);
+        }
+    });
 
     //Close "Show more" window
     $('#Close').on( 'click', e => {
@@ -250,33 +176,9 @@
         $(".PlacesInfo").addClass('hide');
     });
 
-    //Button LogIn with email and pass
-    $('#btnLogIn').on('click', e => {
-        const email = $("#txtEmail").val();
-        const pass = $("#txtPassword").val();
-        authorization.logIn(email, pass);
-    });
-
-    //Button LogInAnon
-    $('#btnLogInAnon').on('click', e => {
-        authorization.logInAnon();
-    });
-
-    //Button LogInGoogle
-    $('#btnLogInGoogle').on('click', e => {
-        authorization.logInGoogle();
-    });
-
     //Button LogOut
     $('#btnLogOut').on('click','a', e => {
         authorization.logOut();
-    });
-
-    //Button SignIn with email and pass
-    $('#btnSignUp').on('click', e => {
-        const email = $("#txtEmail").val();
-        const pass = $("#txtPassword").val();
-        authorization.signUp(email, pass);
     });
 
 })(jQuery); // End of use strict

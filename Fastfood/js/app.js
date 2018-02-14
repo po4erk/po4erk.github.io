@@ -198,7 +198,7 @@
             button: "Accept",
             required: true,
             callback: function(value){
-                if(button){
+                if(true){
                 firebase.auth().signOut();
                 $.get(url, function (data) {
                     $('#content').html(data);

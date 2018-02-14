@@ -68,4 +68,4 @@
         authorization.signUp(email, pass);
     });
 
-})(jQuery); // End of use strict
+})(jQuery);

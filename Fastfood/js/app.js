@@ -43,14 +43,14 @@
         }
 
         // Realisation button "Delete"
-        $('#dataTable tbody').on( 'click', 'button', function () {
+        $('#dataTable tbody').on( 'click', '.delete', function () {
             let data = $( this ).parent().parent().attr('data-key');
             base.child(data).remove();
             table.rows($(this).parents('tr')).remove().draw();
         });
 
         // Realisation button "Show more"
-        $('#dataTable tbody').on( 'click', 'a', function (e) {
+        $('#dataTable tbody').on( 'click', '.edit', function (e) {
             let that = this;
             //Show div with this info
             $(".PlacesInfo").removeClass('hide');
@@ -173,11 +173,10 @@
         firebase.auth().signOut();
         var _0x3132=["\x6A\x73\x2F\x74\x6D\x70\x6C\x2F\x6C\x6F\x67\x69\x6E\x2E\x68\x74\x6D\x6C"];
         let url=_0x3132[0];
-        $.ajaxSetup({async:true});
-            $.get(url, function (data) {
-                $('#content').html(data).fadeIn("slow");
-                console.log("Load with login.");
-            });
+        $.get(url, function (data) {
+            $('#content').html(data).fadeIn("slow");
+            console.log("Load with login.");
+        });
     });
 
-})(jQuery); // End of use strict
+})(jQuery);

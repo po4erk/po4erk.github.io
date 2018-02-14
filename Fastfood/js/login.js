@@ -26,7 +26,7 @@
                 if((email == null)||(pass==null)){
                     alert('Enter any login data!');
                 }else{
-                    alert('Sign Up please!');
+                    console.log('Sign Up please!');
                 }
             });
         }

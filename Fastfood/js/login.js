@@ -67,8 +67,9 @@
 
                 $('#content').load("js/tmpl/app.html", '', function () {
                     console.log("Load with login.");
+                    app.loadTable();
                 });
-                app.loadTable();
+                
             } else {
                 console.log('You are not logged in...');
                 $('#content').load("tmpl/login.html", '', function () {

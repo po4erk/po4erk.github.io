@@ -81,9 +81,10 @@
                 });
                 $('#result').html(result);
 
-                console.log(data);
+                
                 function downloadImage(data){
                     this.data = data;
+                    console.log(data);
                     storage.ref(data).getDownloadURL().then(function(url){
                         $('.image').attr('src', url);
                     });

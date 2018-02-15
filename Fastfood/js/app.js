@@ -83,15 +83,9 @@
                 $('#result').html(result);
 
                 function downloadImage(){
-                    let imageData = storage.ref(data);
-                    if(imageData){
-                        imageData.getDownloadURL().then(function(url){
-                            $('.image').attr('src', url);
-                        });
-                    }else{
-                        console.log('Upload image for this place.');
-                    }
-                    
+                    storage.ref(data).getDownloadURL().then(function(url){
+                        $('.image').attr('src', url);
+                    });
                 }
                 downloadImage();
                 //Changes for title and address
@@ -152,7 +146,7 @@
                         $('#uploader').val(percentage);
                     },
                     function error(err){
-                        console.log(err);
+                        console.log('Upload image for this place.');
                     },
                     function complete(){
                         console.log('Complite!')

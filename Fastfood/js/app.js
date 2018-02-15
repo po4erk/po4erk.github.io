@@ -167,6 +167,11 @@
     $('#dataTable tbody').on( 'click', '.delete', function () {
         let that = $( this );
         let data = that.parent().parent().attr('data-key');
+        storage.ref(data).delete().then(function() {
+                console.log('Delete complite!')
+          }).catch(function(error) {
+                console.log('Delete error!')
+          });;
         app.deleteData(data);
         table.rows(that.parents('tr')).remove().draw(); 
     });

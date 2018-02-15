@@ -54,7 +54,7 @@
             $(".PlacesInfo").removeClass('hide');
 
             //Get unique attribute for this data
-            var data = $( this ).parent().parent().attr('data-key');
+            let data = $( this ).parent().parent().attr('data-key');
         
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
@@ -82,15 +82,14 @@
                 $('#result').html(result);
 
                 
-                function downloadImage(data){
-                    let value;
-                    this.data = value;
+                function downloadImage(){
+                    let value = $( this ).parent().parent().attr('data-key');
                     console.log(value);
                     storage.ref(value).getDownloadURL().then(function(url){
                         $('.image').attr('src', url);
                     });
                 }
-                downloadImage(data);
+                downloadImage();
 
                 //Changes for title and address
                 $('.title').on('click', function(e){
@@ -155,7 +154,7 @@
                     function complete(){
                         console.log('Complite!')
                         $('.image').attr('src', '');
-                        downloadImage(data);
+                        downloadImage();
                     }
                 );
                 });

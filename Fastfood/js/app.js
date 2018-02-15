@@ -50,12 +50,11 @@
 
         // Realisation button "Show more"
         $('#dataTable tbody').on( 'click', '.edit', function (e) {
-            let that = this;
             //Show div with this info
             $(".PlacesInfo").removeClass('hide');
 
             //Get unique attribute for this data
-            let data = $( that ).parent().parent().attr('data-key');
+            let data = $( this ).parent().parent().attr('data-key');
 
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);

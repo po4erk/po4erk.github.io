@@ -87,7 +87,6 @@
                         $('.image').attr('src', url);
                     });
                 }
-                downloadImage();
 
                 //Changes for title and address
                 $('.title').on('click', function(e){

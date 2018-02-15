@@ -185,7 +185,7 @@
     });
 
     //Close "Show more" window
-    $('#Close').on( 'click', e => {
+    $('#Close').on( 'click', function(e) {
         e.stopPropagation();
         $(".PlacesInfo").addClass('hide');
         $('#fileButton').val('');

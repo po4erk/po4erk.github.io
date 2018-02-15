@@ -81,7 +81,7 @@
                 });
                 $('#result').html(result);
 
-                storage.ref('images/' + data).getDownloadURL().then(function(url){
+                storage.ref(data).getDownloadURL().then(function(url){
                     console.log(url);
                     $('.image').attr('src', url);
                 });
@@ -137,7 +137,7 @@
                 $('#fileButton').on('change', function(e,data){
                     this.data = data;
                     let file = e.target.files[0];
-                    let storageRef = storage.ref('images/' + data);
+                    let storageRef = storage.ref(data);
                     let task = storageRef.put(file);
                     task.on('state_changed',
                     function progress(snapshot){
@@ -149,7 +149,7 @@
                     },
                     function complete(){
                         console.log('Complite!')
-                        storage.ref('images/' + data).getDownloadURL().then(function(url){
+                        storage.ref(data).getDownloadURL().then(function(url){
                             $('.image').attr('src', url);
                         });
                     }

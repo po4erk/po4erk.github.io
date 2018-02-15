@@ -81,10 +81,13 @@
                 });
                 $('#result').html(result);
 
-                storage.ref(data+'/' + data).getDownloadURL().then(function(url){
-                    console.log(url);
-                    $('.image').attr('src', url);
-                });
+                function downloadImage(){
+                    storage.ref(data+'/' + data).getDownloadURL().then(function(url){
+                        console.log(url);
+                        $('.image').attr('src', url);
+                    });
+                }
+                
 
                 //Changes for title and address
                 $('.title').on('click', function(e){
@@ -148,9 +151,7 @@
                     },
                     function complete(){
                         console.log('Complite!')
-                        storage.ref(data+'/' + data).getDownloadURL().then(function(url){
-                            $('.image').attr('src', url);
-                        });
+                        downloadImage();
                     }
                 );
                 });

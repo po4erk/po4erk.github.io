@@ -81,7 +81,7 @@
                 });
                 $('#result').html(result);
 
-                storage.ref(data).name.getDownloadURL().then(function(url){
+                storage.ref(data.name).getDownloadURL().then(function(url){
                     $('.image').attr('src', url);
                 });
 
@@ -147,7 +147,7 @@
                     },
                     function complete(){
                         console.log('Complite!')
-                        storage.ref(data).name.getDownloadURL().then(function(url){
+                        storage.ref(data.name).getDownloadURL().then(function(url){
                             $('.image').attr('src', url);
                         });
                     }

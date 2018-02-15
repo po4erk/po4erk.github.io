@@ -87,7 +87,7 @@
                         $('.image').attr('src', url);
                     });
                 }
-                //downloadImage();
+                downloadImage();
                 //Changes for title and address
                 $('.title').on('click', function(e){
                     let newTitle = prompt('Enter a new title: ');

@@ -70,6 +70,8 @@
                 var info = snapshot.child('info').val();
                 var rating = snapshot.child('rating').val();
                 var img = storage.ref(data).getDownloadURL();
+                console.log(img);
+                console.log(data);
 
                 var tmpl = $('#template').html();
                 var compiled = Handlebars.compile(tmpl);

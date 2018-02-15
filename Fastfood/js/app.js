@@ -82,7 +82,8 @@
                 $('#result').html(result);
 
                 console.log(data);
-                function downloadImage(){
+                function downloadImage(data){
+                    this.data = data;
                     storage.ref(data).getDownloadURL().then(function(url){
                         $('.image').attr('src', url);
                     });
@@ -137,7 +138,7 @@
                         $('.info').html(newInfo);
                     }
                 });
-                $('#fileButton').on('change', function(e){
+                $('#fileButton').on('change', function(e,){
                     let file = e.target.files[0];
                     let storageRef = storage.ref(data);
                     let task = storageRef.put(file);

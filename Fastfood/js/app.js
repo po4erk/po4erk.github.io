@@ -134,8 +134,7 @@
                         $('.info').html(newInfo);
                     }
                 });
-                $('#fileButton').on('change', function(e,data){
-                    this.data = data;
+                $('#fileButton').on('change', e =>{
                     let file = e.target.files[0];
                     let storageRef = storage.ref(data);
                     let task = storageRef.put(file);

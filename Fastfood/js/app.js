@@ -70,8 +70,6 @@
                 var info = snapshot.child('info').val();
                 var rating = snapshot.child('rating').val();
                 var img = storage.ref(data).getDownloadURL();
-                console.log(img);
-                console.log(data);
 
                 var tmpl = $('#template').html();
                 var compiled = Handlebars.compile(tmpl);
@@ -80,9 +78,16 @@
                     address: address,
                     info: info,
                     rating: rating,
-                    img: img
                 });
                 $('#result').html(result);
+
+                console.log(data);
+                function downloadImage(){
+                    storage.ref(data).getDownloadURL().then(function(url){
+                        $('.image').attr('src', url);
+                    });
+                }
+                downloadImage();
 
                 //Changes for title and address
                 $('.title').on('click', function(e){

@@ -82,6 +82,7 @@
                 $('#result').html(result);
 
                 storage.ref(data).getDownloadURL().then(function(url){
+                    console.log(data);
                     $('.image').attr('src', url);
                 });
 

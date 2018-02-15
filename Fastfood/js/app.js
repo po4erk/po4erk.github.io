@@ -88,7 +88,8 @@
                     });
                 }
                 downloadImage();
-
+                let file;
+                file = '';
                 //Changes for title and address
                 $('.title').on('click', function(e){
                     let newTitle = prompt('Enter a new title: ');
@@ -138,7 +139,7 @@
                     }
                 });
                 $('#fileButton').on('change', function(e){
-                    let file = e.target.files[0];
+                    file = e.target.files[0];
                     let storageRef = storage.ref(data);
                     let task = storageRef.put(file);
                     task.on('state_changed',
@@ -152,7 +153,6 @@
                     function complete(){
                         console.log('Complite!')
                         $('.image').attr('src', '');
-                        file = '';
                         downloadImage();
                     }
                 );

@@ -138,7 +138,7 @@
                     }
                 });
                 $('#fileButton').on('change', function(e){
-                    let file = e.target.file;
+                    let file = e.target.files;
                     let storageRef = storage.ref(data);
                     let task = storageRef.put(file);
                     task.on('state_changed',
@@ -152,6 +152,7 @@
                     function complete(){
                         console.log('Complite!')
                         $('.image').attr('src', '');
+                        file = '';
                         downloadImage();
                     }
                 );

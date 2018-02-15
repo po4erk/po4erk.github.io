@@ -153,7 +153,7 @@
                     function complete(){
                         console.log('Complite!')
                         $('.image').attr('src', '');
-                        downloadImage();
+                        downloadImage(data);
                     }
                 );
                 });

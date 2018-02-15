@@ -138,7 +138,7 @@
                     }
                 });
                 $('#fileButton').on('change', function(e){
-                    let file = e.target.files[0];
+                    let file = e.target.file;
                     let storageRef = storage.ref(data);
                     let task = storageRef.put(file);
                     task.on('state_changed',

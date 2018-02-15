@@ -81,16 +81,6 @@
                 });
                 $('#result').html(result);
 
-                
-                function downloadImage(){
-                    let value = $( this ).parent().parent().attr('data-key');
-                    console.log(value);
-                    storage.ref(value).getDownloadURL().then(function(url){
-                        $('.image').attr('src', url);
-                    });
-                }
-                downloadImage();
-
                 //Changes for title and address
                 $('.title').on('click', function(e){
                     let newTitle = prompt('Enter a new title: ');
@@ -154,7 +144,9 @@
                     function complete(){
                         console.log('Complite!')
                         $('.image').attr('src', '');
-                        downloadImage();
+                        storage.ref(data).getDownloadURL().then(function(url){
+                            $('.image').attr('src', url);
+                        });
                     }
                 );
                 });

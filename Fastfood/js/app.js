@@ -83,9 +83,9 @@
 
                 
                 function downloadImage(data){
-                    this.data = data;
-                    console.log(data);
-                    storage.ref(data).getDownloadURL().then(function(url){
+                    this.data = value;
+                    console.log(value);
+                    storage.ref(value).getDownloadURL().then(function(url){
                         $('.image').attr('src', url);
                     });
                 }

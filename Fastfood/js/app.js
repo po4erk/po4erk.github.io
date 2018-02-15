@@ -83,9 +83,15 @@
                 $('#result').html(result);
 
                 function downloadImage(){
-                    storage.ref(data).getDownloadURL().then(function(url){
-                        $('.image').attr('src', url);
-                    });
+                    let imageData = storage.ref(data);
+                    if(imageData){
+                        imageData.getDownloadURL().then(function(url){
+                            $('.image').attr('src', url);
+                        });
+                    }else{
+                        console.log('Upload image for this place.');
+                    }
+                    
                 }
                 downloadImage();
                 //Changes for title and address

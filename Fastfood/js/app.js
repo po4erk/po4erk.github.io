@@ -136,7 +136,7 @@
                 });
                 $('#fileButton').on('change', e =>{
                     let file = e.target.files[0];
-                    let storageRef = storage.ref(data);
+                    let storageRef = storage.ref(data+'/' + data);
                     let task = storageRef.put(file);
                     task.on('state_changed',
                     function progress(snapshot){

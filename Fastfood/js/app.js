@@ -84,9 +84,11 @@
 
                 function downloadImage(){
                     storage.ref(data).getDownloadURL().then(function(url){
+                        $('.image').attr('src', '');
                         $('.image').attr('src', url);
                     });
                 }
+                downloadImage();
 
                 //Changes for title and address
                 $('.title').on('click', function(e){

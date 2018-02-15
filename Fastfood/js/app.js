@@ -143,7 +143,6 @@
                     },
                     function complete(){
                         console.log('Complite!')
-                        $('.image').attr('src', '');
                         storage.ref(data).getDownloadURL().then(function(url){
                             $('.image').attr('src', url);
                         });

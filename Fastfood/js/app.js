@@ -83,6 +83,7 @@
 
                 
                 function downloadImage(data){
+                    let value;
                     this.data = value;
                     console.log(value);
                     storage.ref(value).getDownloadURL().then(function(url){

@@ -50,12 +50,13 @@
 
         // Realisation button "Show more"
         $('#dataTable tbody').on( 'click', '.edit', function (e) {
+            let that = this;
             //Show div with this info
             $(".PlacesInfo").removeClass('hide');
 
             //Get unique attribute for this data
-            let data = $( this ).parent().parent().attr('data-key');
-        
+            let data = $( that ).parent().parent().attr('data-key');
+
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
             //Get image of firebase storage
@@ -69,7 +70,7 @@
                 var address = snapshot.child('address').val();
                 var info = snapshot.child('info').val();
                 var rating = snapshot.child('rating').val();
-                var img = storage.ref(data).getDownloadURL();
+                
 
                 var tmpl = $('#template').html();
                 var compiled = Handlebars.compile(tmpl);
@@ -82,8 +83,7 @@
                 $('#result').html(result);
 
                 function downloadImage(){
-                    storage.ref(data+'/' + data).getDownloadURL().then(function(url){
-                        console.log(url);
+                    storage.ref(data).getDownloadURL().then(function(url){
                         $('.image').attr('src', url);
                     });
                 }
@@ -137,13 +137,10 @@
                         $('.info').html(newInfo);
                     }
                 });
-                $('#fileButton').on('change', e =>{
-                    let metadata = {
-                        contentType: 'image/jpeg',
-                      };
+                $('#fileButton').on('change', function(e){
                     let file = e.target.files[0];
-                    let storageRef = storage.ref(data+'/' + data);
-                    let task = storageRef.put(file, metadata);
+                    let storageRef = storage.ref(data);
+                    let task = storageRef.put(file);
                     task.on('state_changed',
                     function progress(snapshot){
                         let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -154,6 +151,7 @@
                     },
                     function complete(){
                         console.log('Complite!')
+                        $('.image').attr('src', '');
                         downloadImage();
                     }
                 );
@@ -187,7 +185,7 @@
     });
 
     //Close "Show more" window
-    $('#Close').on( 'click', function(e) {
+    $('#Close').on( 'click', e => {
         e.stopPropagation();
         $(".PlacesInfo").addClass('hide');
         $('#fileButton').val('');

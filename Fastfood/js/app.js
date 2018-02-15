@@ -138,9 +138,12 @@
                     }
                 });
                 $('#fileButton').on('change', e =>{
+                    let metadata = {
+                        contentType: 'image/jpeg',
+                      };
                     let file = e.target.files[0];
                     let storageRef = storage.ref(data+'/' + data);
-                    let task = storageRef.put(file);
+                    let task = storageRef.put(file, metadata);
                     task.on('state_changed',
                     function progress(snapshot){
                         let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;

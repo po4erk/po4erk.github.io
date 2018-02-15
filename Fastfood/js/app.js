@@ -54,7 +54,7 @@
             $(".PlacesInfo").removeClass('hide');
 
             //Get unique attribute for this data
-            let data = $( this ).parent().parent().attr('data-key');
+            var data = $( this ).parent().parent().attr('data-key');
         
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);

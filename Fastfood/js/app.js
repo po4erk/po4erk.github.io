@@ -55,7 +55,7 @@
 
             //Get unique attribute for this data
             let data = $( this ).parent().parent().attr('data-key');
-
+        
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
             //Get image of firebase storage
@@ -69,7 +69,7 @@
                 var address = snapshot.child('address').val();
                 var info = snapshot.child('info').val();
                 var rating = snapshot.child('rating').val();
-                
+                var img = storage.ref(data).getDownloadURL();
 
                 var tmpl = $('#template').html();
                 var compiled = Handlebars.compile(tmpl);
@@ -78,16 +78,9 @@
                     address: address,
                     info: info,
                     rating: rating,
+                    img: img
                 });
                 $('#result').html(result);
-
-                function downloadImage(){
-                    storage.ref(data).getDownloadURL().then(function(url){
-                        $('.image').attr('src', '');
-                        $('.image').attr('src', url);
-                    });
-                }
-                downloadImage();
 
                 //Changes for title and address
                 $('.title').on('click', function(e){

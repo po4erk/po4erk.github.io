@@ -204,7 +204,7 @@
         firebase.auth().signOut();
         $.get(url, function (data) {
             $('#content').html(data);
-            window.location.hash = url;
+            window.location.hash = 'login';
             console.log("Load with login.");
         });
     });

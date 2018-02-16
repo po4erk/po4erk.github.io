@@ -17,6 +17,7 @@
             $.get(url, function (data) {
                 $('#content').html(data);
                 console.log("Load with login.");
+                window.location.hash = 'app';
             });
             
         } else {
@@ -26,6 +27,7 @@
             $.get(url, function (data) {
                 $('#content').html(data);
                 console.log("Load without login.");
+                window.location.hash = 'login';
             });
         }
     });

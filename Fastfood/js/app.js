@@ -83,12 +83,13 @@
                 $('#result').html(result);
 
                 function downloadImage(){
-                    let getUrl = storage.ref(data).getDownloadURL();
-                    let url = JSON.stringify(getUrl);
-                    console.log(url);
-                    getUrl.then(function(url){
-                        $('.image').attr('src', url);
-                    });
+                    if(storage.ref(data) == null){
+                        console.log('error!');
+                    }else{
+                        storage.ref(data).getDownloadURL().then(function(url){
+                            $('.image').attr('src', url);
+                        });
+                    }
                 }
                 downloadImage();
                 //Changes for title and address

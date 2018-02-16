@@ -83,7 +83,7 @@
                 $('#result').html(result);
 
                 function downloadImage(){
-                    if(storage.ref(data) == null){
+                    if(storage.ref(data).getDownloadURL() == "storage/object-not-found"){
                         console.log('error!');
                     }else{
                         storage.ref(data).getDownloadURL().then(function(url){

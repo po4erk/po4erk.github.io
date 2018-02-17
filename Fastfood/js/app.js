@@ -213,7 +213,7 @@
     $('#btnLogOut').on('click', function(e) {
         console.log("logout");
         dialog.confirm({
-            title: "LogOut",
+            title: "Logout",
             message: "Do you want to exit?",
             cancel: "No",
             button: "Yes",

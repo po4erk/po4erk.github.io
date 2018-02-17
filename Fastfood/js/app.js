@@ -223,39 +223,14 @@
     
     //Add a new fastfood object
     $('#addData').on('click', function(e){
-        e.preventDefault();
-        var href = $(this).attr('href');
-        // Getting Content
-        getContent(href, true);
-       
-        /* let newName = prompt('Enter the new name: ');
+        let newName = prompt('Enter the new name: ');
         let newAddress = prompt('Enter the new address: ');
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
             alert('You must enter all data!');
         }else{
             app.addNew(newName,newAddress);
-        } */
+        }
     });
-
-    $(document).on('click','#addCancel',function(e){
-            e.preventDefault();
-            var href = $(this).attr('href');
-            getContent(href, true);
-    });
-
-    window.addEventListener("popstate", function(e) {
-        getContent(location.pathname, false);
-    });
-
-    function getContent(url, addEntry) {
-        $.get(url)
-        .done(function( html ) {
-            $('#addBlock').html(html);
-            if(addEntry == true) {
-                history.pushState(null, null, url);
-            }
-        });
-    }
 
     //Close "Show more" window
     $('#Close').on( 'click', e => {

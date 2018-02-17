@@ -95,20 +95,31 @@
                 downloadImage();
                 //Changes for title and address
                 $('.title').on('click', function(e){
-                    let newTitle = prompt('Enter a new title: ');
-                    if((newTitle == '')||(newTitle == null)){
-                        alert('You must enter any data!');
-                    }else{
-                        thisData.update({
-                            name: newTitle,
-                        }); 
-                        $('.title').html(newTitle);
-                        elem = $('[data-key='+data+'] td:eq(0)');
-                        elem.html(newTitle);
-                    }   
+
+                    let newTitle = dialog.prompt({
+                          title: "Prompt Title",
+                          message: "Prompt Message",
+                          button: "Submit",
+                          required: true,
+                          input: {
+                            type: "text",
+                            placeholder: "This is a placeholder..."
+                          },
+                          validate: function(value){
+                            if( $.trim(value) === "" ){
+                              return false;
+                            }else{
+                                thisData.update({
+                                    name: newTitle,
+                                }); 
+                                $('.title').html(newTitle);
+                                elem = $('[data-key='+data+'] td:eq(0)');
+                                elem.html(newTitle);
+                            }
+                          }
+                        });  
                 });
                 $('.address').on('click', function(e){
-                    // 'https://www.google.ru/maps/place/'
                     let newAddress = prompt('Enter a new address: ');
                     if((newAddress == '')||(newAddress == null)){
                         alert('You must enter any data!');

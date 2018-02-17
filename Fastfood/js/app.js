@@ -178,8 +178,8 @@
               cancel: "Cancel",
               button: "Accept",
               required: true,
-              callback: function(value){
-                if(value = true){
+              callback: function(){
+                if(value == true){
                     app.deleteData(data);
                     table.rows(that.parents('tr')).remove().draw();
                 }else{

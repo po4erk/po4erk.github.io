@@ -45,6 +45,11 @@
         // Realisation button "Delete"
         this.deleteData = function(data) {
             this.data = data;
+            storage.ref(data).delete().then(function() {
+                console.log('Delete complite!')
+            }).catch(function(error) {
+                console.log('Delete error!')
+            });
             base.child(data).remove();
         };
 
@@ -167,13 +172,17 @@
     $('#dataTable tbody').on( 'click', '.delete', function () {
         let that = $( this );
         let data = that.parent().parent().attr('data-key');
-        storage.ref(data).delete().then(function() {
-                console.log('Delete complite!')
-          }).catch(function(error) {
-                console.log('Delete error!')
-          });;
-        app.deleteData(data);
-        table.rows(that.parents('tr')).remove().draw(); 
+        dialog.confirm({
+              title: "Confirm Title",
+              message: "Confirm Message",
+              cancel: "Cancel",
+              button: "Accept",
+              required: true,
+              callback: function(value){
+                app.deleteData(data);
+                table.rows(that.parents('tr')).remove().draw();
+              }
+            }); 
     });
 
     

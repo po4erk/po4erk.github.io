@@ -222,7 +222,7 @@
 
     
     //Add a new fastfood object
-    $('#addData').on('click', function(){
+    $('#addData').on('click', function(e){
         e.preventDefault();
         var href = $(this).attr('href');
         // Getting Content

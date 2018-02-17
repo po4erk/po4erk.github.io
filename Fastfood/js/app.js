@@ -95,19 +95,18 @@
                 downloadImage();
                 //Changes for title and address
                 $('.title').on('click', function(e){
-
                     let newTitle = dialog.prompt({
-                          title: "Prompt Title",
-                          message: "Prompt Message",
-                          button: "Submit",
-                          required: true,
-                          input: {
+                        title: "New Name",
+                        message: "Enter new name",
+                        button: "Submit",
+                        required: true,
+                        input: {
                             type: "text",
-                            placeholder: "This is a placeholder..."
-                          },
-                          validate: function(value){
+                            placeholder: "New name..."
+                        },
+                        validate: function(value){
                             if( $.trim(value) === "" ){
-                              return false;
+                                return false;
                             }else{
                                 thisData.update({
                                     name: value,
@@ -117,20 +116,31 @@
                                 elem.html(value);
                             }
                           }
-                        });  
+                    });  
                 });
                 $('.address').on('click', function(e){
-                    let newAddress = prompt('Enter a new address: ');
-                    if((newAddress == '')||(newAddress == null)){
-                        alert('You must enter any data!');
-                    }else{
-                        thisData.update({
-                            address: newAddress,
-                        }); 
-                        $('.address').html(newAddress);
-                        elem = $('[data-key='+data+'] td:eq(1)');
-                        elem.html(newAddress);
-                    }
+                    let newAddress = dialog.prompt({
+                        title: "New Name",
+                        message: "Enter new name",
+                        button: "Submit",
+                        required: true,
+                        input: {
+                            type: "text",
+                            placeholder: "New name..."
+                        },
+                        validate: function(value){
+                            if( $.trim(value) === "" ){
+                                return false;
+                            }else{
+                                thisData.update({
+                                    address: value,
+                                }); 
+                                $('.address').html(value);
+                                elem = $('[data-key='+data+'] td:eq(1)');
+                                elem.html(value);
+                            }
+                          }
+                    });
                 });
                 $('#ratingSel').on('change', function(e){
                     var newRating = $("#ratingSel").val();
@@ -142,15 +152,26 @@
                         elem.html(newRating);
                 });
                 $('.info').on('click', function(e){
-                    let newInfo = prompt('Enter a new info: ');
-                    if((newInfo == '')||(newInfo == null)){
-                        alert('You must enter any data!');
-                    }else{
-                        thisData.update({
-                            info: newInfo,
-                        }); 
-                        $('.info').html(newInfo);
-                    }
+                    let newInfo = dialog.prompt({
+                        title: "New Name",
+                        message: "Enter new name",
+                        button: "Submit",
+                        required: true,
+                        input: {
+                            type: "text",
+                            placeholder: "New name..."
+                        },
+                        validate: function(value){
+                            if( $.trim(value) === "" ){
+                                return false;
+                            }else{
+                                thisData.update({
+                                    info: value,
+                                }); 
+                                $('.info').html(value);
+                            }
+                          }
+                    });
                 });
                 $('#fileButton').on('change', function(e){
                     let file = e.target.files[0];

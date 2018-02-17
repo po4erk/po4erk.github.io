@@ -238,7 +238,7 @@
     });
 
     $(document).on('click','#addCancel',function(e){
-            getContent('Fastfood/js/tmpl/app.html', true);
+            getContent('app.html', true);
     });
 
     window.addEventListener("popstate", function(e) {

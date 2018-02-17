@@ -110,11 +110,11 @@
                               return false;
                             }else{
                                 thisData.update({
-                                    name: newTitle,
+                                    name: value,
                                 }); 
-                                $('.title').html(newTitle);
+                                $('.title').html(value);
                                 elem = $('[data-key='+data+'] td:eq(0)');
-                                elem.html(newTitle);
+                                elem.html(value);
                             }
                           }
                         });  

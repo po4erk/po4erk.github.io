@@ -234,7 +234,7 @@
         function getContent(url, addEntry) {
             $.get(url)
             .done(function( data ) {
-                $('#container').html(data);
+                $('#content').html(data);
                 if(addEntry == true) {
                     history.pushState(null, null, url);
                 }

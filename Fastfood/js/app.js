@@ -61,14 +61,14 @@
             let data = $( that ).parent().parent().attr('data-key');
 
             //Get data of firebase by unique key(attribute);
-            let thisData = base.child(data);
+            
             //Get image of firebase storage
             $.get('js/tmpl/show.html', function (html) {
                 $('#show').html(html);
-            }).done(showData(thisData));
+            }).done(showData());
 
-            function showData(thisData){
-                this.thisData = thisData;
+            function showData(){
+                let thisData = base.child(data);
                 //Listen all changes at this data
                 let name = thisData.once("value").then(function(snapshot) {
 

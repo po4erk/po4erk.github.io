@@ -55,6 +55,7 @@
 
         // Realisation button "Show more"
         $('#dataTable tbody').on( 'click', '.edit', function (e) {
+            e.preventDefault();
             let that = this;
             //Get unique attribute for this data
             let data = $( that ).parent().parent().attr('data-key');

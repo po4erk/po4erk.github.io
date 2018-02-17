@@ -63,7 +63,7 @@
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
             //Get image of firebase storage
-                $('#container').load('js/tmpl/show.html');
+                $('#show').load('js/tmpl/show.html');
 
             function showData(thisData){
                 this.thisData = thisData;

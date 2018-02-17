@@ -13,7 +13,7 @@
               "width": '3%',
               "targets": 4,
               "data": null,
-              "defaultContent": "<a href='#' class='btn btn-info edit'>See More</a>"
+              "defaultContent": "<a href='show-more' class='btn btn-info edit'>See More</a>"
             }],
     });
     const app = new App();
@@ -65,8 +65,7 @@
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
             //Get image of firebase storage
-            window.location.hash = 'show-more';
-            console.log(window.location.hash);
+
             //Listen all changes at this data
             let name = thisData.once("value").then(function(snapshot) {
 

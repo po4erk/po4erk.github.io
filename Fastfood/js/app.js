@@ -65,7 +65,7 @@
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
             //Get image of firebase storage
-            window.history.hash = 'show-more';
+            window.location.hash = 'show-more';
             var href = $(this).attr('href');
             console.log(href);
             //Listen all changes at this data

@@ -66,7 +66,8 @@
             let thisData = base.child(data);
             //Get image of firebase storage
             
-
+            var href = $(this).attr('href');
+            console.log(href);
             //Listen all changes at this data
             let name = thisData.once("value").then(function(snapshot) {
 

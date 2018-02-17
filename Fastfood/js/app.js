@@ -179,8 +179,12 @@
               button: "Accept",
               required: true,
               callback: function(value){
-                app.deleteData(data);
-                table.rows(that.parents('tr')).remove().draw();
+                if(value = true){
+                    app.deleteData(data);
+                    table.rows(that.parents('tr')).remove().draw();
+                }else{
+                    return false;
+                }
               }
             }); 
     });

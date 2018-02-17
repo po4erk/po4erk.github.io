@@ -55,7 +55,7 @@
 
         // Realisation button "Show more"
         $('#dataTable tbody').on( 'click', '.edit', function (e) {
-            e.stopPropagation();
+            e.preventDefault();
             let that = this;
             //Show div with this info
             $(".PlacesInfo").removeClass('hide');

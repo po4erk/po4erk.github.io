@@ -13,7 +13,7 @@
               "width": '3%',
               "targets": 4,
               "data": null,
-              "defaultContent": "<a href='show-more' class='btn btn-info edit'>See More</a>"
+              "defaultContent": "<a href='' class='btn btn-info edit'>See More</a>"
             }],
     });
     const app = new App();
@@ -55,7 +55,6 @@
 
         // Realisation button "Show more"
         $('#dataTable tbody').on( 'click', '.edit', function (e) {
-            e.preventDefault();
             let that = this;
             //Show div with this info
             $(".PlacesInfo").removeClass('hide');

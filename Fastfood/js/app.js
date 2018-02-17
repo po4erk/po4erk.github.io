@@ -55,148 +55,143 @@
 
         // Realisation button "Show more"
         $('#dataTable tbody').on( 'click', '.edit', function (e) {
-            e.preventDefault();
             let that = this;
+            //Show div with this info
+            $(".PlacesInfo").removeClass('hide');
+
             //Get unique attribute for this data
             let data = $( that ).parent().parent().attr('data-key');
 
             //Get data of firebase by unique key(attribute);
-            
+            let thisData = base.child(data);
             //Get image of firebase storage
-            $.get('js/tmpl/show.html', function (html) {
-                $('#show').html(html);
-            }).done(showData());
 
-            function showData(){
-                let thisData = base.child(data);
-                //Listen all changes at this data
-                let name = thisData.once("value").then(function(snapshot) {
+            //Listen all changes at this data
+            let name = thisData.once("value").then(function(snapshot) {
 
-                    //We get the name and address using a unique key and write it in the "Show more" section and in the DOM
-                    var title = snapshot.child('name').val();
-                    var address = snapshot.child('address').val();
-                    var info = snapshot.child('info').val();
-                    var rating = snapshot.child('rating').val();
-                    
+                //We get the name and address using a unique key and write it in the "Show more" section and in the DOM
+                var title = snapshot.child('name').val();
+                var address = snapshot.child('address').val();
+                var info = snapshot.child('info').val();
+                var rating = snapshot.child('rating').val();
+                
 
-                    var tmpl = $('#template').html();
-                    var compiled = Handlebars.compile(tmpl);
-                    var result = compiled({
-                        title: title,
-                        address: address,
-                        info: info,
-                        rating: rating,
-                    });
-                    $('#result').html(result);
+                var tmpl = $('#template').html();
+                var compiled = Handlebars.compile(tmpl);
+                var result = compiled({
+                    title: title,
+                    address: address,
+                    info: info,
+                    rating: rating,
+                });
+                $('#result').html(result);
 
-                    function downloadImage(){
-                            storage.ref(data).getDownloadURL().then(function(url){
-                                $('.image').attr('src', url);
-                            });
-                    }
-                    downloadImage();
-                    //Changes for title and address
-                    $('.title').on('click', function(e){
-                        let newTitle = dialog.prompt({
-                            title: "New Name",
-                            message: "Enter new name",
-                            button: "Submit",
-                            required: true,
-                            input: {
-                                type: "text",
-                                placeholder: "New name..."
-                            },
-                            validate: function(value){
-                                if( $.trim(value) === "" ){
-                                    return false;
-                                }else{
-                                    thisData.update({
-                                        name: value,
-                                    }); 
-                                    $('.title').html(value);
-                                    elem = $('[data-key='+data+'] td:eq(0)');
-                                    elem.html(value);
-                                }
-                            }
-                        });  
-                    });
-                    $('.address').on('click', function(e){
-                        let newAddress = dialog.prompt({
-                            title: "New Address",
-                            message: "Enter new address",
-                            button: "Submit",
-                            required: true,
-                            input: {
-                                type: "text",
-                                placeholder: "New address..."
-                            },
-                            validate: function(value){
-                                if( $.trim(value) === "" ){
-                                    return false;
-                                }else{
-                                    thisData.update({
-                                        address: value,
-                                    }); 
-                                    $('.address').html(value);
-                                    elem = $('[data-key='+data+'] td:eq(1)');
-                                    elem.html(value);
-                                }
-                            }
+                function downloadImage(){
+                        storage.ref(data).getDownloadURL().then(function(url){
+                            $('.image').attr('src', url);
                         });
-                    });
-                    $('#ratingSel').on('change', function(e){
-                        var newRating = $("#ratingSel").val();
-                            thisData.update({
-                                rating: newRating,
-                            }); 
-                            $('.rating').html("Rating: " + newRating);
-                            elem = $('[data-key='+data+'] td:eq(2)');
-                            elem.html(newRating);
-                    });
-                    $('.info').on('click', function(e){
-                        let newInfo = dialog.prompt({
-                            title: "New Info about place",
-                            message: "Enter new info about this place",
-                            button: "Submit",
-                            required: true,
-                            input: {
-                                type: "text",
-                                placeholder: "New info..."
-                            },
-                            validate: function(value){
-                                if( $.trim(value) === "" ){
-                                    return false;
-                                }else{
-                                    thisData.update({
-                                        info: value,
-                                    }); 
-                                    $('.info').html(value);
-                                }
+                }
+                downloadImage();
+                //Changes for title and address
+                $('.title').on('click', function(e){
+                    let newTitle = dialog.prompt({
+                        title: "New Name",
+                        message: "Enter new name",
+                        button: "Submit",
+                        required: true,
+                        input: {
+                            type: "text",
+                            placeholder: "New name..."
+                        },
+                        validate: function(value){
+                            if( $.trim(value) === "" ){
+                                return false;
+                            }else{
+                                thisData.update({
+                                    name: value,
+                                }); 
+                                $('.title').html(value);
+                                elem = $('[data-key='+data+'] td:eq(0)');
+                                elem.html(value);
                             }
-                        });
-                    });
-                    $('#fileButton').on('change', function(e){
-                        let file = e.target.files[0];
-                        let storageRef = storage.ref(data);
-                        let task = storageRef.put(file);
-                        task.on('state_changed',
-                        function progress(snapshot){
-                            let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                            $('#uploader').val(percentage);
+                          }
+                    });  
+                });
+                $('.address').on('click', function(e){
+                    let newAddress = dialog.prompt({
+                        title: "New Address",
+                        message: "Enter new address",
+                        button: "Submit",
+                        required: true,
+                        input: {
+                            type: "text",
+                            placeholder: "New address..."
                         },
-                        function error(err){
-                            console.log('Upload image for this place.');
-                        },
-                        function complete(){
-                            console.log('Complite!')
-                            $('.image').attr('src', '');
-                            downloadImage();
-                        }
-                    );
+                        validate: function(value){
+                            if( $.trim(value) === "" ){
+                                return false;
+                            }else{
+                                thisData.update({
+                                    address: value,
+                                }); 
+                                $('.address').html(value);
+                                elem = $('[data-key='+data+'] td:eq(1)');
+                                elem.html(value);
+                            }
+                          }
                     });
                 });
-            }
-            
+                $('#ratingSel').on('change', function(e){
+                    var newRating = $("#ratingSel").val();
+                        thisData.update({
+                            rating: newRating,
+                        }); 
+                        $('.rating').html("Rating: " + newRating);
+                        elem = $('[data-key='+data+'] td:eq(2)');
+                        elem.html(newRating);
+                });
+                $('.info').on('click', function(e){
+                    let newInfo = dialog.prompt({
+                        title: "New Info about place",
+                        message: "Enter new info about this place",
+                        button: "Submit",
+                        required: true,
+                        input: {
+                            type: "text",
+                            placeholder: "New info..."
+                        },
+                        validate: function(value){
+                            if( $.trim(value) === "" ){
+                                return false;
+                            }else{
+                                thisData.update({
+                                    info: value,
+                                }); 
+                                $('.info').html(value);
+                            }
+                          }
+                    });
+                });
+                $('#fileButton').on('change', function(e){
+                    let file = e.target.files[0];
+                    let storageRef = storage.ref(data);
+                    let task = storageRef.put(file);
+                    task.on('state_changed',
+                    function progress(snapshot){
+                        let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        $('#uploader').val(percentage);
+                    },
+                    function error(err){
+                        console.log('Upload image for this place.');
+                    },
+                    function complete(){
+                        console.log('Complite!')
+                        $('.image').attr('src', '');
+                        downloadImage();
+                    }
+                );
+                });
+            });
             
         });
 
@@ -240,7 +235,7 @@
     //Close "Show more" window
     $('#Close').on( 'click', e => {
         e.stopPropagation();
-        $("#show").html('');
+        $(".PlacesInfo").addClass('hide');
         $('#fileButton').val('');
         $('#uploader').attr('value', '0');
     });

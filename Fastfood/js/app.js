@@ -223,13 +223,30 @@
     
     //Add a new fastfood object
     $('#addData').on('click', function(){
-        let newName = prompt('Enter the new name: ');
+        e.preventDefault();
+        var href = $(this).attr('href');
+        // Getting Content
+        getContent(href, true);
+        window.addEventListener("popstate", function(e) {
+            getContent(location.pathname, false);
+        });
+
+        function getContent(url, addEntry) {
+            $.get(url)
+            .done(function( data ) {
+                $('#container').html(data);
+                if(addEntry == true) {
+                    history.pushState(null, null, url);
+                }
+            });
+        }
+/*        let newName = prompt('Enter the new name: ');
         let newAddress = prompt('Enter the new address: ');
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
             alert('You must enter all data!');
         }else{
             app.addNew(newName,newAddress);
-        }
+        } */
     });
 
     //Close "Show more" window

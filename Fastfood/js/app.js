@@ -228,13 +228,18 @@
         // Getting Content
         getContent(href, true);
        
-/*        let newName = prompt('Enter the new name: ');
+        /* let newName = prompt('Enter the new name: ');
         let newAddress = prompt('Enter the new address: ');
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
             alert('You must enter all data!');
         }else{
             app.addNew(newName,newAddress);
         } */
+    });
+
+    $(document).on('click','#addCancel',function(e){
+        target = e.target;
+        target.parent().parent().remove();
     });
 
     window.addEventListener("popstate", function(e) {

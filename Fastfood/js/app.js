@@ -178,7 +178,7 @@
               cancel: "Cancel",
               button: "Accept",
               required: true,
-              callback: function(){
+              callback: function(value){
                 if(value == true){
                     app.deleteData(data);
                     table.rows(that.parents('tr')).remove().draw();

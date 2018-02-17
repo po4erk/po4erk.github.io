@@ -120,13 +120,13 @@
                 });
                 $('.address').on('click', function(e){
                     let newAddress = dialog.prompt({
-                        title: "New Name",
-                        message: "Enter new name",
+                        title: "New Address",
+                        message: "Enter new address",
                         button: "Submit",
                         required: true,
                         input: {
                             type: "text",
-                            placeholder: "New name..."
+                            placeholder: "New address..."
                         },
                         validate: function(value){
                             if( $.trim(value) === "" ){
@@ -153,13 +153,13 @@
                 });
                 $('.info').on('click', function(e){
                     let newInfo = dialog.prompt({
-                        title: "New Name",
-                        message: "Enter new name",
+                        title: "New Info about place",
+                        message: "Enter new info about this place",
                         button: "Submit",
                         required: true,
                         input: {
                             type: "text",
-                            placeholder: "New name..."
+                            placeholder: "New info..."
                         },
                         validate: function(value){
                             if( $.trim(value) === "" ){

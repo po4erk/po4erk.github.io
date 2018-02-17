@@ -13,7 +13,7 @@
               "width": '3%',
               "targets": 4,
               "data": null,
-              "defaultContent": "<a href='' class='btn btn-info edit'>See More</a>"
+              "defaultContent": "<a href='#' class='btn btn-info edit'>See More</a>"
             }],
     });
     const app = new App();

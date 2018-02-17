@@ -63,7 +63,9 @@
             //Get data of firebase by unique key(attribute);
             let thisData = base.child(data);
             //Get image of firebase storage
-                $('#show').load('js/tmpl/show.html');
+            $.get('js/tmpl/show.html', function (html) {
+                $('#show').html(html);
+            }).done(showData(thisData));
 
             function showData(thisData){
                 this.thisData = thisData;
@@ -238,7 +240,7 @@
     //Close "Show more" window
     $('#Close').on( 'click', e => {
         e.stopPropagation();
-        $(".PlacesInfo").addClass('hide');
+        $("#show").html('');
         $('#fileButton').val('');
         $('#uploader').attr('value', '0');
     });

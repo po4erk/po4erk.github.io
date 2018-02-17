@@ -64,7 +64,7 @@
             //Get image of firebase storage
             $.get('js/tmpl/show.html', function (html) {
                 $('#show').html(html);
-            }).then(showData(thisData));
+            });
 
             function showData(thisData){
                 this.thisData = thisData;

@@ -238,7 +238,9 @@
     });
 
     $(document).on('click','#addCancel',function(e){
-            getContent('app.html', true);
+            e.preventDefault();
+            var href = $(this).attr('href');
+            getContent(href, true);
     });
 
     window.addEventListener("popstate", function(e) {

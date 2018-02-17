@@ -248,7 +248,7 @@
     function getContent(url, addEntry) {
         $.get(url)
         .done(function( html ) {
-            $('#content').html(html);
+            $('#show').html(html);
             if(addEntry == true) {
                 history.pushState(null, null, url);
             }

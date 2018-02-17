@@ -16,8 +16,6 @@
             let url=_0xa14f[0];
             $.get(url, function (data) {
                 $('#content').html(data);
-                console.log("Load with login.");
-                window.location.hash = 'app';
             });
             
         } else {
@@ -26,8 +24,6 @@
             let url=_0x3132[0];
             $.get(url, function (data) {
                 $('#content').html(data);
-                console.log("Load without login.");
-                window.location.hash = 'login';
             });
         }
     });

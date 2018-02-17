@@ -227,19 +227,7 @@
         var href = $(this).attr('href');
         // Getting Content
         getContent(href, true);
-        window.addEventListener("popstate", function(e) {
-            getContent(location.pathname, false);
-        });
-
-        function getContent(url, addEntry) {
-            $.get(url)
-            .done(function( data ) {
-                $('#content').html(data);
-                if(addEntry == true) {
-                    history.pushState(null, null, url);
-                }
-            });
-        }
+       
 /*        let newName = prompt('Enter the new name: ');
         let newAddress = prompt('Enter the new address: ');
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
@@ -248,6 +236,20 @@
             app.addNew(newName,newAddress);
         } */
     });
+
+    window.addEventListener("popstate", function(e) {
+        getContent(location.pathname, false);
+    });
+
+    function getContent(url, addEntry) {
+        $.get(url)
+        .done(function( data ) {
+            $('#content').html(data);
+            if(addEntry == true) {
+                history.pushState(null, null, url);
+            }
+        });
+    }
 
     //Close "Show more" window
     $('#Close').on( 'click', e => {

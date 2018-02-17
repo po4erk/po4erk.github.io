@@ -239,7 +239,7 @@
 
     $(document).on('click','#addCancel',function(e){
         target = e.target;
-        target.parent().parent().remove();
+        $('.add-wrapper').remove();
     });
 
     window.addEventListener("popstate", function(e) {

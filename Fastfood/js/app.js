@@ -223,14 +223,31 @@
     
     //Add a new fastfood object
     $('#addData').on('click', function(e){
-        let newName = prompt('Enter the new name: ');
+        href = 'js/tmpl/add.html'
+        getContent(href, true);
+
+
+        /*let newName = prompt('Enter the new name: ');
         let newAddress = prompt('Enter the new address: ');
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
             alert('You must enter all data!');
         }else{
             app.addNew(newName,newAddress);
-        }
+        }*/
     });
+
+    window.addEventListener("popstate", function(e) {
+        getContent(location.pathname, false);
+    });
+
+    function getContent(url, addEntry) {
+        $.get(url)
+        .done(function( html ) {
+            $('#addBlock').html(html);
+            if(addEntry == true) {
+                history.pushState(null, null, url);
+            }
+        });
 
     //Close "Show more" window
     $('#Close').on( 'click', e => {

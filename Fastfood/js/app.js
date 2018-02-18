@@ -247,7 +247,10 @@
         let newName = $('#newName').val();
         let newAddress = $('#newAddress').val();
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
-            alert('You must enter all data!');
+            dialog.alert({
+                title: 'Error',
+                message: 'You must enter all data!'
+            });
         }else{
             app.addNew(newName,newAddress).then();
         }

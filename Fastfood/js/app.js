@@ -253,8 +253,8 @@
             });
         }else{
             app.addNew(newName,newAddress).then();
-            newName = '';
-            newAddress = '';
+            newName = $('#newName').val('');
+            newAddress = $('#newAddress').val('');
         }
     });
 

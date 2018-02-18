@@ -247,9 +247,8 @@
         href = 'js/tmpl/app.html'
         let newName = $('#newName').val();
         let newAddress = $('#newAddress').val();
-        $.when(
-            app.addNew(newName,newAddress)
-        ).then(
+
+            app.addNew(newName,newAddress).then(
             $.get(href, function (html) {
                 $('#content').html(html);
             })

@@ -243,15 +243,20 @@
         });
     });
 
-    function getContent(url, addEntry) {
-        $.get(url)
-        .done(function( html ) {
-            $('#addBlock').html(html);
-            if(addEntry == true) {
-                history.pushState(null, null, url);
-            }
+    $(document).on('click','#addAdd', function(){
+        href = 'js/tmpl/app.html'
+        let newName = $('#newName').val();
+        let newAddress = $('#newAddress').val();
+        if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
+            alert('You must enter all data!');
+        }else{
+            app.addNew(newName,newAddress);
+        }
+        $.get(href, function (html) {
+            $('#content').html(html);
         });
-    }
+    });
+
 
     //Close "Show more" window
     $('#Close').on( 'click', e => {

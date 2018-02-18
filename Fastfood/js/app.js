@@ -236,10 +236,6 @@
         }*/
     });
 
-    window.addEventListener("popstate", function(e) {
-        getContent(location.pathname, false);
-    });
-
     function getContent(url, addEntry) {
         $.get(url)
         .done(function( html ) {

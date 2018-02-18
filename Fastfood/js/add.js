@@ -27,4 +27,6 @@
             newAddress = $('#newAddress').val('');
         }
     });
+    debugger;
+    $('#newAddress').geocomplete();
 })(jQuery);

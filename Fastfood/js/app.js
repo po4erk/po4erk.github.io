@@ -74,6 +74,10 @@
                 });
                 $('#result').html(result);
 
+                const geocomplete = $('#detailsAddress');
+                const map = geocomplete.geocomplete({ map: '#map' });
+                geocomplete.trigger('geocode');
+
                 function downloadImage(){
                         storage.ref(data).getDownloadURL().then(function(url){
                             $('.image').attr('src', url);

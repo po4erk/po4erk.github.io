@@ -243,7 +243,7 @@
         });
     });
 
-    $(document).on('click','#addAdd', function(){
+    $('#addAdd').on('click', function(){
         let newName = $('#newName').val();
         let newAddress = $('#newAddress').val();
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){

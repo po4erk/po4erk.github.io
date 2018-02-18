@@ -225,8 +225,6 @@
     $('#addData').on('click', function(e){
         href = 'js/tmpl/add.html'
         getContent(href, true);
-
-
         /*let newName = prompt('Enter the new name: ');
         let newAddress = prompt('Enter the new address: ');
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
@@ -234,6 +232,11 @@
         }else{
             app.addNew(newName,newAddress);
         }*/
+    });
+
+    $(document).on('click','#addCancel', function(){
+        href = 'js/tmpl/app.html'
+        getContent(href, true);
     });
 
     function getContent(url, addEntry) {

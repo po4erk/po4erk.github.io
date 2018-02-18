@@ -247,12 +247,11 @@
         href = 'js/tmpl/app.html'
         let newName = $('#newName').val();
         let newAddress = $('#newAddress').val();
-
-            app.addNew(newName,newAddress).then(
-            $.get(href, function (html) {
-                $('#content').html(html);
-            })
-        );
+        if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
+            alert('You must enter all data!');
+        }else{
+            app.addNew(newName,newAddress).then();
+        }
     });
 
 

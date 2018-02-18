@@ -17,13 +17,13 @@ window.addEventListener("load", function(event) {
     router = new Navigo(null, true, '#!');
     router.on({
       'opennew': () => { 
-          loadHTML('http://127.0.0.1:8080/js/tmpl/add.html', '#addBlock'); 
+          loadHTML('js/tmpl/add.html', '#addBlock'); 
       },
       'app': () => { 
-          loadHTML('http://127.0.0.1:8080/js/tmpl/app.html', '#content'); 
+          loadHTML('js/tmpl/app.html', '#content'); 
       },
       'login': () => { 
-          loadHTML('http://127.0.0.1:8080/js/tmpl/login.html', '#content'); 
+          loadHTML('js/tmpl/login.html', '#content'); 
       }
     });
 

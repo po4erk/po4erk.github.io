@@ -243,18 +243,13 @@
         });
     });
 
-    $('#addAdd').on('click', function(){
+    $(document).on('click','#addAdd', function(){
         let newName = $('#newName').val();
         let newAddress = $('#newAddress').val();
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
             alert('You must enter all data!');
         }else{
-            $.when(
-                app.addNew(newName,newAddress)
-            )
-            .then(
-                console.log('Add new place')
-            );
+            app.addNew(newName,newAddress).then();
         }
     });
 

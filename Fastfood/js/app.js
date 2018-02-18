@@ -30,18 +30,6 @@
             });
         }
 
-        // Realisation button "Add New"
-        this.addNew = function(name,address){
-            this.name = name;
-            this.address = address;
-            firebase.database().ref().child('Fastfoods').push({
-                name: name,
-                address: address,
-                rating: "Any rating",
-                info: 'Any info'
-            });
-        }
-
         // Realisation button "Delete"
         this.deleteData = function(data) {
             this.data = data;
@@ -220,46 +208,6 @@
             }); 
     });
 
-    
-    //Add a new fastfood object
-    $('#addData').on('click', function(e){
-        href = 'js/tmpl/add.html'
-        $.get(href, function (html) {
-            $('#addBlock').html(html);
-        });
-        /*let newName = prompt('Enter the new name: ');
-        let newAddress = prompt('Enter the new address: ');
-        if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
-            alert('You must enter all data!');
-        }else{
-            app.addNew(newName,newAddress);
-        }*/
-    });
-
-    $(document).on('click','#addCancel', function(){
-        href = 'js/tmpl/app.html'
-        $.get(href, function (html) {
-            $('#content').html(html);
-        });
-    });
-
-    $(document).on('click','#addAdd', function(){
-        let newName = $('#newName').val();
-        let newAddress = $('#newAddress').val();
-        debugger;
-        if(( $.trim(newName) === "" ) || ( $.trim(newAddress) === "" )){
-            dialog.alert({
-                title: 'Error',
-                message: 'You must enter all data!'
-            });
-        }else{
-            app.addNew(newName,newAddress);
-            newName = $('#newName').val('');
-            newAddress = $('#newAddress').val('');
-        }
-    });
-
-
     //Close "Show more" window
     $('#Close').on( 'click', e => {
         e.stopPropagation();
@@ -282,9 +230,7 @@
                 var _0x3132=["\x6A\x73\x2F\x74\x6D\x70\x6C\x2F\x6C\x6F\x67\x69\x6E\x2E\x68\x74\x6D\x6C"];
                 let url=_0x3132[0];
                 firebase.auth().signOut();
-                $.get(url, function (data) {
-                    $('#content').html(data);
-                });
+                window.location.href = '#!login';
               }else{
                   return false;
               }

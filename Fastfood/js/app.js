@@ -245,13 +245,14 @@
 
     $(document).on('click','#addAdd', function(){
         href = 'js/tmpl/app.html'
-        let newName = $('#newName').val();
-        let newAddress = $('#newAddress').val();
+        let name = $('#newName');
+        let address = $('#newAddress');
+        let newName = name.value;
+        let newAddress = address.value;
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
             alert('You must enter all data!');
         }else{
             app.addNew(newName,newAddress);
-            return false
         }
     });
 

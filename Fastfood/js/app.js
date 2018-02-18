@@ -244,7 +244,6 @@
     });
 
     $(document).on('click','#addAdd', function(){
-        href = 'js/tmpl/app.html'
         let newName = $('#newName').val();
         let newAddress = $('#newAddress').val();
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){

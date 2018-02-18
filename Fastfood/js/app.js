@@ -248,6 +248,7 @@
                 history.pushState(null, null, url);
             }
         });
+    }
 
     //Close "Show more" window
     $('#Close').on( 'click', e => {

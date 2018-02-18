@@ -237,6 +237,8 @@
     });
 
     $(document).on('click','#addCancel', function(){
+        let newName = '';
+        let newAddress = '';
         href = 'js/tmpl/app.html'
         $.get(href, function (html) {
             $('#content').html(html);

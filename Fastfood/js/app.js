@@ -252,9 +252,6 @@
         }else{
             app.addNew(newName,newAddress);
         }
-        $.get(href, function (html) {
-            $('#content').html(html);
-        });
     });
 
 

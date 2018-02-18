@@ -252,7 +252,7 @@
                 message: 'You must enter all data!'
             });
         }else{
-            app.addNew(newName,newAddress).then();
+            app.addNew(newName,newAddress);
             newName = $('#newName').val('');
             newAddress = $('#newAddress').val('');
         }

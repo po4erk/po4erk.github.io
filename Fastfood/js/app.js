@@ -235,7 +235,7 @@
     });
 
     $(document).on('click','#addCancel', function(){
-        href = 'js/tmpl/app.html'
+        href = 'app.html'
         getContent(href, true);
     });
 

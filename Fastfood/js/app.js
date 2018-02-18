@@ -253,6 +253,8 @@
             });
         }else{
             app.addNew(newName,newAddress).then();
+            newName = '';
+            newAddress = '';
         }
     });
 

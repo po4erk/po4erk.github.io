@@ -246,6 +246,7 @@
     $(document).on('click','#addAdd', function(){
         let newName = $('#newName').val();
         let newAddress = $('#newAddress').val();
+        debugger;
         if(( $.trim(newName) === "" ) || ( $.trim(newAddress) === "" )){
             dialog.alert({
                 title: 'Error',

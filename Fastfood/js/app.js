@@ -224,7 +224,9 @@
     //Add a new fastfood object
     $('#addData').on('click', function(e){
         href = 'js/tmpl/add.html'
-        getContent(href, true);
+        $.get(href, function (html) {
+            $('#addBlock').html(html);
+        });
         /*let newName = prompt('Enter the new name: ');
         let newAddress = prompt('Enter the new address: ');
         if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
@@ -235,8 +237,10 @@
     });
 
     $(document).on('click','#addCancel', function(){
-        href = 'app.html'
-        getContent(href, true);
+        href = 'js/tmpl/app.html'
+        $.get(href, function (html) {
+            $('#content').html(html);
+        });
     });
 
     function getContent(url, addEntry) {

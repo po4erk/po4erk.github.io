@@ -246,7 +246,7 @@
     $(document).on('click','#addAdd', function(){
         let newName = $('#newName').val();
         let newAddress = $('#newAddress').val();
-        if((newName == "") || (newAddress == "") ||(newName == null) || (newAddress == null)){
+        if(( $.trim(newName) === "" ) || ( $.trim(newAddress) === "" )){
             dialog.alert({
                 title: 'Error',
                 message: 'You must enter all data!'

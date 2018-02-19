@@ -74,19 +74,7 @@
                 });
                 $('#result').html(result);
 
-                const geocomplete = $('#detailsAddress');
-                const map = geocomplete.geocomplete({ map: '#map' });
-                geocomplete.trigger('geocode');
-                $('#Address').geocomplete({ map: '#map' });
-                $('#Address').trigger('geocode');
-
-                function downloadImage(){
-                        storage.ref(data).getDownloadURL().then(function(url){
-                            $('.image').attr('src', url);
-                        });
-                }
-                downloadImage();
-                //Changes for title and address
+                //Changes for title
                 $('.title').on('click', function(e){
                     let newTitle = dialog.prompt({
                         title: "New Name",
@@ -111,6 +99,13 @@
                           }
                     });  
                 });
+
+                //Changes for address and geolocation
+                const geocomplete = $('#detailsAddress');
+                const map = geocomplete.geocomplete({ map: '#map' });
+                geocomplete.trigger('geocode');
+                $('#Address').geocomplete({ map: '#map' });
+                $('#Address').trigger('geocode');
                 $('.address').on('click', function(e){
                     $('.address').addClass('hide');
                     $('#Address').removeClass('hide');
@@ -133,6 +128,8 @@
                         }
 	                }
                 });
+
+                //Changes for rating and info
                 $('#ratingSel').on('change', function(e){
                     var newRating = $("#ratingSel").val();
                         thisData.update({
@@ -164,6 +161,8 @@
                           }
                     });
                 });
+
+                //Upload new image
                 $('#fileButton').on('change', function(e){
                     let file = e.target.files[0];
                     let storageRef = storage.ref(data);
@@ -183,25 +182,51 @@
                     }
                     );
                 });
+                function downloadImage(){
+                    storage.ref(data).getDownloadURL().then(function(url){
+                        $('.image').attr('src', url);
+                    });
+                }
+                downloadImage();
+
+
+                //Comments realisation
                 $('#comments').on('click',function(e){
                     $('#comments-wrapper').toggle();
                 });
-
-                const addNewComment = function(newComName,newComComment) {
-                    this.newComName = newComName;
-                    this.newComComment = newComComment;
-                    
+                const addNewComment = function(name,comment) {
+                    this.name = name;
+                    this.comment = comment;
+                    base.child(data+'/comments').push({
+                        name: name,
+                        comment: comment,
+                    });   
                 }
-
                 $('.comments-button').on('click',function(e){
                     let newComName = $('#comments-name').val();
-                    let newComComment = $('#comments-area').val();
-                    let commentsRef = firebase.database().ref('Fastfoods').child(data + '/comments').push();
-                    commentsRef.set({
-                        name: newComName,
-                        comment: newComComment,
+                    let newComComment = $('.comments-area').val();
+                    addNewComment(newComName,newComComment);
+                    dialog.alert({
+                        title: "Thanks!",
+                        message: "Your comment has been sent successfully!"
                     });
+                    $('#comments-name').val('');
+                    $('.comments-area').val('');
                 });
+                let commentsRef = base.child(data+'/comments');
+                commentsRef.on('value',function(snapshot){
+                    let key = snapshot.key;
+                    let commentName = snapshot.child('name').val();
+                    let commentComment = snapshot.child('comment').val();
+                    let comTmpl = $('#template-comments').html();
+                    let compiled = Handlebars.compile(comTmpl);
+                    let result = compiled({
+                        commentName: commentName,
+                        commentComment: commentComment ,
+                    });
+                    $('#commentaries').html(result);
+                });
+
             });
             
         });

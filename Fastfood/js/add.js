@@ -10,7 +10,6 @@
             address: address,
             rating: "Any rating",
             info: 'Any info',
-            comments: null,
         });
     }
 

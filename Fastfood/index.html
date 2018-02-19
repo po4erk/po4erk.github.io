@@ -18,10 +18,43 @@
   <!-- Custom styles for this template-->
   <link href="css/template.min.css" rel="stylesheet">
   <style>
+    #comments{
+      position: absolute;
+      top: 16px; 
+      left: 380px;
+    }
+    #comments-wrapper{
+      display: none;
+      height: 500px;
+      width: 400px;
+      position: absolute;
+      background: #fff;
+      top: 50px;
+      left: 600px;
+      border-radius:0 5px 5px 0;
+    }
+    #comments-wrapper textarea{
+      width: 370px;
+    }
+    #comments-wrapper h2{
+      margin-top: 10px; 
+    }
+    #comments-wrapper h2,
+    #comments-wrapper label,
+    .comments-button{
+      margin-left: 10px;
+    }
+    #comments-name{
+      width: 300px;
+      margin-left: 10px;
+    }
+    .comments-area{
+      display: block;
+      margin: 10px;
+    }
     #map{
       width: 565px;
       height: 250px;
-      margin-top: -10px;
     }
     .add-container{
       margin-top: 150px;
@@ -154,7 +187,7 @@
   <script src="//maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCTSrtpza1D_7tv0w82CV6cd6bqMabvGb8"></script>
   <script src="vendor/jquery-geocomplete/jquery.geocomplete.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-  <script src="//unpkg.com/navigo@6"></script>
+  <script src="vendor/navigo/navigo.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
   <!-- Custom scripts for all pages-->
   <!-- Custom scripts for this page-->

@@ -9,7 +9,8 @@
             name: name,
             address: address,
             rating: "Any rating",
-            info: 'Any info'
+            info: 'Any info',
+            comments: null,
         });
     }
 

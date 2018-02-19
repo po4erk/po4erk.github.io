@@ -116,6 +116,7 @@
               <p class="address">{{address}}</p>
               <input name="Address" id="Address" type="text" value="{{address}}" class="form-control hide">
               <input name="address" id="detailsAddress" type="hidden" value="{{title}} {{address}}">
+              <button id='comments' class='btn btn-info'>Comments</button>
               <div class="rating">
                 <select name="rating" id="ratingSel" class="custom-select">
                   <option selected>Rating:</option>
@@ -133,6 +134,14 @@
               <div id="map"></div>
               <progress value="0" max="100" id="uploader" class="hide">0%</progress>
               <input type="file" value="upload" id="fileButton" class='btn btn-info'>
+              <div id="comments-wrapper">
+                <h2>Your Comments</h2>
+                <label for="comments-name">Your name:</label>
+                <input type="text" id="comments-name" class="form-control" placeholder="Enter your name:">
+                <textarea class="comments-area form-control" id="" cols="30" rows="12" placeholder="Enter your comment:"></textarea>
+                <button class='comments-button btn btn-info'>Add comment</button>
+              </div>
+              <div id="commentaries"></div>
             </template>
             <button id="Close" class='btn btn-info'>Close</button>
            

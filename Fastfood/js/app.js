@@ -13,7 +13,7 @@
               "width": '3%',
               "targets": 4,
               "data": null,
-              "defaultContent": "<a href='#' class='btn btn-info edit'>See More</a>"
+              "defaultContent": "<button type='button' class='btn btn-info edit'>See More</button>"
             }],
     });
     const app = new App();
@@ -181,7 +181,26 @@
                         $('.image').attr('src', '');
                         downloadImage();
                     }
-                );
+                    );
+                });
+                $('#comments').on('click',function(e){
+                    $('#comments-wrapper').toggle();
+                });
+
+                const addNewComment = function(newComName,newComComment) {
+                    this.newComName = newComName;
+                    this.newComComment = newComComment;
+                    
+                }
+
+                $('.comments-button').on('click',function(e){
+                    let newComName = $('#comments-name').val();
+                    let newComComment = $('#comments-area').val();
+                    let commentsRef = firebase.database().ref('Fastfoods').child(data + '/comments').push();
+                    commentsRef.set({
+                        name: newComName,
+                        comment: newComComment,
+                    });
                 });
             });
             
@@ -239,5 +258,6 @@
             }
           });
     });
+
 
 })(jQuery);

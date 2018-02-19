@@ -77,6 +77,9 @@
                 const geocomplete = $('#detailsAddress');
                 const map = geocomplete.geocomplete({ map: '#map' });
                 geocomplete.trigger('geocode');
+                const geocompleteMore = $('#Address');
+                const mapSee = geocompleteMore.geocomplete({ map: '#map' });
+                geocompleteMore.trigger('geocode');
 
                 function downloadImage(){
                         storage.ref(data).getDownloadURL().then(function(url){
@@ -110,28 +113,27 @@
                     });  
                 });
                 $('.address').on('click', function(e){
-                    let newAddress = dialog.prompt({
-                        title: "New Address",
-                        message: "Enter new address",
-                        button: "Submit",
-                        required: true,
-                        input: {
-                            type: "text",
-                            placeholder: "New address..."
-                        },
-                        validate: function(value){
-                            if( $.trim(value) === "" ){
-                                return false;
-                            }else{
-                                thisData.update({
-                                    address: value,
-                                }); 
-                                $('.address').html(value);
-                                elem = $('[data-key='+data+'] td:eq(1)');
-                                elem.html(value);
-                            }
-                          }
-                    });
+                    $('#Address').attr('type','text');
+                    $('#Address').geocomplete();
+                    $('.address').addClass('hide');
+                });
+                $('#Address').on('keypress',function(e){
+                    e = e || window.event;
+                    let value = $('#Address').val();
+	                if (e.keyCode === 13) {
+	                    if( $.trim(value) === "" ){
+                            return false;
+                        }else{
+                            thisData.update({
+                                address: value,
+                            }); 
+                            $('.address').html(value);
+                            elem = $('[data-key='+data+'] td:eq(1)');
+                            elem.html(value);
+                            $('#Address').attr('type','hidden');
+                            $('.address').removeClass('hide');
+                        }
+	                }
                 });
                 $('#ratingSel').on('change', function(e){
                     var newRating = $("#ratingSel").val();

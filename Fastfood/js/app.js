@@ -77,9 +77,8 @@
                 const geocomplete = $('#detailsAddress');
                 const map = geocomplete.geocomplete({ map: '#map' });
                 geocomplete.trigger('geocode');
-                const geocompleteMore = $('#Address');
-                const mapSee = geocompleteMore.geocomplete({ map: '#map' });
-                geocompleteMore.trigger('geocode');
+                $('#Address').geocomplete({ map: '#map' });
+                $('#Address').trigger('geocode');
 
                 function downloadImage(){
                         storage.ref(data).getDownloadURL().then(function(url){
@@ -113,9 +112,8 @@
                     });  
                 });
                 $('.address').on('click', function(e){
-                    $('#Address').attr('type','text');
-                    $('#Address').geocomplete();
                     $('.address').addClass('hide');
+                    $('#Address').removeClass('hide');
                 });
                 $('#Address').on('keypress',function(e){
                     e = e || window.event;
@@ -130,7 +128,7 @@
                             $('.address').html(value);
                             elem = $('[data-key='+data+'] td:eq(1)');
                             elem.html(value);
-                            $('#Address').attr('type','hidden');
+                            $('#Address').addClass('hide');
                             $('.address').removeClass('hide');
                         }
 	                }

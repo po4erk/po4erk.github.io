@@ -189,8 +189,6 @@
 
     }
 
-
-
     //Delete fastfood object
     $('#dataTable tbody').on( 'click', '.delete', function () {
         let that = $( this );

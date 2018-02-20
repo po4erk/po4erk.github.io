@@ -213,6 +213,7 @@
                     });
                     $('#comments-name').val('');
                     $('.comments-area').val('');
+                    $('.comments-button').unbind( "click", handler );
                 });
                 let commentsRef = base.child(data+'/comments');
                 commentsRef.on('child_added',function(snapshot){

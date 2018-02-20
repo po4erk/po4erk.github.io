@@ -193,6 +193,7 @@
                 //Comments realisation
                 $('#comments').on('click',function(e){
                     $('#comments-wrapper').toggle();
+                    $('#commentaries').toggle();
                 });
                 const addNewComment = function(name,comment) {
                     this.name = name;
@@ -214,17 +215,12 @@
                     $('.comments-area').val('');
                 });
                 let commentsRef = base.child(data+'/comments');
-                commentsRef.on('value',function(snapshot){
+                commentsRef.on('child_added',function(snapshot){
                     let key = snapshot.key;
-                    let commentName = snapshot.child('name').val();
-                    let commentComment = snapshot.child('comment').val();
-                    let comTmpl = $('#template-comments').html();
-                    let compiled = Handlebars.compile(comTmpl);
-                    let result = compiled({
-                        commentName: commentName,
-                        commentComment: commentComment ,
-                    });
-                    $('#commentaries').html(result);
+                    let name = snapshot.child('name').val();
+                    let comment = snapshot.child('comment').val();
+                    let comBlock = $('#commentaries ul');
+                    let li = $('<li />').attr('data-comment', key).html('<b>'+name+'</b>' + ':    '+ comment).appendTo(comBlock);
                 });
 
             });

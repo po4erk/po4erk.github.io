@@ -41,20 +41,43 @@
             base.child(data).remove();
         };
 
+        this.editDataName = function(data,value){
+            let thisData = base.child(data);
+                thisData.update({
+                    name: value
+                });
+        }
+        this.editDataAddress = function(data,value){
+            let thisData = base.child(data);
+                thisData.update({
+                    address: value
+                });
+        }
+        this.editDataInfo = function(data,value){
+            let thisData = base.child(data);
+                thisData.update({
+                    info: value
+                });
+        }
+        this.editDataRating = function(data,value){
+            let thisData = base.child(data);
+                thisData.update({
+                    rating: value
+                });
+        }
+
     }
 
     // Realisation button "Show more"
     $('#dataTable tbody').on( 'click', '.edit', function (e) {
-        let that = this;
         //Show div with this info
         $(".PlacesInfo").removeClass('hide');
 
         //Get unique attribute for this data
-        let data = $( that ).parent().parent().attr('data-key');
+        let data = $(this).parent().parent().attr('data-key');
 
-        //Get data of firebase by unique key(attribute);
-        let thisData = base.child(data);
         //Get image of firebase storage
+        let thisData = base.child(data);
 
         //Listen all changes at this data
         let name = thisData.once("value").then(function(snapshot) {
@@ -91,9 +114,7 @@
                         if( $.trim(value) === "" ){
                             return false;
                         }else{
-                            thisData.update({
-                                name: value,
-                            }); 
+                            app.editDataName(data,value);
                             $('.title').html(value);
                             elem = $('[data-key='+data+'] td:eq(0)');
                             elem.html(value);
@@ -119,9 +140,7 @@
                     if( $.trim(value) === "" ){
                         return false;
                     }else{
-                        thisData.update({
-                            address: value,
-                        }); 
+                        app.editDataAddress(data,value);
                         $('.address').html(value);
                         elem = $('[data-key='+data+'] td:eq(1)');
                         elem.html(value);
@@ -134,9 +153,7 @@
             //Changes for rating and info
             $('#ratingSel').on('change', function(e){
                 var newRating = $("#ratingSel").val();
-                    thisData.update({
-                        rating: newRating,
-                    }); 
+                app.editDataRating(data,value);
                     $('.rating').html("Rating: " + newRating);
                     elem = $('[data-key='+data+'] td:eq(2)');
                     elem.html(newRating);
@@ -155,9 +172,7 @@
                         if( $.trim(value) === "" ){
                             return false;
                         }else{
-                            thisData.update({
-                                info: value,
-                            }); 
+                            app.editDataInfo(data,value);
                             $('.info').html(value);
                         }
                       }

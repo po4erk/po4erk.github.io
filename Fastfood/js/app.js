@@ -66,6 +66,7 @@
                 });
         }
 
+
     }
 
     // Realisation button "Show more"
@@ -75,7 +76,6 @@
 
         //Get unique attribute for this data
         let data = $(this).parent().parent().attr('data-key');
-
         //Get image of firebase storage
         let thisData = base.child(data);
 
@@ -211,6 +211,7 @@
             $('#comments').on('click',function(e){
                 $('#comments-wrapper').toggle();
                 $('#commentaries').toggle();
+                $('.comments-button').unbind( "click", addNewComment );
             });
             const addNewComment = function(name,comment) {
                 this.name = name;
@@ -223,22 +224,45 @@
             $('.comments-button').on('click',function(e){
                 let newComName = $('#comments-name').val();
                 let newComComment = $('.comments-area').val();
-                addNewComment(newComName,newComComment);
-                dialog.alert({
-                    title: "Thanks!",
-                    message: "Your comment has been sent successfully!"
-                });
-                $('#comments-name').val('');
-                $('.comments-area').val('');
-                $('.comments-button').unbind( "click", addNewComment );
+                if((newComName=="")||(newComComment=="")){
+                    dialog.alert({
+                        title: "Fields not filled!",
+                        message: "You must fill in all fields!"
+                    });
+                }else{
+                    addNewComment(newComName,newComComment);
+                    dialog.alert({
+                        title: "Thanks!",
+                        message: "Your comment has been sent successfully!"
+                    });
+                    $('#comments-name').val('');
+                    $('.comments-area').val('');
+                    $('.comments-button').unbind( "click", addNewComment );
+                }
             });
             let commentsRef = base.child(data+'/comments');
             commentsRef.on('child_added',function(snapshot){
                 let key = snapshot.key;
                 let name = snapshot.child('name').val();
                 let comment = snapshot.child('comment').val();
-                let comBlock = $('#commentaries ul');
-                let li = $('<li />').attr('data-comment', key).html('<b>'+name+'</b>' + ':    '+ comment).appendTo(comBlock);
+
+                let comTmpl = $('#comTemplate').html();
+                let compiledCom = Handlebars.compile(comTmpl);
+                let resultCom = compiledCom({
+                    comments:[{
+                        key: key,
+                        name: name,
+                        comment: comment
+                    }]
+                });
+                $('#commentaries').append(resultCom);
+                // let comBlock = $('#commentaries ul');
+                // let li = $('<li />').attr('data-comment', key).html('<b>'+name+'</b>' + ': '+ comment).appendTo(comBlock);
+            });
+            $('#commentaries').on('click', '.comDelete', (e) => {
+                let key = event.target.getAttribute('data-comment');
+                $(event.target).parent().remove();
+                base.child(data+'/comments'+'/'+key).remove();
             });
 
         });

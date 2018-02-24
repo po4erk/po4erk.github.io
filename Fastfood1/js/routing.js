@@ -24,9 +24,6 @@ window.addEventListener("load", function(event) {
       },
       'login': () => { 
           loadHTML('js/tmpl/login.html', '#content'); 
-      },
-      'show': () => { 
-          loadHTML('js/tmpl/show.html', '#addBlock'); 
       }
     });
 

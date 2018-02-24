@@ -1,6 +1,5 @@
 (function($) {
     const base = firebase.database().ref('Fastfoods');
-    const storage = firebase.storage();
     // Realisation button "Add New"
     const addNew = function(name,address) {
         this.name = name;

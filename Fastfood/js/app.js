@@ -66,7 +66,15 @@
                 });
         }
 
-
+        this.addNewComment = function(data,name,comment,rating) {
+            this.name = name;
+            this.comment = comment;
+            base.child(data+'/comments').push({
+                name: name,
+                comment: comment,
+                rating: rating
+            });   
+        }
     }
 
     // Realisation button "Show more"
@@ -86,7 +94,7 @@
             var title = snapshot.child('name').val();
             var address = snapshot.child('address').val();
             var info = snapshot.child('info').val();
-            var rating = snapshot.child('rating').val();
+            var rating = snapshot.child('rating').val();;
             
 
             var tmpl = $('#template').html();
@@ -150,14 +158,7 @@
                 }
             });
 
-            //Changes for rating and info
-            $('#ratingSel').on('change', function(e){
-                var newRating = $("#ratingSel").val();
-                app.editDataRating(data,value);
-                    $('.rating').html("Rating: " + newRating);
-                    elem = $('[data-key='+data+'] td:eq(2)');
-                    elem.html(newRating);
-            });
+            //Changes for info
             $('.info').on('click', function(e){
                 let newInfo = dialog.prompt({
                     title: "New Info about place",
@@ -211,54 +212,67 @@
             $('#comments').on('click',function(e){
                 $('#comments-wrapper').toggle();
                 $('#commentaries').toggle();
-                $('.comments-button').unbind( "click", addNewComment );
             });
-            const addNewComment = function(name,comment) {
-                this.name = name;
-                this.comment = comment;
-                base.child(data+'/comments').push({
-                    name: name,
-                    comment: comment,
-                });   
-            }
-            $('.comments-button').on('click',function(e){
+            
+            $('#comments-button').on('click',function(e){
                 let newComName = $('#comments-name').val();
                 let newComComment = $('.comments-area').val();
-                if((newComName=="")||(newComComment=="")){
+                let newRating = $("#ratingSel").val();
+                if((newComName=="")||(newComComment=="")||(newRating==null)){
                     dialog.alert({
                         title: "Fields not filled!",
                         message: "You must fill in all fields!"
                     });
                 }else{
-                    addNewComment(newComName,newComComment);
+                    app.addNewComment(data,newComName,newComComment,newRating);
                     dialog.alert({
                         title: "Thanks!",
                         message: "Your comment has been sent successfully!"
                     });
                     $('#comments-name').val('');
                     $('.comments-area').val('');
-                    $('.comments-button').unbind( "click", addNewComment );
                 }
             });
             let commentsRef = base.child(data+'/comments');
+            
+            let arr = [];
+            function arraySum(array){
+                let sum = 0;
+                let mRating;
+                for(let i = 0; i < array.length; i++){
+                    sum += +array[i];
+                    mRating = sum/array.length;
+                }
+                let allRating = Math.floor(mRating);
+                app.editDataRating(data,allRating);
+                let elem = $('[data-key='+data+'] td:eq(2)');
+                elem.html(allRating);
+            }  
+
             commentsRef.on('child_added',function(snapshot){
+                
                 let key = snapshot.key;
                 let name = snapshot.child('name').val();
                 let comment = snapshot.child('comment').val();
+                let rating = snapshot.child('rating').val();
 
+                let allRating = base.child(data+'/comments'+'/'+key);
+                arr.push(rating);
+                
                 let comTmpl = $('#comTemplate').html();
                 let compiledCom = Handlebars.compile(comTmpl);
                 let resultCom = compiledCom({
                     comments:[{
                         key: key,
                         name: name,
-                        comment: comment
+                        comment: comment,
+                        rating: rating
                     }]
                 });
                 $('#commentaries').append(resultCom);
-                // let comBlock = $('#commentaries ul');
-                // let li = $('<li />').attr('data-comment', key).html('<b>'+name+'</b>' + ': '+ comment).appendTo(comBlock);
+                arraySum(arr);
             });
+            
             $('#commentaries').on('click', '.comDelete', (e) => {
                 let key = event.target.getAttribute('data-comment');
                 $(event.target).parent().remove();
@@ -266,7 +280,6 @@
             });
 
         });
-        
     });
 
     //Delete fastfood object

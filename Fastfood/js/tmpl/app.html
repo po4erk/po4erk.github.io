@@ -153,12 +153,11 @@
               {{#each comments}}
               <ul>
                 <li>
-                  <div>
                     <span class="comRating">Rating: <b class="comValue">{{rating}}</b></span><br>
                     <strong>{{name}}: </strong><span class="comment-text">{{comment}}</span>
                     <button class="comDelete btn btn-danger" data-comment="{{key}}">Delete</button>
                     <hr>
-                  </div>
+                    <div class="clearfix"></div>
                 </li>
               </ul>
               {{/each}}

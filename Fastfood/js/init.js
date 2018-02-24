@@ -8,14 +8,15 @@
         messagingSenderId: "950069581603"
     };
     firebase.initializeApp(config);
+    router = new Navigo(null, true, '#!');
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             console.log('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
-            window.location.href = '#!app';
+            router.navigate('#!app');
         } else {
             console.log('You are not logged in...');
-            window.location.href = '#!login';
+            router.navigate('#!login');
         }
     });
 

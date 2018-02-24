@@ -1,4 +1,5 @@
 (function($) {
+    router = new Navigo(null, true, '#!');
     const base = firebase.database().ref('Fastfoods');
     const storage = firebase.storage();
     const table = $('#dataTable').DataTable({
@@ -16,10 +17,11 @@
               "defaultContent": "<button type='button' class='btn btn-info edit'>See More</button>"
             }],
     });
+    const dao = new DataAccessObject();
     const app = new App();
-    app.loadTable();
+    dao.loadTable();
 
-    function App(){
+    function DataAccessObject(){
         // Draw firebase table
         this.loadTable = function(){
             base.on('child_added',function(snapshot) {
@@ -67,13 +69,32 @@
         }
 
         this.addNewComment = function(data,name,comment,rating) {
-            this.name = name;
-            this.comment = comment;
             base.child(data+'/comments').push({
                 name: name,
                 comment: comment,
                 rating: rating
             });   
+        }
+        this.deleteNewComment = function(data,key) {
+            base.child(data+'/comments'+'/'+key).remove();
+        }
+    }
+
+    function App(){
+
+        this.Rating = function(data,array){
+            console.log(array);
+            let sum = 0;
+            let mRating;
+            for(let i = 0; i < array.length; i++){
+                sum += +array[i];
+                mRating = sum/array.length;
+            }
+            let allRating = Math.floor(mRating);
+            console.log(allRating);
+            dao.editDataRating(data,allRating);
+            let elem = $('[data-key='+data+'] td:eq(2)');
+            elem.html(allRating);
         }
     }
 
@@ -122,7 +143,7 @@
                         if( $.trim(value) === "" ){
                             return false;
                         }else{
-                            app.editDataName(data,value);
+                            dao.editDataName(data,value);
                             $('.title').html(value);
                             elem = $('[data-key='+data+'] td:eq(0)');
                             elem.html(value);
@@ -148,7 +169,7 @@
                     if( $.trim(value) === "" ){
                         return false;
                     }else{
-                        app.editDataAddress(data,value);
+                        dao.editDataAddress(data,value);
                         $('.address').html(value);
                         elem = $('[data-key='+data+'] td:eq(1)');
                         elem.html(value);
@@ -173,7 +194,7 @@
                         if( $.trim(value) === "" ){
                             return false;
                         }else{
-                            app.editDataInfo(data,value);
+                            dao.editDataInfo(data,value);
                             $('.info').html(value);
                         }
                       }
@@ -208,75 +229,76 @@
             downloadImage();
 
 
-            //Comments realisation
+        //Comments realisation
+
+            //Comments button
             $('#comments').on('click',function(e){
                 $('#comments-wrapper').toggle();
                 $('#commentaries').toggle();
+                seeComment();
             });
             
+            //Add new comment
             $('#comments-button').on('click',function(e){
                 let newComName = $('#comments-name').val();
                 let newComComment = $('.comments-area').val();
                 let newRating = $("#ratingSel").val();
-                if((newComName=="")||(newComComment=="")||(newRating==null)){
+                if((newComName=="")||(newComComment=="")||(newRating=='Rating:')){
                     dialog.alert({
                         title: "Fields not filled!",
                         message: "You must fill in all fields!"
                     });
                 }else{
-                    app.addNewComment(data,newComName,newComComment,newRating);
+                    dao.addNewComment(data,newComName,newComComment,newRating);
                     dialog.alert({
                         title: "Thanks!",
                         message: "Your comment has been sent successfully!"
                     });
                     $('#comments-name').val('');
                     $('.comments-area').val('');
+                    $('#commentaries').html('');
+                    arr = [];
+                    seeComment();
+                    app.Rating(data,arr);
                 }
             });
-            let commentsRef = base.child(data+'/comments');
-            
+
+            //Rating realisation            
             let arr = [];
-            function arraySum(array){
-                let sum = 0;
-                let mRating;
-                for(let i = 0; i < array.length; i++){
-                    sum += +array[i];
-                    mRating = sum/array.length;
-                }
-                let allRating = Math.floor(mRating);
-                app.editDataRating(data,allRating);
-                let elem = $('[data-key='+data+'] td:eq(2)');
-                elem.html(allRating);
-            }  
-
-            commentsRef.on('child_added',function(snapshot){
-                
-                let key = snapshot.key;
-                let name = snapshot.child('name').val();
-                let comment = snapshot.child('comment').val();
-                let rating = snapshot.child('rating').val();
-
-                let allRating = base.child(data+'/comments'+'/'+key);
-                arr.push(rating);
-                
-                let comTmpl = $('#comTemplate').html();
-                let compiledCom = Handlebars.compile(comTmpl);
-                let resultCom = compiledCom({
-                    comments:[{
-                        key: key,
-                        name: name,
-                        comment: comment,
-                        rating: rating
-                    }]
+            function seeComment(){
+                let commentsRef = base.child(data+'/comments');
+                commentsRef.on('child_added',function(snapshot){
+                    
+                    let key = snapshot.key;
+                    let name = snapshot.child('name').val();
+                    let comment = snapshot.child('comment').val();
+                    let rating = snapshot.child('rating').val();
+                    
+                    arr.push(rating);
+                    
+                    let comTmpl = $('#comTemplate').html();
+                    let compiledCom = Handlebars.compile(comTmpl);
+                    let resultCom = compiledCom({
+                        comments:[{
+                            key: key,
+                            name: name,
+                            comment: comment,
+                            rating: rating
+                        }]
+                    });
+                    $('#commentaries').append(resultCom);
                 });
-                $('#commentaries').append(resultCom);
-                arraySum(arr);
-            });
+            }
+            
             
             $('#commentaries').on('click', '.comDelete', (e) => {
                 let key = event.target.getAttribute('data-comment');
                 $(event.target).parent().remove();
-                base.child(data+'/comments'+'/'+key).remove();
+                dao.deleteNewComment(data,key);
+                $('#commentaries').html('');
+                arr = [];
+                seeComment();
+                app.Rating(data,arr);
             });
 
         });
@@ -294,7 +316,7 @@
               required: true,
               callback: function(value){
                 if(value == true){
-                    app.deleteData(data);
+                    dao.deleteData(data);
                     table.rows(that.parents('tr')).remove().draw();
                 }else{
                     return false;
@@ -323,7 +345,7 @@
             callback: function(value){
               if(value == true){
                 firebase.auth().signOut();
-                window.location.href = '#!login';
+                router.navigate('#!login');
               }else{
                   return false;
               }

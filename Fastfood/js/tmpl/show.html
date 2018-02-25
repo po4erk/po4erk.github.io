@@ -1,0 +1,65 @@
+<!--Places Container-->
+<div class="PlacesInfo">
+    <div class="places-wrapper">
+      <div class="container">
+
+          <div id="result"></div>
+
+          <template id="template">
+            <h1 class="title">{{title}}</h1>
+            <p class="address">{{address}}</p>
+            <input name="Address" id="Address" type="text" value="{{address}}" class="form-control hide">
+            <input name="address" id="detailsAddress" type="hidden" value="{{title}} {{address}}">
+            <button id='comments' class='btn btn-info'>Comments</button>
+            <img class="image" src="{{img}}" alt="Food">
+            <p class="info">
+              <span>Few words about this place:</span><br>
+              {{info}}</p>
+            <div class="clearfix"></div>
+            <div id="map"></div>
+            <progress value="0" max="100" id="uploader" class="hide">0%</progress>
+            <input type="file" value="upload" id="fileButton" class='btn btn-info'>
+            <div id="comments-wrapper">
+              <h2>Your Comments</h2>
+              <input type="text" id="comments-name" class="form-control" placeholder="Enter your name:">
+              <textarea class="comments-area form-control" rows="13" placeholder="Enter your comment:"></textarea>
+              <button class='comments-button btn btn-info' id="comments-button">Add comment</button>
+              <div class="rating">
+                <select name="rating" id="ratingSel" class="custom-select">
+                  <option selected>Rating:</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="commentaries">
+            </div>
+            
+
+          </template>
+          <button id="Close" class='btn btn-info'>Close</button>
+
+          <template id="comTemplate">
+            {{#each comments}}
+            <ul>
+              <li>
+                  <span class="comRating">Rating: <b class="comValue">{{rating}}</b></span><br>
+                  <strong>{{name}}: </strong><span class="comment-text">{{comment}}</span>
+                  <button class="comDelete btn btn-danger" data-comment="{{key}}">Delete</button>
+                  <hr>
+                  <div class="clearfix"></div>
+              </li>
+            </ul>
+            {{/each}}
+          </template>
+         
+          
+      </div>
+    </div>
+</div>
+
+<script src="js/show.js"></script>

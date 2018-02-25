@@ -19,8 +19,11 @@ window.addEventListener("load", function(event) {
       'opennew': () => { 
           loadHTML('js/tmpl/add.html', '#addBlock'); 
       },
-      'app': () => { 
-          loadHTML('js/tmpl/app.html', '#content'); 
+      'app': () => {
+        loadHTML('js/tmpl/app.html', '#content');
+      },
+      'app/:key': (params) => {
+        loadHTML('js/tmpl/show.html', '#addBlock');
       },
       'login': () => { 
           loadHTML('js/tmpl/login.html', '#content'); 

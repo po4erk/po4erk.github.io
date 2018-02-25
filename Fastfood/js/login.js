@@ -1,5 +1,6 @@
 (function ($) {
     const authorization = new Authentifications();
+    const view = new AuthView();
     router = new Navigo(null, true, '#!');
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -54,30 +55,36 @@
 
     }
 
-    //Button LogIn with email and pass
-    $(document).on('click','#btnLogIn', function(e) {
-        const email = $("#txtEmail").val();
-        const pass = $("#txtPassword").val();
-        authorization.logIn(email, pass);
-    });
+    function AuthView(){
 
-    //Button LogInAnon
-    $(document).on('click','#btnLogInAnon', function(e) {
-        console.log('anon');
-        authorization.logInAnon();
-    });
+        //Button LogIn with email and pass
+        $(document).on('click','#btnLogIn', function(e) {
+            const email = $("#txtEmail").val();
+            const pass = $("#txtPassword").val();
+            authorization.logIn(email, pass);
+        });
 
-    //Button LogInGoogle
-    $(document).on('click','#btnLogInGoogle', function(e) {
-        authorization.logInGoogle();
-    });
+        //Button LogInAnon
+        $(document).on('click','#btnLogInAnon', function(e) {
+            console.log('anon');
+            authorization.logInAnon();
+        });
 
-    //Button SignIn with email and pass
-    $(document).on('click','#btnSignUp', function(e) {
-        const email = $("#txtEmail").val();
-        const pass = $("#txtPassword").val();
-        authorization.signUp(email, pass);
-    });
+        //Button LogInGoogle
+        $(document).on('click','#btnLogInGoogle', function(e) {
+            authorization.logInGoogle();
+        });
+
+        //Button SignIn with email and pass
+        $(document).on('click','#btnSignUp', function(e) {
+            const email = $("#txtEmail").val();
+            const pass = $("#txtPassword").val();
+            authorization.signUp(email, pass);
+        });
+
+    }
+
+    
 
 
 })(jQuery);

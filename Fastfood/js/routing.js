@@ -16,11 +16,14 @@ window.addEventListener("load", function(event) {
     // use #! to hash
     router = new Navigo(null, true, '#!');
     router.on({
-      'opennew': () => { 
+      'opennew': () => {
+
           loadHTML('js/tmpl/add.html', '#addBlock'); 
       },
-      'app': () => { 
-          loadHTML('js/tmpl/app.html', '#content'); 
+      'app/:data': (params) => {
+          loadTable();
+          loadSeeMore(params.data); 
+          // loadHTML('js/tmpl/app.html', '#content'); 
       },
       'login': () => { 
           loadHTML('js/tmpl/login.html', '#content'); 

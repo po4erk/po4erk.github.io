@@ -144,7 +144,7 @@
     
             //Get unique attribute for this data
             let data = $(this).parent().parent().attr('data-key');
-            
+            router.navigate(`user/${data}/details`);
             show.showMore(data);
             
         });

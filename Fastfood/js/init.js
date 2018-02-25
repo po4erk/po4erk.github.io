@@ -1,4 +1,4 @@
-(function ($) {
+export default function init() {
     const config = {
         apiKey: "AIzaSyCTSrtpza1D_7tv0w82CV6cd6bqMabvGb8",
         authDomain: "test-po4erk.firebaseapp.com",
@@ -8,7 +8,6 @@
         messagingSenderId: "950069581603"
     };
     firebase.initializeApp(config);
-    router = new Navigo(null, true, '#!');
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
@@ -19,6 +18,4 @@
             router.navigate('#!login');
         }
     });
-
-
-})(jQuery);
+}

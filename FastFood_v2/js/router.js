@@ -1,4 +1,5 @@
 import { LoginController } from "./controllers/login";
+import { HomeController } from "./controllers/home";
 
 let instance = null;
 
@@ -13,9 +14,13 @@ export class Router {
 
     init() {
         this.router.on({
-            'login': () => new LoginController(),
-            'list': () => {}
+            'home': () => new HomeController().load(),
+            'login': () => new LoginController().load()
         })
         .resolve();
     }
+
+    navigate(url) {
+        this.router.navigate(url);
+    } 
 }

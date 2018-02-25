@@ -17,7 +17,7 @@
               "defaultContent": "<button type='button' class='btn btn-info edit'>See More</button>"
             }],
     });
-    
+
     const dao = new DataAccessObject();
     const app = new App();
     const show = new Show();
@@ -25,7 +25,8 @@
     dao.loadTable();
 
     function DataAccessObject(){
-        // Draw firebase table
+
+        //Load table with data about place
         this.loadTable = function(){
             base.on('child_added',function(snapshot) {
                 let key = snapshot.key;
@@ -33,9 +34,9 @@
                 let trBuild = table.rows.add([getData]).draw().nodes();
                 $(trBuild).attr('data-key',key);
             });
-        }
+        };
 
-        // Realisation button "Delete"
+        //Delete data about place
         this.deleteData = function(data) {
             this.data = data;
             storage.ref(data).delete().then(function() {
@@ -46,41 +47,43 @@
             base.child(data).remove();
         };
 
-        this.editDataName = function(data,value){
-            let thisData = base.child(data);
-                thisData.update({
-                    name: value
-                });
-        }
-        this.editDataAddress = function(data,value){
-            let thisData = base.child(data);
-                thisData.update({
-                    address: value
-                });
-        }
-        this.editDataInfo = function(data,value){
-            let thisData = base.child(data);
-                thisData.update({
-                    info: value
-                });
-        }
-        this.editDataRating = function(data,value){
-            let thisData = base.child(data);
-                thisData.update({
-                    rating: value
-                });
-        }
+        //Edit name address info and rating
+            this.editDataName = function(data,value){
+                let thisData = base.child(data);
+                    thisData.update({
+                        name: value
+                    });
+            };
+            this.editDataAddress = function(data,value){
+                let thisData = base.child(data);
+                    thisData.update({
+                        address: value
+                    });
+            };
+            this.editDataInfo = function(data,value){
+                let thisData = base.child(data);
+                    thisData.update({
+                        info: value
+                    });
+            };
+            this.editDataRating = function(data,value){
+                let thisData = base.child(data);
+                    thisData.update({
+                        rating: value
+                    });
+            };
 
+        //Delete and add new coment
         this.addNewComment = function(data,name,comment,rating) {
             base.child(data+'/comments').push({
                 name: name,
                 comment: comment,
                 rating: rating
             });   
-        }
+        };
         this.deleteNewComment = function(data,key) {
             base.child(data+'/comments'+'/'+key).remove();
-        }
+        };
     }
 
     function App(){
@@ -149,6 +152,7 @@
 
     function Show(){
 
+        //Calculating the overall rating
         this.Rating = function(data,array){
             console.log(array);
             let sum = 0;
@@ -162,8 +166,9 @@
             dao.editDataRating(data,allRating);
             let elem = $('[data-key='+data+'] td:eq(2)');
             elem.html(allRating);
-        }
+        };
 
+        //Show more window about each place
         this.showMore = function(data){
             this.data = data;
 
@@ -291,78 +296,78 @@
 
                 //Comments realisation
 
-                //Comments button
-                $('#comments').on('click',function(e){
-                    $('#comments-wrapper').toggle();
-                    $('#commentaries').toggle();
-                    seeComment();
-                });
-                
-                //Add new comment
-                $('#comments-button').on('click',function(e){
-                    let newComName = $('#comments-name').val();
-                    let newComComment = $('.comments-area').val();
-                    let newRating = $("#ratingSel").val();
-                    if((newComName=="")||(newComComment=="")||(newRating=='Rating:')){
-                        dialog.alert({
-                            title: "Fields not filled!",
-                            message: "You must fill in all fields!"
+                    //Comments button
+                    $('#comments').on('click',function(e){
+                        $('#comments-wrapper').toggle();
+                        $('#commentaries').toggle();
+                        seeComment();
+                    });
+                    
+                    //Add new comment
+                    $('#comments-button').on('click',function(e){
+                        let newComName = $('#comments-name').val();
+                        let newComComment = $('.comments-area').val();
+                        let newRating = $("#ratingSel").val();
+                        if((newComName=="")||(newComComment=="")||(newRating=='Rating:')){
+                            dialog.alert({
+                                title: "Fields not filled!",
+                                message: "You must fill in all fields!"
+                            });
+                        }else{
+                            dao.addNewComment(data,newComName,newComComment,newRating);
+                            dialog.alert({
+                                title: "Thanks!",
+                                message: "Your comment has been sent successfully!"
+                            });
+                            $('#comments-name').val('');
+                            $('.comments-area').val('');
+                            $('#commentaries').html('');
+                            arr = [];
+                            seeComment();
+                            show.Rating(data,arr);
+                        }
+                    });
+
+                    //Rating realisation            
+                    let arr = [];
+                    function seeComment(){
+                        let commentsRef = base.child(data+'/comments');
+                        commentsRef.on('child_added',function(snapshot){
+                            
+                            let key = snapshot.key;
+                            let name = snapshot.child('name').val();
+                            let comment = snapshot.child('comment').val();
+                            let rating = snapshot.child('rating').val();
+                            
+                            arr.push(rating);
+                            
+                            let comTmpl = $('#comTemplate').html();
+                            let compiledCom = Handlebars.compile(comTmpl);
+                            let resultCom = compiledCom({
+                                comments:[{
+                                    key: key,
+                                    name: name,
+                                    comment: comment,
+                                    rating: rating
+                                }]
+                            });
+                            $('#commentaries').append(resultCom);
                         });
-                    }else{
-                        dao.addNewComment(data,newComName,newComComment,newRating);
-                        dialog.alert({
-                            title: "Thanks!",
-                            message: "Your comment has been sent successfully!"
-                        });
-                        $('#comments-name').val('');
-                        $('.comments-area').val('');
+                    }
+                    
+                    //Delete new comment
+                    $('#commentaries').on('click', '.comDelete', (e) => {
+                        let key = event.target.getAttribute('data-comment');
+                        $(event.target).parent().remove();
+                        dao.deleteNewComment(data,key);
                         $('#commentaries').html('');
                         arr = [];
                         seeComment();
                         show.Rating(data,arr);
-                    }
-                });
-
-                //Rating realisation            
-                let arr = [];
-                function seeComment(){
-                    let commentsRef = base.child(data+'/comments');
-                    commentsRef.on('child_added',function(snapshot){
-                        
-                        let key = snapshot.key;
-                        let name = snapshot.child('name').val();
-                        let comment = snapshot.child('comment').val();
-                        let rating = snapshot.child('rating').val();
-                        
-                        arr.push(rating);
-                        
-                        let comTmpl = $('#comTemplate').html();
-                        let compiledCom = Handlebars.compile(comTmpl);
-                        let resultCom = compiledCom({
-                            comments:[{
-                                key: key,
-                                name: name,
-                                comment: comment,
-                                rating: rating
-                            }]
-                        });
-                        $('#commentaries').append(resultCom);
                     });
-                }
-                
-                
-                $('#commentaries').on('click', '.comDelete', (e) => {
-                    let key = event.target.getAttribute('data-comment');
-                    $(event.target).parent().remove();
-                    dao.deleteNewComment(data,key);
-                    $('#commentaries').html('');
-                    arr = [];
-                    seeComment();
-                    show.Rating(data,arr);
-                });
 
             });
-        }
+        };
         
     }
 

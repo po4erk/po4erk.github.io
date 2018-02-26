@@ -24,8 +24,7 @@
 
         //Show more window about each place
         this.showMore = function(){
-            const data = document.getElementById('data_key').value;
-            debugger;
+            const data = $('#dataKey').val();
             this.data = data;
 
             let thisData = base.child(data);

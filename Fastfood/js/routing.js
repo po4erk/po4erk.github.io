@@ -22,7 +22,12 @@ window.addEventListener("load", function(event) {
       'app': () => {
         loadHTML('js/tmpl/app.html', '#content');
       },
-      'app/:key': (params) => {
+      'show/:key': (params) => {
+        let input = document.createElement('input');
+        input.id = 'dataKey';
+        input.type = 'hidden';
+        $('#content').append(input);
+        $('#dataKey').val(`${params.key}`);
         loadHTML('js/tmpl/show.html', '#addBlock');
       },
       'login': () => { 

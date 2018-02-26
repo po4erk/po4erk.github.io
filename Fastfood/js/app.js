@@ -109,11 +109,11 @@
         });
 
         //Close "Show more" window
-        $('#Close').on( 'click', e => {
+        $(document).on( 'click','#Close', e => {
             e.stopPropagation();
-            $(".PlacesInfo").addClass('hide');
             $('#fileButton').val('');
             $('#uploader').attr('value', '0');
+            router.navigate('app');
         });
 
         //Button LogOut
@@ -143,9 +143,9 @@
     
             //Get unique attribute for this data
             let data = $(this).parent().parent().attr('data-key');
-            $('#data_key').val(data);
             
-            router.navigate(`app/${data}`)
+            
+            router.navigate(`show/${data}`);
             
         });
     }

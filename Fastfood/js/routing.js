@@ -17,10 +17,18 @@ window.addEventListener("load", function(event) {
     router = new Navigo(null, true, '#!');
     router.on({
       'opennew': () => { 
-          loadHTML('js/tmpl/add.html', '#addBlock'); 
+          loadHTML('js/tmpl/add.html', '#addBlock');    
       },
-      'app': () => { 
-          loadHTML('js/tmpl/app.html', '#content'); 
+      'app': () => {
+        loadHTML('js/tmpl/app.html', '#content');
+      },
+      'show/:key': (params) => {
+        let input = document.createElement('input');
+        input.id = 'dataKey';
+        input.type = 'hidden';
+        $('#content').append(input);
+        $('#dataKey').val(`${params.key}`);
+        loadHTML('js/tmpl/show.html', '#addBlock');
       },
       'login': () => { 
           loadHTML('js/tmpl/login.html', '#content'); 

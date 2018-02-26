@@ -24,9 +24,7 @@
 
         //Show more window about each place
         this.showMore = function(){
-            const data = $('#dataKey').val();
-            this.data = data;
-
+            let data = $('#dataKey').val();
             let thisData = base.child(data);
             //Listen all changes at this data
             let name = thisData.once("value").then(function(snapshot) {

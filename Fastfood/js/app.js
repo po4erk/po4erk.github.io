@@ -63,11 +63,8 @@
         $(document).on('click','#addAdd', function(){
             let newName = $('#newName').val();
             let newAddress = $('#newAddress').val();
-            if(( $.trim(newName) === "" ) || ( $.trim(newAddress) === "" )){
-                dialog.alert({
-                    title: 'Error',
-                    message: 'You must enter all data!'
-                });
+            if(( newName == "" ) || ( newAddress == "" )){
+                return false;
             }else{
                 dao.addNew(newName,newAddress);
                 newName = $('#newName').val('');
@@ -94,13 +91,6 @@
                     }
                 }
                 }); 
-        });
-
-        //Close "Show more" window
-        $('#content').on( 'click','#Close', e => {
-            $('#fileButton').val('');
-            $('#uploader').attr('value', '0');
-            router.navigate('app');
         });
 
         //Button LogOut

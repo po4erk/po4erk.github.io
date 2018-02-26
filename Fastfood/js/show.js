@@ -265,6 +265,13 @@
 
             });
         };
+
+        //Close "Show more" window
+        $('#content').on( 'click','#Close', e => {
+            $('#fileButton').val('');
+            $('#uploader').attr('value', '0');
+            router.navigate('app');
+        });
         
     }
     

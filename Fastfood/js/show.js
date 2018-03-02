@@ -1,15 +1,13 @@
 (function($) {
+    const router = new Navigo(null, true, '#!');
     const id = $('#dataKey').val();
     const base = firebase.database().ref('Fastfoods');
     const storage = firebase.storage();
-    const show = new showView();
-    const actions = new showActions();
-    show.showMore();
 
-    function showActions(){
+    class showActions{
         
         //Calculating the overall rating
-        this.Rating = function(id,array){
+        rating(id,array){
             console.log(array);
             let sum = 0;
             let mRating;
@@ -24,35 +22,41 @@
             elem.html(allRating);
         };
 
-        this.editDataName = function(id,value){
+        downloadImage(){
+            storage.ref(id).getDownloadURL().then(function(url){
+                $('.image').attr('src', url);
+            });
+        }
+
+        editDataName(id,value){
             let thisData = base.child(id);
                 thisData.update({
                     name: value
                 });
         };
 
-        this.editDataAddress = function(id,value){
+        editDataAddress(id,value){
             let thisData = base.child(id);
                 thisData.update({
                     address: value
                 });
         };
 
-        this.editDataInfo = function(id,value){
+        editDataInfo(id,value){
             let thisData = base.child(id);
                 thisData.update({
                     info: value
                 });
         };
 
-        this.editDataRating = function(id,value){
+        editDataRating(id,value){
             let thisData = base.child(id);
                 thisData.update({
                     rating: value
                 });
         };
 
-        this.addNewComment = function(id,name,comment,rating) {
+        addNewComment(id,name,comment,rating) {
             base.child(id+'/comments').push({
                 name: name,
                 comment: comment,
@@ -60,19 +64,20 @@
             });   
         };
         
-        this.deleteNewComment = function(id,key) {
+        deleteNewComment(id,key) {
             base.child(id+'/comments'+'/'+key).remove();
         };
     }
-
-    function showView(){
     
+    class showView{
         //Show more window about each place
-        this.showMore = function(){
+        showMore(){
 
-            let thisData = base.child(id);
+            actions.downloadImage();
+
             //Listen all changes at this data
-            let name = thisData.once("value").then(function(snapshot) {
+            let thisData = base.child(id);
+            thisData.once("value").then(function(snapshot) {
 
                 //We get the name and address using a unique key and write it in the "Show more" section and in the DOM
                 var title = snapshot.child('name').val();
@@ -108,7 +113,7 @@
                             }else{
                                 actions.editDataName(id,value);
                                 $('.title').html(value);
-                                elem = $('[data-key='+id+'] td:eq(0)');
+                                let elem = $('[data-key='+id+'] td:eq(0)');
                                 elem.html(value);
                             }
                         }
@@ -134,7 +139,7 @@
                         }else{
                             actions.editDataAddress(id,value);
                             $('.address').html(value);
-                            elem = $('[data-key='+id+'] td:eq(1)');
+                            let elem = $('[data-key='+id+'] td:eq(1)');
                             elem.html(value);
                             $('#Address').addClass('hide');
                             $('.address').removeClass('hide');
@@ -180,16 +185,12 @@
                     function complete(){
                         console.log('Complite!')
                         $('.image').attr('src', '');
-                        downloadImage();
+                        actions.downloadImage();
                     }
                     );
                 });
-                function downloadImage(){
-                    storage.ref(id).getDownloadURL().then(function(url){
-                        $('.image').attr('src', url);
-                    });
-                }
-                downloadImage();
+                
+                
 
 
                 //Comments realisation
@@ -222,7 +223,7 @@
                             $('#commentaries').html('');
                             arr = [];
                             seeComment();
-                            actions.Rating(id,arr);
+                            actions.rating(id,arr);
                         }
                     });
 
@@ -234,7 +235,7 @@
                         $('#commentaries').html('');
                         arr = [];
                         seeComment();
-                        actions.Rating(id,arr);
+                        actions.rating(id,arr);
                     });
 
                     //Rating realisation            
@@ -264,15 +265,18 @@
                     };
 
             });
-        };
 
-        //Close "Show more" window
-        $('#content').on( 'click','#Close', e => {
-            $('#fileButton').val('');
-            $('#uploader').attr('value', '0');
-            router.navigate('app');
-        });
-        
+            //Close "Show more" window
+            $('#content').on( 'click','#Close', e => {
+                $('#fileButton').val('');
+                $('#uploader').attr('value', '0');
+                router.navigate('app');
+            });
+        };
     }
+
+    const actions = new showActions();
+    const show = new showView();
+    show.showMore();
     
 })(jQuery);

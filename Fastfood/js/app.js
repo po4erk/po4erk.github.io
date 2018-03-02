@@ -1,7 +1,5 @@
 (function($) {
-    router = new Navigo(null, true, '#!');
-    const base = firebase.database().ref('Fastfoods');
-    const storage = firebase.storage();
+    const router = new Navigo(null, true, '#!');
     const table = $('#dataTable').DataTable({
             "autoWidth": false,
             "destroy": true,
@@ -18,16 +16,17 @@
             }],
     });
 
-    const dao = new DataAccessObject();
-    const app = new App();
+    class AppData{
 
-    dao.loadTable();
-
-    function DataAccessObject(){
+        constructor(){
+            this.name = 'Fastfoods';
+            this.base = firebase.database().ref(this.name);
+            this.storage = firebase.storage();
+        }
 
         //Load table with data about place
-        this.loadTable = function(){
-            base.on('child_added',function(snapshot) {
+        loadTable(){
+            this.base.on('child_added',function(snapshot) {
                 let key = snapshot.key;
                 let getData = [snapshot.child("name").val(), snapshot.child("address").val(), snapshot.child("rating").val()];
                 let trBuild = table.rows.add([getData]).draw().nodes();
@@ -35,10 +34,8 @@
             });
         };
 
-        this.addNew = function(name,address) {
-            this.name = name;
-            this.address = address;
-            firebase.database().ref().child('Fastfoods').push({
+        addNew(name,address) {
+            this.base.push({
                 name: name,
                 address: address,
                 rating: "Any rating",
@@ -46,79 +43,87 @@
             });
         }
 
-        this.deleteData = function(data) {
-            this.data = data;
-            storage.ref(data).delete().then(function() {
+        deleteData(data) {
+            this.storage.ref(data).delete().then(function() {
                 console.log('Delete complite!')
             }).catch(function(error) {
                 console.log('Delete error!')
             });
-            base.child(data).remove();
+            this.base.child(data).remove();
         };
 
     }
 
-    function App(){
-        //Add new place
-        $(document).on('click','#addAdd', function(){
-            let newName = $('#newName').val();
-            let newAddress = $('#newAddress').val();
-            if(( newName == "" ) || ( newAddress == "" )){
-                return false;
-            }else{
-                dao.addNew(newName,newAddress);
-                newName = $('#newName').val('');
-                newAddress = $('#newAddress').val('');
-            }
-        });
+    class AppView{
 
-        //Delete fastfood object
-        $('#dataTable tbody').on( 'click', '.delete', function () {
-            let that = $( this );
-            let data = that.parent().parent().attr('data-key');
-            dialog.confirm({
-                title: "Delete place",
-                message: "Do you want delete this place?",
-                cancel: "Cancel",
-                button: "Accept",
-                required: true,
-                callback: function(value){
+        init(){
+            dao.loadTable();
+            //Add new place
+            $(document).on('click','#addAdd', function(){
+                let newName = $('#newName').val();
+                let newAddress = $('#newAddress').val();
+                if(( newName == "" ) || ( newAddress == "" )){
+                    return false;
+                }else{
+                    dao.addNew(newName,newAddress);
+                    newName = $('#newName').val('');
+                    newAddress = $('#newAddress').val('');
+                }
+            });
+
+            //Delete fastfood object
+            $('#dataTable tbody').on( 'click', '.delete', function () {
+                let that = $( this );
+                let data = that.parent().parent().attr('data-key');
+                dialog.confirm({
+                    title: "Delete place",
+                    message: "Do you want delete this place?",
+                    cancel: "Cancel",
+                    button: "Accept",
+                    required: true,
+                    callback: function(value){
+                        if(value == true){
+                            dao.deleteData(data);
+                            table.rows(that.parents('tr')).remove().draw();
+                        }else{
+                            return false;
+                        }
+                    }
+                    }); 
+            });
+
+            //Button LogOut
+            $('#btnLogOut').on('click', function(e) {
+                console.log("logout");
+                dialog.confirm({
+                    title: "Logout",
+                    message: "Do you want to exit?",
+                    cancel: "No",
+                    button: "Yes",
+                    required: true,
+                    callback: function(value){
                     if(value == true){
-                        dao.deleteData(data);
-                        table.rows(that.parents('tr')).remove().draw();
+                        firebase.auth().signOut();
+                        router.navigate('#!login');
                     }else{
                         return false;
                     }
-                }
-                }); 
-        });
-
-        //Button LogOut
-        $('#btnLogOut').on('click', function(e) {
-            console.log("logout");
-            dialog.confirm({
-                title: "Logout",
-                message: "Do you want to exit?",
-                cancel: "No",
-                button: "Yes",
-                required: true,
-                callback: function(value){
-                if(value == true){
-                    firebase.auth().signOut();
-                    router.navigate('#!login');
-                }else{
-                    return false;
-                }
-                }
+                    }
+                });
             });
-        });
 
-        // Realisation button "Show more"
-        $('#dataTable tbody').on( 'click', '.edit', function (e) {
-            let id = $(this).parent().parent().attr('data-key');
-            router.navigate(`show/${id}`);
-        });
+            // Realisation button "Show more"
+            $('#dataTable tbody').on( 'click', '.edit', function (e) {
+                let id = $(this).parent().parent().attr('data-key');
+                router.navigate(`show/${id}`);
+            });
+        }
+        
     }
+
+    const dao = new AppData();
+    const app = new AppView();
+    app.init();
 
 
 })(jQuery);

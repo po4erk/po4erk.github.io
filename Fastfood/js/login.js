@@ -1,38 +1,26 @@
-(function ($) {
-    const authorization = new Authentifications();
-    const view = new AuthView();
-    router = new Navigo(null, true, '#!');
+import {Firebase} from './firebase'
 
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        if (firebaseUser) {
-            console.log('If you did not come from the address po4erk91@gmail.com, you have read-only rights!');
-            router.navigate('#!app');
-        } else {
-            console.log('You are not logged in...');
-            router.navigate('#!login');
+    class Authentifications{
+        constructor(){
+            this.firebase = new Firebase();
         }
-    });
 
-    function Authentifications() {
 
-        this.logInGoogle = function () {
-            const auth = firebase.auth();
+        logInGoogle() {
             let provider = new firebase.auth.GoogleAuthProvider();
-            auth.signInWithPopup(provider);
+            this.firebase.auth.signInWithPopup(provider);
         }
 
-        this.logInAnon = function () {
-            const auth = firebase.auth();
-            auth.signInAnonymously().then(function () {
+        logInAnon() {
+            this.firebase.auth.signInAnonymously().then(function () {
                 console.log("You are logged in anonymously.");
             });
         }
         //Realisation button "Login"
-        this.logIn = function (email, pass) {
+        logIn(email, pass) {
             this.email = email;
             this.pass = pass;
-            const auth = firebase.auth();
-            auth.signInWithEmailAndPassword(email, pass).then(function () {
+            this.firebase.auth.signInWithEmailAndPassword(email, pass).then(function () {
                 console.log("You are logged in.");
             }).catch(function (error) {
                 if((email == null)||(pass==null)){
@@ -44,47 +32,43 @@
         }
 
         //Realisation button "Sign Up"
-        this.signUp = function (email, pass) {
+        signUp(email, pass) {
             this.email = email;
             this.pass = pass;
-            const auth = firebase.auth();
-            auth.createUserWithEmailAndPassword(email, pass).then(function () {
+            this.firebase.auth.createUserWithEmailAndPassword(email, pass).then(function () {
                 alert('Thank you for registrations!');
             });
         }
 
     }
+    const authorization = new Authentifications();
 
-    function AuthView(){
+    export class AuthView{
 
-        //Button LogIn with email and pass
-        $(document).on('click','#btnLogIn', function(e) {
-            const email = $("#txtEmail").val();
-            const pass = $("#txtPassword").val();
-            authorization.logIn(email, pass);
-        });
+        init(){
+            //Button LogIn with email and pass
+            $(document).on('click','#btnLogIn', function(e) {
+                const email = $("#txtEmail").val();
+                const pass = $("#txtPassword").val();
+                authorization.logIn(email, pass);
+            });
 
-        //Button LogInAnon
-        $(document).on('click','#btnLogInAnon', function(e) {
-            console.log('anon');
-            authorization.logInAnon();
-        });
+            //Button LogInAnon
+            $(document).on('click','#btnLogInAnon', function(e) {
+                console.log('anon');
+                authorization.logInAnon();
+            });
 
-        //Button LogInGoogle
-        $(document).on('click','#btnLogInGoogle', function(e) {
-            authorization.logInGoogle();
-        });
+            //Button LogInGoogle
+            $(document).on('click','#btnLogInGoogle', function(e) {
+                authorization.logInGoogle();
+            });
 
-        //Button SignIn with email and pass
-        $(document).on('click','#btnSignUp', function(e) {
-            const email = $("#txtEmail").val();
-            const pass = $("#txtPassword").val();
-            authorization.signUp(email, pass);
-        });
-
+            //Button SignIn with email and pass
+            $(document).on('click','#btnSignUp', function(e) {
+                const email = $("#txtEmail").val();
+                const pass = $("#txtPassword").val();
+                authorization.signUp(email, pass);
+            });
+        }
     }
-
-    
-
-
-})(jQuery);

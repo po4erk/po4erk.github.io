@@ -1,40 +1,44 @@
 
-window.addEventListener("load", function(event) {
-    function $id(id) {
-      return document.getElementById(id);
+export class Router{
+
+    constructor(){
+        this.router = new Navigo(null, true, '#!');
     }
 
-    function loadHTML(url, id) {
-      req = new XMLHttpRequest();
+    loadHTML(url, id){
+      const req = new XMLHttpRequest();
       req.open('GET', url);
       req.send();
       req.onload = () => {
         $(id).html(req.responseText);
       };
+    };
+
+    init(){
+
+      this.router.on({
+        'addnew': () => { 
+          this.loadHTML('./templates/add.html', '#addBlock');    
+        },
+        'app': () => {
+          this.loadHTML('./templates/app.html', '#content');
+        },
+        'show/:key': (params) => {
+          let input = document.createElement('input');
+          input.id = 'dataKey';
+          input.type = 'hidden';
+          $('#content').append(input);
+          $('#dataKey').val(`${params.key}`);
+          this.loadHTML('./templates/show.html', '#addBlock');
+        },
+        'login': () => { 
+          this.loadHTML('./templates/login.html', '#content'); 
+        }
+      }).resolve();
+
     }
 
-    // use #! to hash
-    router = new Navigo(null, true, '#!');
-    router.on({
-      'opennew': () => { 
-        loadHTML('js/tmpl/add.html', '#addBlock');    
-      },
-      'app': () => {
-        loadHTML('js/tmpl/app.html', '#content');
-      },
-      'show/:key': (params) => {
-        let input = document.createElement('input');
-        input.id = 'dataKey';
-        input.type = 'hidden';
-        $('#content').append(input);
-        $('#dataKey').val(`${params.key}`);
-        loadHTML('js/tmpl/show.html', '#addBlock');
-      },
-      'login': () => { 
-        loadHTML('js/tmpl/login.html', '#content'); 
-      }
-    });
-
-    router.resolve();
-
-});
+    navigate(url) {
+      this.router.navigate(url);
+    }
+}

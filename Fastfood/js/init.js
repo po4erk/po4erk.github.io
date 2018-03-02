@@ -1,23 +1,30 @@
-(function ($) {
-    const config = {
-        apiKey: "AIzaSyCTSrtpza1D_7tv0w82CV6cd6bqMabvGb8",
-        authDomain: "test-po4erk.firebaseapp.com",
-        databaseURL: "https://test-po4erk.firebaseio.com",
-        projectId: "test-po4erk",
-        storageBucket: "test-po4erk.appspot.com",
-        messagingSenderId: "950069581603"
-    };
-    firebase.initializeApp(config);
-    router = new Navigo(null, true, '#!');
+import {Firebase} from './firebase'
+import {Router} from './routing'
+import {AuthView} from './login'
 
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        if (firebaseUser) {
-            router.navigate('app');
-        } else {
-            console.log('You are not logged in...');
-            router.navigate('login');
-        }
-    });
+export class Initialize{
+    constructor(){
+        this.firebase = new Firebase();
+        this.router = new Router();
+        this.authView = new AuthView();
+    }
+
+    init(){
+
+        this.firebase.init();
+        this.router.init();
+        this.authView.init();
+
+        this.firebase.auth.onAuthStateChanged(firebaseUser => {
+            if (firebaseUser) {
+                this.router.navigate('app');
+            } else {
+                console.log('You are not logged in...');
+                this.router.navigate('login');
+            }
+        });
+    }
+}
+    
 
 
-})(jQuery);

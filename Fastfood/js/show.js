@@ -199,7 +199,7 @@
                     $('#comments').on('click',function(e){
                         $('#comments-wrapper').toggle();
                         $('#commentaries').toggle();
-                        $('#commentaries').html('');
+                        $('#commentaries').empty();
                         seeComment();
                     });
                     
@@ -221,7 +221,7 @@
                             });
                             $('#comments-name').val('');
                             $('.comments-area').val('');
-                            $('#commentaries').html('');
+                            $('#commentaries').empty();
                             arr = [];
                             seeComment();
                             actions.rating(id,arr);
@@ -233,13 +233,12 @@
                         let key = event.target.getAttribute('data-comment');
                         $(event.target).parent().remove();
                         actions.deleteNewComment(id,key);
-                        $('#commentaries').html('');
+                        $('#commentaries').empty();
                         arr = [];
                         seeComment();
                         actions.rating(id,arr);
                     });
-
-                    //Rating realisation            
+            
                     function seeComment(){
                         let commentsRef = base.child(id+'/comments');
                         commentsRef.on('child_added',function(snapshot){

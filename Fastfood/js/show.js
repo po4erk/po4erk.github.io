@@ -199,6 +199,7 @@
                     $('#comments').on('click',function(e){
                         $('#comments-wrapper').toggle();
                         $('#commentaries').toggle();
+                        $('#commentaries').html('');
                         seeComment();
                     });
                     

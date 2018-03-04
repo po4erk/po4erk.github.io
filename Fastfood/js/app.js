@@ -1,31 +1,20 @@
-(function($) {
-    const router = new Navigo(null, true, '#!');
-    const table = $('#dataTable').DataTable({
-            "autoWidth": false,
-            "destroy": true,
-            "columnDefs": [{
-              "width": '3%',
-              "targets": 3,
-              "data": null,
-              "defaultContent": "<button type='button' class='btn btn-danger delete'>Delete</button>"
-            },{
-              "width": '3%',
-              "targets": 4,
-              "data": null,
-              "defaultContent": "<button type='button' class='btn btn-info edit'>See More</button>"
-            }],
-    });
+import {Firebase} from './firebase'
+import { Router } from './routing'
 
     class AppData{
 
         constructor(){
+            this.firebase = new Firebase();
             this.name = 'Fastfoods';
-            this.base = firebase.database().ref(this.name);
-            this.storage = firebase.storage();
         }
 
+        init(){
+            this.base = this.firebase.database.ref(this.name);
+            this.storage = this.firebase.storage;
+        }
         //Load table with data about place
-        loadTable(){
+        loadTable(table){
+            
             this.base.on('child_added',function(snapshot) {
                 let key = snapshot.key;
                 let getData = [snapshot.child("name").val(), snapshot.child("address").val(), snapshot.child("rating").val()];
@@ -54,26 +43,48 @@
 
     }
 
-    class AppView{
+    export class AppView{
+
+        constructor(){
+            this.dao = new AppData();
+            this.router = new Router();
+        }
 
         init(){
-            dao.loadTable();
+            const table = $('#dataTable').DataTable({
+                "autoWidth": false,
+                "destroy": true,
+                "columnDefs": [{
+                  "width": '3%',
+                  "targets": 3,
+                  "data": null,
+                  "defaultContent": "<button type='button' class='btn btn-danger delete'>Delete</button>"
+                },{
+                  "width": '3%',
+                  "targets": 4,
+                  "data": null,
+                  "defaultContent": "<button type='button' class='btn btn-info edit'>See More</button>"
+                }],
+            });
+
+            this.dao.init();
+            this.dao.loadTable(table);
             //Add new place
-            $(document).on('click','#addAdd', function(){
+            $('#addAdd').on('click', () => {
                 let newName = $('#newName').val();
                 let newAddress = $('#newAddress').val();
                 if(( newName == "" ) || ( newAddress == "" )){
-                    return false;
+                    alert('123');
                 }else{
-                    dao.addNew(newName,newAddress);
+                    this.dao.addNew(newName,newAddress);
                     newName = $('#newName').val('');
                     newAddress = $('#newAddress').val('');
                 }
             });
 
             //Delete fastfood object
-            $('#dataTable tbody').on( 'click', '.delete', function () {
-                let that = $( this );
+            $('#dataTable tbody').on( 'click', '.delete', (e) => {
+                let that = $( e.target );
                 let data = that.parent().parent().attr('data-key');
                 dialog.confirm({
                     title: "Delete place",
@@ -81,9 +92,9 @@
                     cancel: "Cancel",
                     button: "Accept",
                     required: true,
-                    callback: function(value){
+                    callback: (value) => {
                         if(value == true){
-                            dao.deleteData(data);
+                            this.dao.deleteData(data);
                             table.rows(that.parents('tr')).remove().draw();
                         }else{
                             return false;
@@ -93,7 +104,7 @@
             });
 
             //Button LogOut
-            $('#btnLogOut').on('click', function(e) {
+            $('#btnLogOut').on('click', (e) => {
                 console.log("logout");
                 dialog.confirm({
                     title: "Logout",
@@ -101,10 +112,10 @@
                     cancel: "No",
                     button: "Yes",
                     required: true,
-                    callback: function(value){
+                    callback: (value) => {
                     if(value == true){
-                        firebase.auth().signOut();
-                        router.navigate('#!login');
+                        this.dao.firebase.auth.signOut();
+                        this.router.navigate('#!login');
                     }else{
                         return false;
                     }
@@ -113,17 +124,13 @@
             });
 
             // Realisation button "Show more"
-            $('#dataTable tbody').on( 'click', '.edit', function (e) {
-                let id = $(this).parent().parent().attr('data-key');
-                router.navigate(`show/${id}`);
+            $('#dataTable tbody').on( 'click', '.edit', (e) => {
+                let id = $(e.target).parent().parent().attr('data-key');
+                this.router.navigate(`show/${id}`);
             });
         }
         
     }
 
-    const dao = new AppData();
-    const app = new AppView();
-    app.init();
 
 
-})(jQuery);

@@ -3,6 +3,9 @@
     left: 190px;
     top: 27px;
   }
+.pac-container{
+  z-index: 99999;
+}
   li{
     list-style-type: none;
   }

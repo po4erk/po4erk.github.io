@@ -1,27 +1,32 @@
 import {Firebase} from './firebase'
+import { Router } from './routing';
 
     class Authentifications{
         constructor(){
             this.firebase = new Firebase();
+            this.router = new Router();
         }
 
 
         logInGoogle() {
             let provider = new firebase.auth.GoogleAuthProvider();
-            this.firebase.auth.signInWithPopup(provider);
+            this.firebase.auth.signInWithPopup(provider)
+            .then(() => this.router.navigate('app'));
         }
 
         logInAnon() {
-            this.firebase.auth.signInAnonymously().then(function () {
+            this.firebase.auth.signInAnonymously().then(() => {
                 console.log("You are logged in anonymously.");
+                this.router.navigate('app');
             });
         }
         //Realisation button "Login"
         logIn(email, pass) {
             this.email = email;
             this.pass = pass;
-            this.firebase.auth.signInWithEmailAndPassword(email, pass).then(function () {
+            this.firebase.auth.signInWithEmailAndPassword(email, pass).then(() => {
                 console.log("You are logged in.");
+                this.router.navigate('app');
             }).catch(function (error) {
                 if((email == null)||(pass==null)){
                     alert('Enter any login data!');
@@ -35,40 +40,44 @@ import {Firebase} from './firebase'
         signUp(email, pass) {
             this.email = email;
             this.pass = pass;
-            this.firebase.auth.createUserWithEmailAndPassword(email, pass).then(function () {
+            this.firebase.auth.createUserWithEmailAndPassword(email, pass).then(() => {
                 alert('Thank you for registrations!');
+                this.router.navigate('app');
             });
         }
 
     }
-    const authorization = new Authentifications();
 
     export class AuthView{
 
+        constructor(){
+            this.authorization = new Authentifications();
+        }
+
         init(){
             //Button LogIn with email and pass
-            $(document).on('click','#btnLogIn', function(e) {
+            $('#btnLogIn').on('click', (e) => {
                 const email = $("#txtEmail").val();
                 const pass = $("#txtPassword").val();
-                authorization.logIn(email, pass);
+                this.authorization.logIn(email, pass);
             });
 
             //Button LogInAnon
-            $(document).on('click','#btnLogInAnon', function(e) {
+            $('#btnLogInAnon').on('click', (e) => {
                 console.log('anon');
-                authorization.logInAnon();
+                this.authorization.logInAnon();
             });
 
             //Button LogInGoogle
-            $(document).on('click','#btnLogInGoogle', function(e) {
-                authorization.logInGoogle();
+            $('#btnLogInGoogle').on('click', (e) => {
+                this.authorization.logInGoogle();
             });
 
             //Button SignIn with email and pass
-            $(document).on('click','#btnSignUp', function(e) {
+            $('#btnSignUp').on('click', (e) => {
                 const email = $("#txtEmail").val();
                 const pass = $("#txtPassword").val();
-                authorization.signUp(email, pass);
+                this.authorization.signUp(email, pass);
             });
         }
     }

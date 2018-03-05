@@ -51,6 +51,7 @@ import {Router} from './routing'
         }
 
         init(){
+
             const table = $('#dataTable').DataTable({
                 "autoWidth": false,
                 "destroy": true,
@@ -63,12 +64,12 @@ import {Router} from './routing'
                   "width": '3%',
                   "targets": 4,
                   "data": null,
-                  "defaultContent": "<button type='button' class='btn btn-info edit'>See More</button>"
+                  "defaultContent": "<button type='button' class='btn btn-info edit'>Show More</button>"
                 }],
             });
-
             this.dao.init();
             this.dao.loadTable(table);
+
             //Add new place
             $('#addAdd').on('click', () => {
                 let newName = $('#newName').val();
@@ -82,7 +83,7 @@ import {Router} from './routing'
                 }
             });
 
-            //Delete fastfood object
+            //Delete place
             $('#dataTable tbody').on( 'click', '.delete', (e) => {
                 let that = $( e.target );
                 let data = that.parent().parent().attr('data-key');
@@ -123,7 +124,7 @@ import {Router} from './routing'
                 });
             });
 
-            // Realisation button "Show more"
+            // Button "Show more"
             $('#dataTable tbody').on( 'click', '.edit', (e) => {
                 let id = $(e.target).parent().parent().attr('data-key');
                 this.router.navigate(`show/${id}`);

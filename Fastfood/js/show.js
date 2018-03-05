@@ -53,11 +53,17 @@ import {Router} from './routing'
                     console.log('Upload image for this place.');
                 },
                 () => {
-                    console.log('Complete!')
+                    console.log('Image uploaded!')
                     $('.image').attr('src', '');
                     this.downloadImage(id);
                 }
             );
+        }
+
+        downloadImage(id){
+            return this.storage.ref(id).getDownloadURL().then((url) => {
+                $('.image').attr('src', url);
+            }).catch(e => console.error("Image does not exist!"));
         }
         
         rating(id,array){
@@ -74,12 +80,6 @@ import {Router} from './routing'
             let elem = $('[data-key='+id+'] td:eq(2)');
             elem.html(allRating);
         };
-
-        downloadImage(id){
-            return this.storage.ref(id).getDownloadURL().then((url) => {
-                $('.image').attr('src', url);
-            }).catch(e => console.error("Image does not exist!"));
-        }
 
         editDataName(id,value){
             let thisData = this.base.child(id);
@@ -128,6 +128,7 @@ import {Router} from './routing'
             this.router = new Router();
             this.actions = new ShowActions();
         }
+
         //Show more window about each place
         showMore(){
             const id = $('#dataKey').val();
@@ -135,13 +136,11 @@ import {Router} from './routing'
             this.actions.init();
             this.actions.getShowData(id)
             .then(data => {
-                var tmpl = $('#template').html();
-                var compiled = Handlebars.compile(tmpl);
-                var result = compiled(data);
-                $('#result').html(result);
-                }
-                
-            )
+                    let tmpl = $('#template').html();
+                    let compiled = Handlebars.compile(tmpl);
+                    let result = compiled(data);
+                    $('#result').html(result);
+                })
             .then(() => this.actions.downloadImage(id))
             .then(() => {
 
@@ -275,8 +274,7 @@ import {Router} from './routing'
                 this.actions.rating(id,arr);
             });
         }
-
-        //Rating realisation            
+           
         seeComment(id, arr){
             if (!arr) arr = [];
             return this.actions.getShowComments(id).then(comments => {

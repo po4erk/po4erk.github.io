@@ -51,7 +51,9 @@ export class Router{
           this.loadHTML('./templates/login.html', '#content')
           .then(() => this.authView.init()); 
         },
-        '': () => this.router.navigate('app')
+        '': () => {
+          this.router.navigate('app');
+        }
       }).resolve();
 
     }

@@ -1,5 +1,5 @@
 import {Firebase} from './firebase'
-import { Router } from './routing'
+import {Router} from './routing'
 
     class AppData{
 

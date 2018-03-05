@@ -1,30 +1,25 @@
 import {AppView} from './app'
-import { showView } from './show';
-import { AuthView } from './login';
-
+import {ShowView} from './show';
+import {AuthView} from './login';
 
 let instance = null;
+
 export class Router{
 
     constructor(){
         if(instance) return instance;
         instance = this;
+
         this.router = new Navigo(null, true, '#!');
         this.app = new AppView();
         this.authView = new AuthView();
-        this.show = new showView();
+        this.show = new ShowView();
     }
 
     loadHTML(url, id){
       return fetch(url)
         .then(response => response.text())
         .then(html => $(id).html(html));
-      // const req = new XMLHttpRequest();
-      // req.open('GET', url);
-      // req.send();
-      // req.onload = () => {
-      //   $(id).html(req.responseText);
-      // };
     };
 
     init(){

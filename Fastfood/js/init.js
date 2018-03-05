@@ -13,12 +13,7 @@ export class Initialize{
         this.router.init();
 
         this.firebase.auth.onAuthStateChanged(firebaseUser => {
-            if (firebaseUser) {
-                // this.router.navigate('app');
-            } else {
-                console.log('You are not logged in...');
-                this.router.navigate('login');
-            }
+            if (!firebaseUser) this.router.navigate('login');
         });
     }
 }

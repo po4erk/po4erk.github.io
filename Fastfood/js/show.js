@@ -1,7 +1,7 @@
 import {Firebase} from './firebase'
-import { Router } from './routing'
+import {Router} from './routing'
 
-    class showActions{
+    class ShowActions{
 
         constructor(){
             this.firebase = new Firebase();
@@ -122,11 +122,11 @@ import { Router } from './routing'
         };
     }
     
-    export class showView{
+    export class ShowView{
 
         constructor(){
             this.router = new Router();
-            this.actions = new showActions();
+            this.actions = new ShowActions();
         }
         //Show more window about each place
         showMore(){

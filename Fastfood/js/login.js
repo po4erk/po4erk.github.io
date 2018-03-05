@@ -1,5 +1,5 @@
 import {Firebase} from './firebase'
-import { Router } from './routing';
+import {Router} from './routing';
 
     class Authentifications{
         constructor(){
@@ -28,7 +28,7 @@ import { Router } from './routing';
                 console.log("You are logged in.");
                 this.router.navigate('app');
             }).catch(function (error) {
-                if((email == null)||(pass==null)){
+                if((email == "")||(pass == "")){
                     dialog.alert({
                         title: "Sorry!",
                         message: "Enter any login data!"
@@ -52,7 +52,10 @@ import { Router } from './routing';
                     message: "Thanks for registration!"
                 });
                 this.router.navigate('app');
-            });
+            }).catch((e) => dialog.alert({
+                title: "Sory!",
+                message: "The email address is badly formatted!"
+            }));
         }
 
     }

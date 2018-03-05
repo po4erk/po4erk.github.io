@@ -60,7 +60,6 @@ import { Router } from './routing'
             );
         }
         
-        //Calculating the overall rating
         rating(id,array){
             console.log(array);
             let sum = 0;
@@ -145,6 +144,7 @@ import { Router } from './routing'
             )
             .then(() => this.actions.downloadImage(id))
             .then(() => {
+
                 //Changes for title
                 $('.title').on('click', (e) => {
                     let newTitle = dialog.prompt({
@@ -167,10 +167,8 @@ import { Router } from './routing'
                         }
                     });  
                 });
+
                 //Changes for address and geolocation
-                // const geocomplete = $('#detailsAddress');
-                // const map = geocomplete.geocomplete({ map: '#map' });
-                // geocomplete.trigger('geocode');
                 $('#Address').geocomplete({ map: '#map' });
                 $('#Address').trigger('geocode');
                 $('.address').on('click', (e) => {

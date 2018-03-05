@@ -29,9 +29,15 @@ import { Router } from './routing';
                 this.router.navigate('app');
             }).catch(function (error) {
                 if((email == null)||(pass==null)){
-                    alert('Enter any login data!');
+                    dialog.alert({
+                        title: "Sorry!",
+                        message: "Enter any login data!"
+                    });
                 }else{
-                    alert('Sign Up please!');
+                    dialog.alert({
+                        title: "Sorry!",
+                        message: "Sign Up please!"
+                    });
                 }
             });
         }
@@ -41,7 +47,10 @@ import { Router } from './routing';
             this.email = email;
             this.pass = pass;
             this.firebase.auth.createUserWithEmailAndPassword(email, pass).then(() => {
-                alert('Thank you for registrations!');
+                dialog.alert({
+                    title: "Thanks!",
+                    message: "Thanks for registration!"
+                });
                 this.router.navigate('app');
             });
         }

@@ -53,7 +53,7 @@ import {Router} from './routing';
                 });
                 this.router.navigate('app');
             }).catch((e) => dialog.alert({
-                title: "Sory!",
+                title: "Sorry!",
                 message: "The email address is badly formatted!"
             }));
         }

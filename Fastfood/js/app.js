@@ -34,9 +34,9 @@ import {Router} from './routing'
 
         deleteData(data) {
             this.storage.ref(data).delete().then(function() {
-                console.log('Delete complite!')
+                console.log('Delete image complite!')
             }).catch(function(error) {
-                console.log('Delete error!')
+                console.log('Delete image error!')
             });
             this.base.child(data).remove();
         };
@@ -101,7 +101,7 @@ import {Router} from './routing'
                             return false;
                         }
                     }
-                    }); 
+                }); 
             });
 
             //Button LogOut

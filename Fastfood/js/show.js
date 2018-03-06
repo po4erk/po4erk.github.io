@@ -252,10 +252,24 @@ import {Router} from './routing'
                 //Delete new comment
                 $('#commentaries').on('click', '.comDelete', (e) => {
                     let key = event.target.getAttribute('data-comment');
-                    $(event.target).parent().remove();
-                    this.actions.deleteNewComment(id,key);
-                    $('#commentaries').html('');
-                    this.seeCommentAndUpdateRating(id);
+                    let elem = $(event.target).parent();
+                    dialog.confirm({
+                        title: "Delete comment",
+                        message: "Do you want delete this comment?",
+                        cancel: "Cancel",
+                        button: "Accept",
+                        required: true,
+                        callback: (value) => {
+                            if(value === true){
+                                elem.remove();
+                                this.actions.deleteNewComment(id,key)
+                                $('#commentaries').html('');
+                                this.seeCommentAndUpdateRating(id);
+                            }else{
+                                return false;
+                            }
+                        }
+                    });
                 });
 
             });

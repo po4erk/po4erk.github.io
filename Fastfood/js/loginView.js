@@ -16,7 +16,6 @@ export class AuthView{
 
         //Button LogInAnon
         $('#btnLogInAnon').on('click', (e) => {
-            console.log('anon');
             this.authorization.logInAnon();
         });
 

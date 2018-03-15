@@ -29,9 +29,15 @@ export class AppData{
             rating: "Any rating",
             info: 'Any info',
         }).then(function() {
-            console.log('Synchronization succeeded');
+            setTimeout(function(){
+                $('.alert-success').fadeOut('slow');
+            },1500);
+            $('.alert-success').text('Place added!').fadeIn('slow');
         }).catch(function(error) {
-            console.log('Synchronization failed');
+            setTimeout(function(){
+                $('.alert-danger').fadeOut('slow');
+            },2000);
+            $('.alert-danger').text('Place was not added!').fadeIn('slow');
         });
     }
 
@@ -41,7 +47,18 @@ export class AppData{
         }).catch(function(error) {
             console.log('Delete image error!')
         });
-        this.base.child(data).remove();
+        this.base.child(data).remove()
+        .then(function() {
+            setTimeout(function(){
+                $('.alert-success').fadeOut('slow');
+            },1500);
+            $('.alert-success').text('Place deleted!').fadeIn('slow');
+        }).catch(function(error) {
+            setTimeout(function(){
+                $('.alert-danger').fadeOut('slow');
+            },2000);
+            $('.alert-danger').text('Place was not deleted!').fadeIn('slow');
+        });;
     };
 
 }

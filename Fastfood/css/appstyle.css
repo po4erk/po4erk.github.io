@@ -185,3 +185,14 @@
   select {
     cursor: pointer;
   }
+
+  .alert-danger,
+  .alert-success{
+    border: 1px solid black;
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    width: 300px;
+    top: 60px;
+    left: 900px;
+  }

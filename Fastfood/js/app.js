@@ -23,11 +23,16 @@ export class AppData{
     };
 
     addNew(name,address) {
+        debugger
         this.base.push({
             name: name,
             address: address,
             rating: "Any rating",
             info: 'Any info',
+        }).then(function() {
+            console.log('Synchronization succeeded');
+        }).catch(function(error) {
+            console.log('Synchronization failed');
         });
     }
 

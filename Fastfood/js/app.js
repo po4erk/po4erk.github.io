@@ -23,7 +23,6 @@ export class AppData{
     };
 
     addNew(name,address) {
-        debugger
         this.base.push({
             name: name,
             address: address,

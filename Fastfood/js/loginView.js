@@ -1,4 +1,3 @@
-import {Router} from './routing';
 import {Authentifications} from './login';
 
 export class AuthView{

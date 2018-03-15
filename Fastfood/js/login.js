@@ -1,4 +1,5 @@
 import {Firebase} from './firebase';
+import {Router} from './routing';
 
 export class Authentifications{
     constructor(){

@@ -33,7 +33,10 @@ export class AppView{
             let newName = $('#newName').val();
             let newAddress = $('#newAddress').val();
             if(( newName == "" ) || ( newAddress == "" )){
-                alert('123');
+                dialog.alert({
+                    title: "Sorry!",
+                    message: "You must enter name and address!"
+                });
             }else{
                 this.dao.addNew(newName,newAddress);
                 newName = $('#newName').val('');

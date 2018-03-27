@@ -10,7 +10,7 @@ li{
 
 @media screen and (min-width: 768px){
    .header{
-    height: 308px;
+        height: 308px;
     }
    .header-wrapper{
        margin-top: 6%;
@@ -33,24 +33,10 @@ li{
    }
 
 }
-@media screen and (max-width: 768px){
-    .header{
-        height: 60%;
+@media screen and (min-width: 969px){
+    .job{
+        margin-top: -30px; 
     }
-    .header-wrapper{
-       padding-top: 18%;
-   }
-   .header-paragraph{
-       margin-bottom: 10%;
-   }
-   .job,
-   .work{
-       margin-top: 30px;
-   }
-   .work{
-       border-bottom: 1px solid #c6a653;
-   }
-
 }
 @media screen and (min-width: 970px){
     .header{
@@ -75,6 +61,13 @@ li{
    .job{
        margin-top: 60px;
    }
+   .about-me,
+   .my-skills{
+       margin-top: 30px;
+   }
+   .languages{
+        margin-top: 70px;
+    }
    .work{
        margin-top: 60px;
    }
@@ -124,11 +117,6 @@ li{
        font: Montserrat;
    }
 
-   .about-me,
-   .my-skills, 
-   .languages{
-       margin-top: 20px;
-   }
    .about-me__title, 
    .my-skills__title, 
    .languages-title,
